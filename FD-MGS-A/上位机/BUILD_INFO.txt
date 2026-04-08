@@ -1,0 +1,64 @@
+====================================
+FD-MGS-A Build Information
+====================================
+
+Build Date: 2025-10-15 15:59
+
+Python Environment:
+  - Python Version: 3.8.9 (32-bit)
+  - PyInstaller: 6.16.0
+
+Dependencies:
+  - PyQt5: 5.15.11
+  - pyserial: 3.5
+  - matplotlib: 3.7.5
+  - numpy: 1.24.4
+
+Output File:
+  - Filename: FD-MGS-A.exe
+  - Size: 48.16 MB (50,503,050 bytes)
+  - Location: dist\FD-MGS-A.exe
+  - Type: Single-file executable (no console)
+
+Features:
+  ✓ Single file packaging
+  ✓ All DLLs included
+  ✓ UI file embedded (FD-MGS-A.ui)
+  ✓ No console window (GUI mode)
+  ✓ UPX compression enabled
+
+System Requirements:
+  - Windows 7 SP1 or higher
+  - 32-bit or 64-bit Windows
+  - No Python installation required
+  - No additional dependencies needed
+
+Usage:
+  1. Double-click FD-MGS-A.exe to run
+  2. First run may take a few seconds (unpacking to temp directory)
+  3. For distribution, just copy the exe file
+
+Notes:
+  - UPX compression may trigger false positives in some antivirus software
+  - If startup issues occur, ensure Visual C++ Redistributable is installed
+  - Test compatibility before deploying to other computers
+
+Technical Details:
+  - Build Mode: Single-file (--onefile)
+  - Launcher: runw.exe (no console window)
+  - Included: 38+ Windows API DLL files
+
+====================================
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,506 @@
+#include "ch376.h"
+#include "main.h"
+#include "usart.h"
+#include "stdio.h"
+#include "string.h"
+#include "stdlib.h"
+#include "FILE_SYS.H"
+#include "menu.h"
+#include "stm32f1xx_hal.h"
+
+
+_Bool init_flag=0;
+extern _Bool output_flag;
+
+void xWriteCH376Cmd( unsigned char cmd ) { 
+	uint8_t command[3]={0x57,0xAB,cmd};
+	HAL_UART_Transmit(&huart2, command, 3,HAL_MAX_DELAY);
+}
+
+void xWriteCH376Data( unsigned char dat ) {
+	uint8_t *data=&dat;
+	HAL_UART_Transmit(&huart2, data, 1,HAL_MAX_DELAY);
+}
+
+/* ï¿½ï¿½ï¿½Ú·ï¿½Ê½Î´ï¿½Ãµï¿½ */
+void xEndCH376Cmd(void)
+{
+}
+
+unsigned char xReadCH376Data(void) { 
+	uint8_t buffer[1];
+	HAL_UART_Receive(&huart2, buffer, 1,100);
+	return buffer[0];
+}
+
+uint8_t CH376_TestConnection(void) { 
+    uint8_t response;
+		uint8_t test_data=0x53;
+		xWriteCH376Cmd(CMD_CHECK_EXIST);
+		xWriteCH376Data(test_data);
+		response=xReadCH376Data();
+//		xWriteCH376Data(response);
+//		printf("res=%x\r\n",response);
+    if (response == (uint8_t)(~test_data)) {
+        return 1;  
+    } else {
+        return 0;  
+    }
+}
+
+/* ï¿½ï¿½Ñ¯CH376ï¿½Ð¶ï¿½(INT#ï¿½Íµï¿½Æ½) */
+UINT8	Query376Interrupt( void )
+{
+	#ifdef	CH376_INT_WIRE                  /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½CH376ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó²ï¿½Ñ¯ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ */
+		if(CH376_INT_WIRE) return FALSE ;
+		else{
+			//xReadCH376Data();               //ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ïµï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ú»ï¿½ï¿½Õµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½Ö±ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			return TRUE ;
+		}
+	#else
+		/* Use HAL UART flag to check if data is available on huart2.
+		   Older/newer STM32 families use different register names (SR vs ISR),
+		   so prefer the HAL macro which is portable across families. */
+		if (__HAL_UART_GET_FLAG(&huart2, UART_FLAG_RXNE)) {
+			return( TRUE );
+		} else {
+			return( FALSE );
+		}
+	#endif	
+}
+
+uint8_t file_writeData(char * buf)
+{
+	uint8_t s;
+	uint32_t timeout_count = 0;
+	const uint32_t MAX_TIMEOUT = 10000000; // ³¬Ê±¼ÆÊý£¨Ô¼10Ãë£©
+	
+	xWriteCH376Cmd(CMD2H_BYTE_WRITE);
+	xWriteCH376Data(strlen(buf)%256);
+	xWriteCH376Data(strlen(buf)>>8);
+
+	while(1)
+	{
+		// ³¬Ê±¼ì²â
+		timeout_count++;
+		if(timeout_count > MAX_TIMEOUT) {
+			printf("Ð´Èë³¬Ê±\xff\xff\xff");
+			return ERR_USB_UNKNOWN; // ·µ»Ø´íÎóÂë
+		}
+		
+		s = xReadCH376Data();
+		
+		if ( s == USB_INT_DISK_WRITE ) {
+			s = CH376WriteReqBlock( (PUINT8)buf );
+			xWriteCH376Cmd( CMD0H_BYTE_WR_GO );
+			xEndCH376Cmd( );
+			buf += s;
+			timeout_count = 0; // ÖØÖÃ³¬Ê±¼ÆÊý
+		}
+		else if ( s == USB_INT_SUCCESS ) return(s);
+	}
+ 
+	return s;
+}
+
+void ch376_init()
+{
+	init_flag=0;
+//	printf("t2.txt=\"Start\"\xff\xff\xff");
+	if (CH376_TestConnection()) {
+     printf("CH376 is connected and working!\xff\xff\xff");
+		init_flag=1;
+   } 
+	else
+	{
+     printf("CH376 connection failed!\xff\xff\xff");
+		return;
+  }
+	//Ñ¡ï¿½ï¿½uï¿½ï¿½Ä£Ê½
+	printf("ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½uï¿½ï¿½Ä£Ê½...\xff\xff\xff");
+	xWriteCH376Cmd(CMD_SET_USB_MODE);
+	xWriteCH376Data(0x06);
+		if(xReadCH376Data()==0x51)
+		{
+			if(xReadCH376Data()==0x15)
+			{
+				
+				printf("t2.txt=\"µ¼³öÊ§°Ü\"\xff\xff\xff");
+			}
+			else{init_flag=0;}
+		}	
+//		else{init_flag=0;}
+	//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
+//	printf("ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...\xff\xff\xff");
+	CH376DiskConnect();
+	if(xReadCH376Data()==USB_INT_SUCCESS) 
+	{
+	//	printf("ï¿½ï¿½ï¿½Ó³É¹ï¿½\xff\xff\xff");
+	}
+	else {}
+	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//	printf("ï¿½ï¿½ï¿½Ú³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\xff\xff\xff");
+	if(CH376DiskMount()==USB_INT_SUCCESS) 
+	{
+//		printf("ï¿½Ñ¾ï¿½ï¿½ï¿½\xff\xff\xff");
+	}
+	else {
+
+	}
+}
+
+void ch376_writetest()
+{
+	//ï¿½ï¿½Ä¿Â¼
+	char str[200];
+	uint32_t size;
+	uint8_t result;
+		
+	// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0%
+	printf("j0.val=0\xff\xff\xff");
+	printf("¿ªÊ¼µ¼³öÊý¾Ý...\xff\xff\xff");
+	
+	// Ê¹ï¿½Ã¹Ì¶ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	strcpy(str, "/DATA.CSV");
+	result = CH376FileCreate((PUINT8)str);
+	if(result == USB_INT_SUCCESS) {
+		printf("open\xff\xff\xff");
+	} else {
+		printf("ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½(0x%02X)\xff\xff\xff", result);
+		printf("ï¿½ï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½\xff\xff\xff");
+		output_flag = 0;
+		return; // µ¼³öÊ§°Ü
+	}
+	//»ñÈ¡ÎÄ¼þ´óÐ¡
+	size=CH376GetFileSize();
+	printf("size=%d\r\n",(int)size);
+	
+	// Ê¹ÓÃÍ³Ò»µÄÍ·¸ñÊ½
+	result = file_writeData("ÏñËØÎ»,²¨³¤(nm),¹âÇ¿¶È»ÒÖµ\n");
+	if(result == USB_INT_SUCCESS) {
+		printf("open2\xff\xff\xff");
+	} else {
+		printf("false2\xff\xff\xff");
+		CH376FileClose(1);
+		output_flag = 0;
+		return; // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+	}
+
+	// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ - Ä¿Ç°Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½spectrum_data_ram[0]
+	uint8_t* source_data = spectrum_data_ram[0];
+	
+	//ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3648ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½
+	for(int i=0; i<3648; i++)
+	{
+		// ï¿½ï¿½16ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½Öµ(0x00-0xFF)×ªï¿½ï¿½Îª0-60000ï¿½ï¿½Î§
+		uint16_t intensity = (uint16_t)((uint32_t)source_data[i] * 60000 / 255);
+		
+		if(saved_calib_params.is_valid) {
+			// ï¿½Ð±ê¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã²¨ï¿½ï¿½Öµï¿½ï¿½Ð´ï¿½ï¿½
+			float wavelength = saved_calib_params.k * (float)i + saved_calib_params.b;
+			sprintf(str,"%d,%.2f,%d\n", i+1, wavelength, intensity);
+		} else {
+			// Ã»ï¿½Ð±ê¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½0
+			sprintf(str,"%d,0,%d\n", i+1, intensity);
+		}
+		result = file_writeData(str);
+		if(result == USB_INT_SUCCESS) {
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È°Ù·Ö±ï¿? (0-100)
+			int progress = (i * 100) / 3648;
+			
+			// Ã¿10ï¿½Ð¸ï¿½ï¿½ï¿½Ò»ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
+			if(i % 10 == 0) {
+				printf("j0.val=%d\xff\xff\xff", progress);
+				printf("µ¼³ö½ø¶È:%d%% (%d/3648)\xff\xff\xff", progress, i);
+			}
+		}
+		else {
+			printf("µ¼³öÊ§°Ü\xff\xff\xff", i+1);
+			CH376FileClose(1);
+			output_flag=0;
+			return;
+		}
+	}
+	
+	size=CH376GetFileSize();
+	printf("filesize=%d\xff\xff\xff",(int)size);
+	printf("123123\xff\xff\xff");
+	
+	if(CH376FileClose(1)==USB_INT_SUCCESS){ 
+		// ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½Îª100%
+		printf("j0.val=100\xff\xff\xff");
+		printf("µ¼³öÍê³É£¡\xff\xff\xff");
+
+		output_flag=1;
+	}
+	else {
+		printf("j0.val=0\xff\xff\xff");  // µ¼³öÊ§°Ü
+		printf("µ¼³öÊ§°Ü\xff\xff\xff");
+		output_flag=0;
+	}
+}
+					
+// ï¿½ï¿½ï¿½ï¿½CH376ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª115200
+
+
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½CH376ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½Öµ: 1=ï¿½É¹ï¿½, 0=Ê§ï¿½ï¿½
+uint8_t ch376_init_with_baudrate_change(void)
+{
+	uint8_t result;
+
+	printf( "ï¿½ï¿½ï¿½Ú³ï¿½Ê¼ï¿½ï¿½CH376...\xff\xff\xff" );
+	
+	// ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½9600ï¿½ï¿½ï¿½ï¿½ï¿½Ê²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	if (CH376_TestConnection()) {
+		printf("CH376ï¿½ï¿½ï¿½Ó³É¹ï¿½\xff\xff\xff");
+	} else {
+		printf("CH376ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½\xff\xff\xff");
+		printf("ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\xff\xff\xff");
+		return 0;
+	}
+
+	xWriteCH376Cmd(CMD_SET_USB_MODE);
+	xWriteCH376Data(0x06);
+	
+	// ï¿½ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ï¿?
+	uint32_t timeout = 0;
+	uint8_t response1 = 0, response2 = 0;
+	
+	// ï¿½ï¿½È¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ó¦
+	while(timeout < 1000000) {
+		if(__HAL_UART_GET_FLAG(&huart2, UART_FLAG_RXNE)) {
+			response1 = xReadCH376Data();
+			break;
+		}
+		timeout++;
+	}
+	
+	if(timeout >= 1000000 || response1 != 0x51) {
+		printf("USBÄ£Ê½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½\xff\xff\xff");
+		return 0;
+	}
+	
+	// ï¿½ï¿½È¡ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦
+	timeout = 0;
+	while(timeout < 1000000) {
+		if(__HAL_UART_GET_FLAG(&huart2, UART_FLAG_RXNE)) {
+			response2 = xReadCH376Data();
+			break;
+		}
+		timeout++;
+	}
+	
+	if(timeout >= 1000000 || response2 != 0x15) {
+		printf("USBÄ£Ê½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½\xff\xff\xff");
+		return 0;
+	}
+	
+	printf("USBÄ£Ê½ï¿½ï¿½ï¿½Ã³É¹ï¿½\xff\xff\xff");
+
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	CH376DiskConnect();
+	
+	timeout = 0;
+	uint8_t connect_status = 0;
+	while(timeout < 1000000) {
+		if(__HAL_UART_GET_FLAG(&huart2, UART_FLAG_RXNE)) {
+			connect_status = xReadCH376Data();
+			break;
+		}
+		timeout++;
+	}
+	
+	if(timeout >= 1000000) {
+		printf("Î´ï¿½ï¿½âµ½Uï¿½ï¿½\xff\xff\xff");
+		printf("ï¿½ï¿½ï¿½ï¿½ï¿½Uï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½\xff\xff\xff");
+		return 0;
+	}
+	
+	if(connect_status != USB_INT_SUCCESS) {
+		printf("Uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½(0x%02X)\xff\xff\xff", connect_status);
+		printf("ï¿½ï¿½ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½Uï¿½ï¿½\xff\xff\xff");
+		return 0;
+	}
+	
+	printf("Uï¿½ï¿½ï¿½ï¿½ï¿½Ó³É¹ï¿½\xff\xff\xff");
+
+	// ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½
+	result = CH376DiskMount();
+	if(result == USB_INT_SUCCESS) {
+		printf("Uï¿½Ì¹ï¿½ï¿½Ø³É¹ï¿½\xff\xff\xff");
+		return 1; // ï¿½É¹ï¿½
+	} else {
+		printf("Uï¿½Ì¹ï¿½ï¿½ï¿½Ê§ï¿½ï¿½(0x%02X)\xff\xff\xff", result);
+		printf("ï¿½ï¿½ï¿½ï¿½Uï¿½Ì¸ï¿½Ê½\xff\xff\xff");
+		return 0;
+	}
+}
+
+// ¶ÁÈ¡CALIBOÎÄ¼þÖÐµÄ±ê¶¨ÏµÊý
+uint8_t ch376_read_calibration(void)
+{
+    char filename[] = "/CALIBO.TXT";
+    uint8_t result;
+    uint32_t file_size;
+    char buffer[100]; // ÓÃÓÚ´æ´¢¶ÁÈ¡µÄÊý¾Ý
+    uint32_t bytes_to_read;
+    uint32_t total_read = 0;
+    
+    printf("¿ªÊ¼¶ÁÈ¡±ê¶¨ÎÄ¼þ...\xff\xff\xff");
+    
+    // ´ò¿ªÎÄ¼þ
+    if(CH376FileOpen((PUINT8)filename) == USB_INT_SUCCESS) {
+        printf("ÎÄ¼þ´ò¿ª³É¹¦\xff\xff\xff");
+        
+        // »ñÈ¡ÎÄ¼þ´óÐ¡
+        file_size = CH376GetFileSize();
+        printf("ÎÄ¼þ´óÐ¡: %d ×Ö½Ú\r\n", (int)file_size);
+        
+        if(file_size > 0 && file_size < sizeof(buffer)) {
+            // ¶ÁÈ¡ÎÄ¼þÄÚÈÝ
+            bytes_to_read = file_size;
+            
+            // ÉèÖÃ¶ÁÈ¡×Ö½ÚÊý
+            xWriteCH376Cmd(CMD2H_BYTE_READ);
+            xWriteCH376Data(bytes_to_read & 0xFF);
+            xWriteCH376Data((bytes_to_read >> 8) & 0xFF);
+            
+            // µÈ´ý¶ÁÈ¡Íê³É - Ìí¼Ó³¬Ê±±£»¤
+            uint32_t timeout_count = 0;
+            const uint32_t MAX_TIMEOUT = 5000000; // ³¬Ê±¼ÆÊý£¨Ô¼5Ãë£©
+            
+            while(1) {
+                // ³¬Ê±¼ì²â
+                timeout_count++;
+                if(timeout_count > MAX_TIMEOUT) {
+                    printf("¶ÁÈ¡³¬Ê±\xff\xff\xff");
+                    CH376FileClose(1);
+                    return 0;
+                }
+                
+                result = xReadCH376Data();
+                
+                if(result == USB_INT_DISK_READ) {
+                    // ¶ÁÈ¡Êý¾Ý
+					result = CH376ReadBlock((PUINT8)&buffer[total_read]);
+                    total_read += result;
+                    timeout_count = 0; // ÖØÖÃ³¬Ê±¼ÆÊý
+                    
+                    if(total_read >= file_size) {
+                        break; // ¶ÁÈ¡Íê³É
+                    }
+                    
+                    // ¼ÌÐø¶ÁÈ¡
+                    xWriteCH376Cmd(CMD0H_BYTE_RD_GO);
+                    xEndCH376Cmd();
+                } else if(result == USB_INT_SUCCESS) {
+                    break; // ¶ÁÈ¡Íê³É
+                } else {
+                    printf("¶ÁÈ¡´íÎó: %02X\r\n", result);
+                    CH376FileClose(1);
+                    return 0;
+                }
+            }
+           
+            
+            // È·ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            buffer[total_read] = '\0';
+            
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ê¶¨Ïµï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê½Îª: k=Öµ,b=Öµ,r2=Öµ)
+            char *k_pos = strstr(buffer, "k=");
+            char *b_pos = strstr(buffer, "b=");
+            char *r2_pos = strstr(buffer, "r2=");
+            
+            if(k_pos && b_pos && r2_pos) {
+                // ï¿½ï¿½ï¿½ï¿½kÖµ
+                float k_val = atof(k_pos + 2);
+                
+                // ï¿½ï¿½ï¿½ï¿½bÖµ  
+                float b_val = atof(b_pos + 2);
+                
+                // ï¿½ï¿½ï¿½ï¿½r2Öµ
+                float r2_val = atof(r2_pos + 3);
+                
+                // ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ê¶¨ï¿½ï¿½ï¿½ï¿½
+                extern CalibrationParams saved_calib_params;
+                saved_calib_params.k = k_val;
+                saved_calib_params.b = b_val;
+                saved_calib_params.r_squared = r2_val;
+                saved_calib_params.is_valid = 1;
+                
+                printf("±ê¶¨ÏµÊý¶ÁÈ¡³É¹¦\xff\xff\xff");
+                printf("k=%.6f, b=%.2f, r2=%.4f\r\n", k_val, b_val, r2_val);
+                
+                // ï¿½Ø±ï¿½ï¿½Ä¼ï¿½
+                CH376FileClose(1);
+                return 1; // ï¿½É¹ï¿½
+            } else {
+				printf("ÎÄ¼þ¸ñÊ½´íÎó\xff\xff\xff");
+                CH376FileClose(1);
+                return 0;
+            }
+        } else {
+			printf("ÎÄ¼þ´óÐ¡Òì³£\xff\xff\xff");
+            CH376FileClose(1);
+            return 0;
+        }
+    } else {
+		printf("ÎÄ¼þ´ò¿ªÊ§°Ü\xff\xff\xff");
+        return 0;
+    }
+}
+
+// ï¿½ï¿½ï¿½ï¿½ï¿½ê¶¨Ïµï¿½ï¿½ï¿½ï¿½CALIBO.TXTï¿½Ä¼ï¿½
+uint8_t ch376_export_calibration(void)
+{
+    char filename[] = "/CALIBO.TXT";
+    char buffer[200]; // ï¿½ï¿½ï¿½Ú´æ´¢ÒªÐ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
+    uint8_t result;
+    
+    printf("¿ªÊ¼µ¼³ö±ê¶¨ÏµÊý...\xff\xff\xff");
+    
+    // ï¿½ï¿½ï¿½ê¶¨ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ð§
+    if(!saved_calib_params.is_valid) {
+		printf("±ê¶¨²ÎÊýÎÞÐ§\xff\xff\xff");
+        return 0;
+    }
+    
+    // ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ê¶¨Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    sprintf(buffer, "k=%.6f,b=%.2f,r2=%.4f\n", 
+            saved_calib_params.k, 
+            saved_calib_params.b, 
+            saved_calib_params.r_squared);
+    
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ú»á±»ï¿½ï¿½ï¿½Ç£ï¿?
+    result = CH376FileCreate((PUINT8)filename);
+    if(result == USB_INT_SUCCESS) {
+        printf("ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½\xff\xff\xff");
+        
+        // Ð´ï¿½ï¿½ê¶¨Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿?
+        result = file_writeData(buffer);
+        if(result == USB_INT_SUCCESS) {
+            printf("ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½É¹ï¿½\xff\xff\xff");
+            
+            // ï¿½Ø±ï¿½ï¿½Ä¼ï¿½
+            result = CH376FileClose(1);
+            if(result == USB_INT_SUCCESS) {
+                printf("ï¿½ê¶¨Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½\xff\xff\xff");
+                return 1; // ï¿½É¹ï¿½
+            } else {
+                printf("ï¿½Ä¼ï¿½ï¿½Ø±ï¿½Ê§ï¿½ï¿½(0x%02X)\xff\xff\xff", result);
+                return 0;
+            }
+        } else {
+            printf("ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê§ï¿½ï¿½(0x%02X)\xff\xff\xff", result);
+            CH376FileClose(1);
+            return 0;
+        }
+    } else {
+        printf("ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½(0x%02X)\xff\xff\xff", result);
+        printf("ï¿½ï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½\xff\xff\xff");
+        return 0;
+    }
+}
+
+
