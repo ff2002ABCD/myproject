@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"mcu_flash\startup_stm32f103xb.o"
+"mcu_flash\main.o"
+"mcu_flash\stm32f1xx_it.o"
+"mcu_flash\stm32f1xx_hal_msp.o"
+"mcu_flash\stm32f1xx_hal_gpio_ex.o"
+"mcu_flash\stm32f1xx_hal_tim.o"
+"mcu_flash\stm32f1xx_hal_tim_ex.o"
+"mcu_flash\stm32f1xx_hal_uart.o"
+"mcu_flash\stm32f1xx_hal.o"
+"mcu_flash\stm32f1xx_hal_rcc.o"
+"mcu_flash\stm32f1xx_hal_rcc_ex.o"
+"mcu_flash\stm32f1xx_hal_gpio.o"
+"mcu_flash\stm32f1xx_hal_dma.o"
+"mcu_flash\stm32f1xx_hal_cortex.o"
+"mcu_flash\stm32f1xx_hal_pwr.o"
+"mcu_flash\stm32f1xx_hal_flash.o"
+"mcu_flash\stm32f1xx_hal_flash_ex.o"
+"mcu_flash\stm32f1xx_hal_exti.o"
+"mcu_flash\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "MCU_Flash\MCU_Flash.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "MCU_Flash.map" -o MCU_Flash\MCU_Flash.axf
