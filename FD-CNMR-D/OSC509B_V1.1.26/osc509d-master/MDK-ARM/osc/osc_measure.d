@@ -1,0 +1,14 @@
+.\osc\osc_measure.o: ..\Oscilloscope\osc\osc_measure.c
+.\osc\osc_measure.o: ..\Oscilloscope\fos\fos.h
+.\osc\osc_measure.o: ..\Oscilloscope\layer\hal_tim.h
+.\osc\osc_measure.o: ..\Oscilloscope\osc\osc_ui.h
+.\osc\osc_measure.o: ..\Oscilloscope\gui\gui.h
+.\osc\osc_measure.o: ..\Oscilloscope\gui\gui_dev.h
+.\osc\osc_measure.o: ..\Oscilloscope\gui\gui_cfg.h
+.\osc\osc_measure.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\osc\osc_measure.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\osc\osc_measure.o: ..\Oscilloscope\osc\osc_measure.h
+.\osc\osc_measure.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\osc\osc_measure.o: ..\Oscilloscope\osc\osc_api.h
+.\osc\osc_measure.o: ..\Oscilloscope\osc\osc_cfg.h
+.\osc\osc_measure.o: ..\Oscilloscope\osc\osc_menu.h

@@ -1,0 +1,53 @@
+C51 COMPILER V8.08   DACX                                                                  07/30/2010 15:57:05 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE DACX
+OBJECT MODULE PLACED IN DACX.OBJ
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE DACX.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "DACX.h"
+   2          
+   3          unsigned int dacxD[2];
+   4          
+   5          void dacxRst()
+   6          {
+   7   1              dacxD[0]=500;
+   8   1              dacxD[1]=0;
+   9   1      }
+  10          
+  11          void dacxCopy(unsigned char i)
+  12          {
+  13   1              unsigned char *p;
+  14   1              switch (i)
+  15   1              {
+  16   2              case 0:
+  17   2                      p=(unsigned char *)dacxD;
+  18   2                      p++;
+  19   2                      IDA0L=*p;
+  20   2                      p--;
+  21   2                      IDA0H=*p;
+  22   2                      break;
+  23   2              case 1:
+  24   2                      p=(unsigned char *)(dacxD+1);
+  25   2                      p++;
+  26   2                      IDA1L=*p;
+  27   2                      p--;
+  28   2                      IDA1H=*p;
+  29   2              }
+  30   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    160    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      4       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

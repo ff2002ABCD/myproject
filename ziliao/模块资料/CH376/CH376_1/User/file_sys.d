@@ -1,0 +1,11 @@
+file_sys.o: ..\CH376\FILE_SYS.C
+file_sys.o: ..\CH376\FILE_SYS.H
+file_sys.o: ..\CH376\SPI_Init.h
+file_sys.o: ..\CH376\CH376INC.H
+file_sys.o: ..\SYSTEM\sys.h
+file_sys.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_lib.h
+file_sys.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_map.h
+file_sys.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_conf.h
+file_sys.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h
+file_sys.o: C:\Keil\ARM\INC\ST\STM32F10x\cortexm3_macro.h
+file_sys.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_nvic.h

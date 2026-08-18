@@ -1,0 +1,932 @@
+{
+  "1766974198": {
+    "timestamp": 1766974198,
+    "ambient_offset_mT": 0.0,
+    "probe_display_mm": -15.0,
+    "current_mA": 0.0
+  },
+  "1766992727": {
+    "timestamp": 1766992727,
+    "ambient_offset_mT": 0.0,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767056487": {
+    "timestamp": 1767056487,
+    "ambient_offset_mT": 1.94121460605608,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767072436": {
+    "timestamp": 1767072436,
+    "ambient_offset_mT": 0.10235499352191565,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767072973": {
+    "timestamp": 1767072973,
+    "ambient_offset_mT": 0.7624721385374504,
+    "probe_display_mm": 10.5,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767073502": {
+    "timestamp": 1767073502,
+    "ambient_offset_mT": 1.8937652606375783,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767074951": {
+    "timestamp": 1767074951,
+    "ambient_offset_mT": 1.2431255495494584,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767075031": {
+    "timestamp": 1767075031,
+    "ambient_offset_mT": 1.1999999999999975,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767075057": {
+    "timestamp": 1767075057,
+    "ambient_offset_mT": 1.8465553834704131,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767075293": {
+    "timestamp": 1767075293,
+    "ambient_offset_mT": 0.005437474577609652,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767075403": {
+    "timestamp": 1767075403,
+    "ambient_offset_mT": -0.0467243139273911,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767075406": {
+    "timestamp": 1767075406,
+    "ambient_offset_mT": -0.0467243139273911,
+    "probe_display_mm": 0.45000000000000107,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767075583": {
+    "timestamp": 1767075583,
+    "ambient_offset_mT": 0.010418018817739821,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767075587": {
+    "timestamp": 1767075587,
+    "ambient_offset_mT": 0.010418018817739821,
+    "probe_display_mm": 0.45000000000000107,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767077183": {
+    "timestamp": 1767077183,
+    "ambient_offset_mT": 0.044301312529202524,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767077186": {
+    "timestamp": 1767077186,
+    "ambient_offset_mT": 0.044301312529202524,
+    "probe_display_mm": 0.15000000000000036,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767078353": {
+    "timestamp": 1767078353,
+    "ambient_offset_mT": -0.010935470068700076,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767079811": {
+    "timestamp": 1767079811,
+    "ambient_offset_mT": -0.0,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767143916": {
+    "timestamp": 1767143916,
+    "ambient_offset_mT": 0.016668871549592984,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767144036": {
+    "timestamp": 1767144036,
+    "ambient_offset_mT": -0.0436181458438476,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767148873": {
+    "timestamp": 1767148873,
+    "ambient_offset_mT": -0.015299169803918683,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767149805": {
+    "timestamp": 1767149805,
+    "ambient_offset_mT": 0.0,
+    "probe_display_mm": -12.6,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767150102": {
+    "timestamp": 1767150102,
+    "ambient_offset_mT": -0.00604387036522927,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767151480": {
+    "timestamp": 1767151480,
+    "ambient_offset_mT": -0.017704263427349293,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767151500": {
+    "timestamp": 1767151500,
+    "ambient_offset_mT": -0.03925787337122791,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767151501": {
+    "timestamp": 1767151501,
+    "ambient_offset_mT": 0.04361609642167652,
+    "probe_display_mm": 13.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767151703": {
+    "timestamp": 1767151703,
+    "ambient_offset_mT": -0.04126978272491298,
+    "probe_display_mm": 13.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767151704": {
+    "timestamp": 1767151704,
+    "ambient_offset_mT": 0.020753473844794076,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767155917": {
+    "timestamp": 1767155917,
+    "ambient_offset_mT": 0.047881907238934956,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767155920": {
+    "timestamp": 1767155920,
+    "ambient_offset_mT": 0.046862910796286114,
+    "probe_display_mm": 12.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767156520": {
+    "timestamp": 1767156520,
+    "ambient_offset_mT": -0.012960275475772304,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767157033": {
+    "timestamp": 1767157033,
+    "ambient_offset_mT": 0.030195115634062214,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767157166": {
+    "timestamp": 1767157166,
+    "ambient_offset_mT": 0.008126446846102166,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767157224": {
+    "timestamp": 1767157224,
+    "ambient_offset_mT": -0.02571573392890708,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767157289": {
+    "timestamp": 1767157289,
+    "ambient_offset_mT": 0.009137783140379857,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767157448": {
+    "timestamp": 1767157448,
+    "ambient_offset_mT": -0.02921039619662233,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767157810": {
+    "timestamp": 1767157810,
+    "ambient_offset_mT": -0.02723751905456062,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767157813": {
+    "timestamp": 1767157813,
+    "ambient_offset_mT": 0.0,
+    "probe_display_mm": 14.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767158248": {
+    "timestamp": 1767158248,
+    "ambient_offset_mT": -0.03285614294058484,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767158524": {
+    "timestamp": 1767158524,
+    "ambient_offset_mT": 0.040914450748108816,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767158541": {
+    "timestamp": 1767158541,
+    "ambient_offset_mT": -0.02129062408063645,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767161094": {
+    "timestamp": 1767161094,
+    "ambient_offset_mT": -0.01306722172636135,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767161133": {
+    "timestamp": 1767161133,
+    "ambient_offset_mT": -0.03796426447802895,
+    "probe_display_mm": 12.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767161178": {
+    "timestamp": 1767161178,
+    "ambient_offset_mT": -0.0,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767161654": {
+    "timestamp": 1767161654,
+    "ambient_offset_mT": -0.0,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767162088": {
+    "timestamp": 1767162088,
+    "ambient_offset_mT": -0.009729558670373756,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767162118": {
+    "timestamp": 1767162118,
+    "ambient_offset_mT": -0.020783364531005294,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767162285": {
+    "timestamp": 1767162285,
+    "ambient_offset_mT": -0.008551219819909778,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767162768": {
+    "timestamp": 1767162768,
+    "ambient_offset_mT": -0.03327391908699415,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767162784": {
+    "timestamp": 1767162784,
+    "ambient_offset_mT": -0.015169453432582886,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767162799": {
+    "timestamp": 1767162799,
+    "ambient_offset_mT": 0.0029350122218302632,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767162823": {
+    "timestamp": 1767162823,
+    "ambient_offset_mT": -0.012153115829702882,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767162842": {
+    "timestamp": 1767162842,
+    "ambient_offset_mT": -0.03608070231810481,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767163258": {
+    "timestamp": 1767163258,
+    "ambient_offset_mT": -0.008214919910463886,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767163278": {
+    "timestamp": 1767163278,
+    "ambient_offset_mT": -0.04830070862786265,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767163441": {
+    "timestamp": 1767163441,
+    "ambient_offset_mT": -0.02123469482439183,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767163578": {
+    "timestamp": 1767163578,
+    "ambient_offset_mT": 0.04927430289394433,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767163593": {
+    "timestamp": 1767163593,
+    "ambient_offset_mT": 0.0,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767163889": {
+    "timestamp": 1767163889,
+    "ambient_offset_mT": -0.0,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767163915": {
+    "timestamp": 1767163915,
+    "ambient_offset_mT": 0.04820416484098544,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767163961": {
+    "timestamp": 1767163961,
+    "ambient_offset_mT": 0.03351232368660148,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767163994": {
+    "timestamp": 1767163994,
+    "ambient_offset_mT": 0.01014879805813515,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164047": {
+    "timestamp": 1767164047,
+    "ambient_offset_mT": 0.013955148465300188,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164326": {
+    "timestamp": 1767164326,
+    "ambient_offset_mT": 0.048963323272591175,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164335": {
+    "timestamp": 1767164335,
+    "ambient_offset_mT": -0.02568087232983776,
+    "probe_display_mm": 14.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164361": {
+    "timestamp": 1767164361,
+    "ambient_offset_mT": 0.04105000841519163,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164484": {
+    "timestamp": 1767164484,
+    "ambient_offset_mT": 0.013440415247602838,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164519": {
+    "timestamp": 1767164519,
+    "ambient_offset_mT": 0.027101655343579195,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164785": {
+    "timestamp": 1767164785,
+    "ambient_offset_mT": -0.01913328983431617,
+    "probe_display_mm": -15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164791": {
+    "timestamp": 1767164791,
+    "ambient_offset_mT": 0.008075297851557674,
+    "probe_display_mm": -14.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164891": {
+    "timestamp": 1767164891,
+    "ambient_offset_mT": 0.019479613620269703,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164963": {
+    "timestamp": 1767164963,
+    "ambient_offset_mT": 0.0,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767164982": {
+    "timestamp": 1767164982,
+    "ambient_offset_mT": 0.0,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767165220": {
+    "timestamp": 1767165220,
+    "ambient_offset_mT": 0.03704563153447912,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767165510": {
+    "timestamp": 1767165510,
+    "ambient_offset_mT": -0.04531037465719226,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767165686": {
+    "timestamp": 1767165686,
+    "ambient_offset_mT": -0.01012756320453409,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767165858": {
+    "timestamp": 1767165858,
+    "ambient_offset_mT": 0.003945410828598089,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767166057": {
+    "timestamp": 1767166057,
+    "ambient_offset_mT": 0.0,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767166398": {
+    "timestamp": 1767166398,
+    "ambient_offset_mT": -0.011031289515707782,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767166429": {
+    "timestamp": 1767166429,
+    "ambient_offset_mT": -0.022913555738591634,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767166481": {
+    "timestamp": 1767166481,
+    "ambient_offset_mT": -0.007711464430893128,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767166494": {
+    "timestamp": 1767166494,
+    "ambient_offset_mT": -0.028727227661080906,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767166501": {
+    "timestamp": 1767166501,
+    "ambient_offset_mT": -0.04974299089126913,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767166667": {
+    "timestamp": 1767166667,
+    "ambient_offset_mT": -0.01004869365942776,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767166797": {
+    "timestamp": 1767166797,
+    "ambient_offset_mT": -0.02395909702502788,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767166801": {
+    "timestamp": 1767166801,
+    "ambient_offset_mT": 0.006356148090846281,
+    "probe_display_mm": 14.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767166919": {
+    "timestamp": 1767166919,
+    "ambient_offset_mT": -0.039819835029188205,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767168205": {
+    "timestamp": 1767168205,
+    "ambient_offset_mT": -0.034012922736611634,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767168236": {
+    "timestamp": 1767168236,
+    "ambient_offset_mT": 0.01966832117534681,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767168643": {
+    "timestamp": 1767168643,
+    "ambient_offset_mT": -0.04680032436841422,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767168698": {
+    "timestamp": 1767168698,
+    "ambient_offset_mT": 0.03350870179955648,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767168823": {
+    "timestamp": 1767168823,
+    "ambient_offset_mT": -0.019282469172197586,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767168985": {
+    "timestamp": 1767168985,
+    "ambient_offset_mT": -0.040792342651277874,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767169082": {
+    "timestamp": 1767169082,
+    "ambient_offset_mT": -0.0008753615558713679,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767169084": {
+    "timestamp": 1767169084,
+    "ambient_offset_mT": -0.029563758150583735,
+    "probe_display_mm": 14.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767169403": {
+    "timestamp": 1767169403,
+    "ambient_offset_mT": 0.026494353735698167,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767169405": {
+    "timestamp": 1767169405,
+    "ambient_offset_mT": 0.030960460867209633,
+    "probe_display_mm": 14.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767169428": {
+    "timestamp": 1767169428,
+    "ambient_offset_mT": -0.0058626755802754504,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767169432": {
+    "timestamp": 1767169432,
+    "ambient_offset_mT": 0.0009951879367195993,
+    "probe_display_mm": 14.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767169482": {
+    "timestamp": 1767169482,
+    "ambient_offset_mT": 0.002156991396389002,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767169484": {
+    "timestamp": 1767169484,
+    "ambient_offset_mT": 0.039425088041117086,
+    "probe_display_mm": 13.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767169596": {
+    "timestamp": 1767169596,
+    "ambient_offset_mT": -0.0304630589302001,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767169598": {
+    "timestamp": 1767169598,
+    "ambient_offset_mT": 0.0060765698093386625,
+    "probe_display_mm": 12.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767574025": {
+    "timestamp": 1767574025,
+    "ambient_offset_mT": -0.005478320263121811,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767574246": {
+    "timestamp": 1767574246,
+    "ambient_offset_mT": 0.014034835493009032,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.1,
+    "auto_zero": true
+  },
+  "1767574248": {
+    "timestamp": 1767574248,
+    "ambient_offset_mT": 0.033547991249139875,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767574268": {
+    "timestamp": 1767574268,
+    "ambient_offset_mT": 0.03184698529407834,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767574270": {
+    "timestamp": 1767574270,
+    "ambient_offset_mT": -0.01935652047793751,
+    "probe_display_mm": 14.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767574351": {
+    "timestamp": 1767574351,
+    "ambient_offset_mT": -0.0412736903193415,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767574559": {
+    "timestamp": 1767574559,
+    "ambient_offset_mT": -0.009835171894209932,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767575312": {
+    "timestamp": 1767575312,
+    "ambient_offset_mT": 0.019214198906177732,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767575313": {
+    "timestamp": 1767575313,
+    "ambient_offset_mT": -0.016735185687898772,
+    "probe_display_mm": 14.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767575328": {
+    "timestamp": 1767575328,
+    "ambient_offset_mT": -0.03267698159841714,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767575346": {
+    "timestamp": 1767575346,
+    "ambient_offset_mT": -0.048618777508935146,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767575362": {
+    "timestamp": 1767575362,
+    "ambient_offset_mT": 0.015431837896988349,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767575850": {
+    "timestamp": 1767575850,
+    "ambient_offset_mT": 0.04963908210299703,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767576079": {
+    "timestamp": 1767576079,
+    "ambient_offset_mT": 0.043396891415885736,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767576279": {
+    "timestamp": 1767576279,
+    "ambient_offset_mT": 0.027735091071016987,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767576281": {
+    "timestamp": 1767576281,
+    "ambient_offset_mT": -0.007712972064128375,
+    "probe_display_mm": 11.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767576406": {
+    "timestamp": 1767576406,
+    "ambient_offset_mT": 0.017532199516921892,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767576439": {
+    "timestamp": 1767576439,
+    "ambient_offset_mT": 0.04150763167873936,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767576641": {
+    "timestamp": 1767576641,
+    "ambient_offset_mT": 0.03141972294410886,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767576663": {
+    "timestamp": 1767576663,
+    "ambient_offset_mT": -0.01702728338552642,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767577881": {
+    "timestamp": 1767577881,
+    "ambient_offset_mT": 0.045667369127587704,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767595128": {
+    "timestamp": 1767595128,
+    "ambient_offset_mT": -0.01334476607558091,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767595555": {
+    "timestamp": 1767595555,
+    "ambient_offset_mT": 0.004921647279390123,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767595559": {
+    "timestamp": 1767595559,
+    "ambient_offset_mT": 0.0225148660207036,
+    "probe_display_mm": 14.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767597361": {
+    "timestamp": 1767597361,
+    "ambient_offset_mT": 1.5185330329638904,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767597383": {
+    "timestamp": 1767597383,
+    "ambient_offset_mT": -1.520813819745062,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767597385": {
+    "timestamp": 1767597385,
+    "ambient_offset_mT": -1.491345083234779,
+    "probe_display_mm": 13.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767597444": {
+    "timestamp": 1767597444,
+    "ambient_offset_mT": -1.62031257854571,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767597617": {
+    "timestamp": 1767597617,
+    "ambient_offset_mT": 1.498534757713844,
+    "probe_display_mm": 15.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  },
+  "1767597625": {
+    "timestamp": 1767597625,
+    "ambient_offset_mT": 1.5453238683888721,
+    "probe_display_mm": 12.0,
+    "current_mA": 0.0,
+    "auto_zero": true
+  }
+}

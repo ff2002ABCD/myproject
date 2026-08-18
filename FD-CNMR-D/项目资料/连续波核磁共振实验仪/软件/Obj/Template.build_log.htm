@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Jerot Administrator, Jerot, LIC=585FJ-U2XHN-9UM4U-SF4JS-DGA9Z-097W0
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Standard  Version: 5.14.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TCM.DLL V1.14.4.0
+ 
+<h2>Project:</h2>
+D:\单片机\FD-CNMR-D 型连续波核磁共振实验仪\软件\Template.uvprojx
+Project File Date:  11/16/2023
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+User\main.c(62): warning:  #177-D: variable "choose" was declared but never referenced
+        int choose[6] = {0,0,0,0,0,0};                  //选择项，0手动自动，1主界面，2参数设置，3数据查询
+User\main.c(69): warning:  #177-D: variable "temp_16" was declared but never referenced
+        u16 temp_16;
+User\main.c(77): warning:  #177-D: variable "temp_ch_3" was declared but never referenced
+        char temp_ch_3[3] = {32,32,32};
+User\main.c(84): warning:  #550-D: variable "key_num" was set but never used
+        u8 key_num;
+User\main.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=9828 RO-data=268 RW-data=144 ZI-data=1480  
+FromELF: creating hex file...
+".\Obj\Template.axf" - 0 Error(s), 4 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  D:\单片机\FD-CNMR-D 型连续波核磁共振实验仪\软件\RTE
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+</pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+usart.o: ..\SYSTEM\usart.c
+usart.o: ..\SYSTEM\sys.h
+usart.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_lib.h
+usart.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_map.h
+usart.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_conf.h
+usart.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h
+usart.o: C:\Keil\ARM\INC\ST\STM32F10x\cortexm3_macro.h
+usart.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_nvic.h
+usart.o: ..\SYSTEM\usart.h
+usart.o: C:\Keil\ARM\RV31\INC\stdio.h

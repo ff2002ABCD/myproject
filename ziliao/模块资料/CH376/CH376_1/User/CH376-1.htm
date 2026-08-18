@@ -1,0 +1,1322 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<title>Static Call Graph - [E:\STM32\103VE- Project\CH376_1\User\CH376-1.axf]</title></head>
+<body><HR>
+<H1>Static Call Graph for image E:\STM32\103VE- Project\CH376_1\User\CH376-1.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, RVCT4.0 [Build 524]: Last Updated: Sun May 20 09:55:03 2012
+<BR><P>
+<H3>Maximum Stack Usage =        224 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+Call chain for Maximum Stack Depth:</H3>
+__rt_entry_main &rArr; main &rArr; mInitCH376Host &rArr; __2printf &rArr; _printf_char_common &rArr; __printf
+<P>
+<H3>
+Functions with no stack information
+</H3><UL>
+ <LI><a href="#[243c748]">__user_initial_stackheap</a>
+</UL>
+</UL>
+<P>
+<H3>
+Mutually Recursive functions
+</H3> <LI><a href="#[243c61c]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[243c61c]">NMI_Handler</a><BR>
+ <LI><a href="#[243c5e0]">HardFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[243c5e0]">HardFault_Handler</a><BR>
+ <LI><a href="#[243c5a4]">MemManage_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[243c5a4]">MemManage_Handler</a><BR>
+ <LI><a href="#[243c568]">BusFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[243c568]">BusFault_Handler</a><BR>
+ <LI><a href="#[243c52c]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[243c52c]">UsageFault_Handler</a><BR>
+ <LI><a href="#[243c4f0]">SVC_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[243c4f0]">SVC_Handler</a><BR>
+ <LI><a href="#[243c4b4]">DebugMon_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[243c4b4]">DebugMon_Handler</a><BR>
+ <LI><a href="#[243c478]">PendSV_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[243c478]">PendSV_Handler</a><BR>
+ <LI><a href="#[243c43c]">SysTick_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[243c43c]">SysTick_Handler</a><BR>
+ <LI><a href="#[243c400]">ADC_IRQHandler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[243c400]">ADC_IRQHandler</a><BR>
+</UL>
+<P>
+<H3>
+Function Pointers
+</H3><UL>
+ <LI><a href="#[243c658]">Reset_Handler</a>
+ <LI><a href="#[243c61c]">NMI_Handler</a>
+ <LI><a href="#[243c5e0]">HardFault_Handler</a>
+ <LI><a href="#[243c5a4]">MemManage_Handler</a>
+ <LI><a href="#[243c568]">BusFault_Handler</a>
+ <LI><a href="#[243c52c]">UsageFault_Handler</a>
+ <LI><a href="#[243c4f0]">SVC_Handler</a>
+ <LI><a href="#[243c4b4]">DebugMon_Handler</a>
+ <LI><a href="#[243c478]">PendSV_Handler</a>
+ <LI><a href="#[243c43c]">SysTick_Handler</a>
+ <LI><a href="#[243ba28]">WWDG_IRQHandler</a>
+ <LI><a href="#[243bed8]">PVD_IRQHandler</a>
+ <LI><a href="#[243bd70]">TAMPER_IRQHandler</a>
+ <LI><a href="#[243be24]">RTC_IRQHandler</a>
+ <LI><a href="#[243c004]">FLASH_IRQHandler</a>
+ <LI><a href="#[243be9c]">RCC_IRQHandler</a>
+ <LI><a href="#[243c1a8]">EXTI0_IRQHandler</a>
+ <LI><a href="#[243c130]">EXTI1_IRQHandler</a>
+ <LI><a href="#[243c0f4]">EXTI2_IRQHandler</a>
+ <LI><a href="#[243c0b8]">EXTI3_IRQHandler</a>
+ <LI><a href="#[243c07c]">EXTI4_IRQHandler</a>
+ <LI><a href="#[243c34c]">DMAChannel1_IRQHandler</a>
+ <LI><a href="#[243c310]">DMAChannel2_IRQHandler</a>
+ <LI><a href="#[243c2d4]">DMAChannel3_IRQHandler</a>
+ <LI><a href="#[243c298]">DMAChannel4_IRQHandler</a>
+ <LI><a href="#[243c25c]">DMAChannel5_IRQHandler</a>
+ <LI><a href="#[243c220]">DMAChannel6_IRQHandler</a>
+ <LI><a href="#[243c1e4]">DMAChannel7_IRQHandler</a>
+ <LI><a href="#[243c400]">ADC_IRQHandler</a>
+ <LI><a href="#[243baa0]">USB_HP_CAN_TX_IRQHandler</a>
+ <LI><a href="#[243ba64]">USB_LP_CAN_RX0_IRQHandler</a>
+ <LI><a href="#[243c3c4]">CAN_RX1_IRQHandler</a>
+ <LI><a href="#[243c388]">CAN_SCE_IRQHandler</a>
+ <LI><a href="#[243c040]">EXTI9_5_IRQHandler</a>
+ <LI><a href="#[243bd34]">TIM1_BRK_IRQHandler</a>
+ <LI><a href="#[243bc80]">TIM1_UP_IRQHandler</a>
+ <LI><a href="#[243bcbc]">TIM1_TRG_COM_IRQHandler</a>
+ <LI><a href="#[243bcf8]">TIM1_CC_IRQHandler</a>
+ <LI><a href="#[243bc44]">TIM2_IRQHandler</a>
+ <LI><a href="#[243bc08]">TIM3_IRQHandler</a>
+ <LI><a href="#[243bbcc]">TIM4_IRQHandler</a>
+ <LI><a href="#[243bf8c]">I2C1_EV_IRQHandler</a>
+ <LI><a href="#[243bfc8]">I2C1_ER_IRQHandler</a>
+ <LI><a href="#[243bf14]">I2C2_EV_IRQHandler</a>
+ <LI><a href="#[243bf50]">I2C2_ER_IRQHandler</a>
+ <LI><a href="#[243bde8]">SPI1_IRQHandler</a>
+ <LI><a href="#[243bdac]">SPI2_IRQHandler</a>
+ <LI><a href="#[24385e4]">USART1_IRQHandler</a>
+ <LI><a href="#[243bb54]">USART2_IRQHandler</a>
+ <LI><a href="#[243bb18]">USART3_IRQHandler</a>
+ <LI><a href="#[243c16c]">EXTI15_10_IRQHandler</a>
+ <LI><a href="#[243be60]">RTCAlarm_IRQHandler</a>
+ <LI><a href="#[243badc]">USBWakeUp_IRQHandler</a>
+ <LI><a href="#[2434f84]">__main</a>
+ <LI><a href="#[2438620]">fputc</a>
+ <LI><a href="#[2433aa8]">_printf_input_char</a>
+</UL>
+<P>
+<H3>
+Global Symbols
+</H3>
+<P><STRONG><a name="[2434f84]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
+<BR><BR>[Calls]<UL><LI><a href="#[2433df0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+<LI><a href="#[25087d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+</UL>
+
+<P><STRONG><a name="[25087d0]"></a>__scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))
+<BR><BR>[Called By]<UL><LI><a href="#[2434f84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+</UL>
+
+<P><STRONG><a name="[2508794]"></a>__scatterload_rt2</STRONG> (Thumb, 44 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[2433df0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
+</UL>
+
+<P><STRONG><a name="[2508758]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+
+<P><STRONG><a name="[250871c]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+
+<P><STRONG><a name="[2508578]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[2508578]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2508578]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
+</UL>
+
+<P><STRONG><a name="[2508488]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+
+<P><STRONG><a name="[24354ac]"></a>_printf_d</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_d.o(.ARM.Collect$$_printf_percent$$00000009))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72 + Unknown Stack Size
+<LI>Call Chain = _printf_d &rArr; _printf_int_dec &rArr; _printf_int_common &rArr; _printf_post_padding
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2437018]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_dec
+</UL>
+
+<P><STRONG><a name="[24353f8]"></a>_printf_percent</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[2435740]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
+</UL>
+
+<P><STRONG><a name="[243559c]"></a>_printf_x</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64 + Unknown Stack Size
+<LI>Call Chain = _printf_x &rArr; _printf_int_hex &rArr; _printf_int_common &rArr; _printf_post_padding
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2436b68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_hex
+</UL>
+
+<P><STRONG><a name="[243568c]"></a>_printf_s</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_s.o(.ARM.Collect$$_printf_percent$$00000014))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
+<LI>Call Chain = _printf_s &rArr; _printf_string &rArr; _printf_cs_common &rArr; _printf_str &rArr; _printf_post_padding
+</UL>
+<BR>[Calls]<UL><LI><a href="#[24338c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_string
+</UL>
+
+<P><STRONG><a name="[24337d8]"></a>_printf_percent_end</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017))
+
+<P><STRONG><a name="[24320e0]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[2432c5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
+</UL>
+
+<P><STRONG><a name="[24304c0]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002A))
+
+<P><STRONG><a name="[2430538]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000028))
+
+<P><STRONG><a name="[24308f8]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+
+<P><STRONG><a name="[2430790]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+
+<P><STRONG><a name="[24303d0]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+
+<P><STRONG><a name="[2430448]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+
+<P><STRONG><a name="[2430808]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+
+<P><STRONG><a name="[2430718]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+
+<P><STRONG><a name="[2430cf4]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000006))
+
+<P><STRONG><a name="[2430b50]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000D))
+
+<P><STRONG><a name="[2430ad8]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))
+
+<P><STRONG><a name="[2430a60]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+
+<P><STRONG><a name="[24309e8]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+
+<P><STRONG><a name="[2430970]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+
+<P><STRONG><a name="[2430c04]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+
+<P><STRONG><a name="[2430394]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002F))
+
+<P><STRONG><a name="[2430880]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+
+<P><STRONG><a name="[24306a0]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+
+<P><STRONG><a name="[2430c7c]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000008))
+
+<P><STRONG><a name="[242f50c]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[242fc14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
+</UL>
+
+<P><STRONG><a name="[242e990]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000006))
+
+<P><STRONG><a name="[242e7b0]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))
+
+<P><STRONG><a name="[242e774]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+
+<P><STRONG><a name="[242e8dc]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000009))
+
+<P><STRONG><a name="[242ea44]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000003))
+
+<P><STRONG><a name="[242e864]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000B))
+
+<P><STRONG><a name="[2433df0]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry.o(.ARM.Collect$$rtentry$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[2434f84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
+<LI><a href="#[2508794]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+</UL>
+
+<P><STRONG><a name="[2432d10]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+
+<P><STRONG><a name="[243298c]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry4.o(.ARM.Collect$$rtentry$$00000004))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_sh &rArr; __user_setup_stackheap
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2432644]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+</UL>
+
+<P><STRONG><a name="[2432c5c]"></a>__rt_entry_li</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000A))
+<BR><BR>[Calls]<UL><LI><a href="#[24320e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
+</UL>
+
+<P><STRONG><a name="[2432c98]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+
+<P><STRONG><a name="[2432ba8]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; mInitCH376Host &rArr; __2printf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[24324dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
+<LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[2432be4]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+
+<P><STRONG><a name="[2431870]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
+<BR><BR>[Called By]<UL><LI><a href="#[24324dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
+</UL>
+
+<P><STRONG><a name="[242fc14]"></a>__rt_exit_ls</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000003))
+<BR><BR>[Calls]<UL><LI><a href="#[242f50c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
+</UL>
+
+<P><STRONG><a name="[242fc50]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+
+<P><STRONG><a name="[242fbd8]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
+<BR><BR>[Calls]<UL><LI><a href="#[243865c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
+</UL>
+
+<P><STRONG><a name="[2438fbc]"></a>WFI_SET</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, sys.o(.emb_text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[2438e54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sys_Standby
+</UL>
+
+<P><STRONG><a name="[243c658]"></a>Reset_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c61c]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[243c61c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243c61c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c5e0]"></a>HardFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[243c5e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243c5e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c5a4]"></a>MemManage_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[243c5a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemManage_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243c5a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemManage_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c568]"></a>BusFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[243c568]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BusFault_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243c568]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BusFault_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c52c]"></a>UsageFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[243c52c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsageFault_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243c52c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsageFault_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c4f0]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[243c4f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVC_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243c4f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVC_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c4b4]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[243c4b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DebugMon_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243c4b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DebugMon_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c478]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[243c478]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243c478]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c43c]"></a>SysTick_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[243c43c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243c43c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c400]"></a>ADC_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[243c400]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_IRQHandler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243c400]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_IRQHandler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c3c4]"></a>CAN_RX1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c388]"></a>CAN_SCE_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c34c]"></a>DMAChannel1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c310]"></a>DMAChannel2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c2d4]"></a>DMAChannel3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c298]"></a>DMAChannel4_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c25c]"></a>DMAChannel5_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c220]"></a>DMAChannel6_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c1e4]"></a>DMAChannel7_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c1a8]"></a>EXTI0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c16c]"></a>EXTI15_10_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c130]"></a>EXTI1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c0f4]"></a>EXTI2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c0b8]"></a>EXTI3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c07c]"></a>EXTI4_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c040]"></a>EXTI9_5_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c004]"></a>FLASH_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bfc8]"></a>I2C1_ER_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bf8c]"></a>I2C1_EV_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bf50]"></a>I2C2_ER_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bf14]"></a>I2C2_EV_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bed8]"></a>PVD_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243be9c]"></a>RCC_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243be60]"></a>RTCAlarm_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243be24]"></a>RTC_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bde8]"></a>SPI1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bdac]"></a>SPI2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bd70]"></a>TAMPER_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bd34]"></a>TIM1_BRK_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bcf8]"></a>TIM1_CC_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bcbc]"></a>TIM1_TRG_COM_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bc80]"></a>TIM1_UP_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bc44]"></a>TIM2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bc08]"></a>TIM3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bbcc]"></a>TIM4_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bb54]"></a>USART2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243bb18]"></a>USART3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243badc]"></a>USBWakeUp_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243baa0]"></a>USB_HP_CAN_TX_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243ba64]"></a>USB_LP_CAN_RX0_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243ba28]"></a>WWDG_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, stm32f10x.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[243c748]"></a>__user_initial_stackheap</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, stm32f10x.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2432644]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+</UL>
+
+<P><STRONG><a name="[243ad08]"></a>CH376ReadBlock</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = CH376ReadBlock &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[243a588]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteRead
+</UL>
+
+<P><STRONG><a name="[243accc]"></a>CH376WriteReqBlock</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = CH376WriteReqBlock &rArr; xWriteCH376Data &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a54c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteWrite
+</UL>
+
+<P><STRONG><a name="[243ac90]"></a>CH376WriteHostBlock</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+</UL>
+
+<P><STRONG><a name="[243ac54]"></a>CH376WriteOfsBlock</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+</UL>
+
+<P><STRONG><a name="[243ac18]"></a>CH376WriteVar32</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = CH376WriteVar32 &rArr; xWriteCH376Data &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a7e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DirCreate
+<LI><a href="#[243a858]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileOpen
+<LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+</UL>
+
+<P><STRONG><a name="[243abdc]"></a>CH376Read32bitDat</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = CH376Read32bitDat &rArr; xReadCH376Data
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a510]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskCapacity
+<LI><a href="#[243aba0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar32
+</UL>
+
+<P><STRONG><a name="[243aba0]"></a>CH376ReadVar32</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = CH376ReadVar32 &rArr; CH376Read32bitDat &rArr; xReadCH376Data
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243abdc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376Read32bitDat
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a9c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376GetFileSize
+<LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+</UL>
+
+<P><STRONG><a name="[243ab64]"></a>CH376ReadVar8</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = CH376ReadVar8 &rArr; xWriteCH376Data &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a4d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskQuery
+<LI><a href="#[243a984]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376GetDiskStatus
+<LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+</UL>
+
+<P><STRONG><a name="[243ab28]"></a>CH376GetIntStatus</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a8d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskConnect
+<LI><a href="#[243aaec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait376Interrupt
+</UL>
+
+<P><STRONG><a name="[243aaec]"></a>Wait376Interrupt</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a45c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Query376Interrupt
+<LI><a href="#[243ab28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376GetIntStatus
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a498]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SecLocate
+<LI><a href="#[243a54c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteWrite
+<LI><a href="#[243a588]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteRead
+<LI><a href="#[243a5c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteLocate
+<LI><a href="#[243a948]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdDatWaitInt
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+</UL>
+
+<P><STRONG><a name="[243aab0]"></a>CH376SendCmdWaitInt</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+<LI><a href="#[243aaec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait376Interrupt
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a4d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskQuery
+<LI><a href="#[243a510]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskCapacity
+<LI><a href="#[243a600]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DirInfoSave
+<LI><a href="#[243a6b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileErase
+<LI><a href="#[243a7e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DirCreate
+<LI><a href="#[243a81c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileCreate
+<LI><a href="#[243a858]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileOpen
+<LI><a href="#[243a894]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskMount
+<LI><a href="#[243a8d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskConnect
+<LI><a href="#[243a90c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskReqSense
+<LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+</UL>
+
+<P><STRONG><a name="[243aa74]"></a>CH376SetFileName</STRONG> (Thumb, 156 bytes, Stack size 24 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = CH376SetFileName &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+<LI><a href="#[243ab64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar8
+<LI><a href="#[243aba0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar32
+<LI><a href="#[243ac18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar32
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a6b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileErase
+<LI><a href="#[243a7e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DirCreate
+<LI><a href="#[243a81c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileCreate
+<LI><a href="#[243a858]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileOpen
+</UL>
+
+<P><STRONG><a name="[243aa38]"></a>CH376WriteVar8</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = CH376WriteVar8 &rArr; xWriteCH376Data &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a4d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskQuery
+<LI><a href="#[243a9fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376EndDirInfo
+</UL>
+
+<P><STRONG><a name="[243a9fc]"></a>CH376EndDirInfo</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243aa38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar8
+</UL>
+
+<P><STRONG><a name="[243a9c0]"></a>CH376GetFileSize</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243aba0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar32
+</UL>
+
+<P><STRONG><a name="[243a984]"></a>CH376GetDiskStatus</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = CH376GetDiskStatus &rArr; CH376ReadVar8 &rArr; xWriteCH376Data &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243ab64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar8
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[243a948]"></a>CH376SendCmdDatWaitInt</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = CH376SendCmdDatWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+<LI><a href="#[243aaec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait376Interrupt
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a63c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DirInfoRead
+<LI><a href="#[243a678]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileClose
+</UL>
+
+<P><STRONG><a name="[243a90c]"></a>CH376DiskReqSense</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243a420]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mDelaymS
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+</UL>
+
+<P><STRONG><a name="[243a8d0]"></a>CH376DiskConnect</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = CH376DiskConnect &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a45c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Query376Interrupt
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+<LI><a href="#[243ab28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376GetIntStatus
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[243a894]"></a>CH376DiskMount</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = CH376DiskMount &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[243a858]"></a>CH376FileOpen</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = CH376FileOpen &rArr; CH376SetFileName &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+<LI><a href="#[243ac18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar32
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a768]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileOpenDir
+</UL>
+
+<P><STRONG><a name="[243a81c]"></a>CH376FileCreate</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = CH376FileCreate &rArr; CH376SetFileName &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a6f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileCreatePath
+</UL>
+
+<P><STRONG><a name="[243a7e0]"></a>CH376DirCreate</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+<LI><a href="#[243ac18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar32
+</UL>
+
+<P><STRONG><a name="[243a7a4]"></a>CH376SeparatePath</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, file_sys.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[243a6f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileCreatePath
+</UL>
+
+<P><STRONG><a name="[243a768]"></a>CH376FileOpenDir</STRONG> (Thumb, 100 bytes, Stack size 24 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = CH376FileOpenDir &rArr; CH376FileOpen &rArr; CH376SetFileName &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a858]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileOpen
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a6f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileCreatePath
+<LI><a href="#[243a72c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileOpenPath
+</UL>
+
+<P><STRONG><a name="[243a72c]"></a>CH376FileOpenPath</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243a768]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileOpenDir
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a6b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileErase
+</UL>
+
+<P><STRONG><a name="[243a6f0]"></a>CH376FileCreatePath</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = CH376FileCreatePath &rArr; CH376FileOpenDir &rArr; CH376FileOpen &rArr; CH376SetFileName &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a768]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileOpenDir
+<LI><a href="#[243a7a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SeparatePath
+<LI><a href="#[243a81c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileCreate
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[243a6b4]"></a>CH376FileErase</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243a72c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileOpenPath
+<LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+</UL>
+
+<P><STRONG><a name="[243a678]"></a>CH376FileClose</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = CH376FileClose &rArr; CH376SendCmdDatWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a948]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdDatWaitInt
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[243a63c]"></a>CH376DirInfoRead</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243a948]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdDatWaitInt
+</UL>
+
+<P><STRONG><a name="[243a600]"></a>CH376DirInfoSave</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+</UL>
+
+<P><STRONG><a name="[243a5c4]"></a>CH376ByteLocate</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+<LI><a href="#[243aaec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait376Interrupt
+</UL>
+
+<P><STRONG><a name="[243a588]"></a>CH376ByteRead</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+<LI><a href="#[243aaec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait376Interrupt
+<LI><a href="#[243ad08]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadBlock
+</UL>
+
+<P><STRONG><a name="[243a54c]"></a>CH376ByteWrite</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = CH376ByteWrite &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+<LI><a href="#[243aaec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait376Interrupt
+<LI><a href="#[243accc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteReqBlock
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[243a510]"></a>CH376DiskCapacity</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+<LI><a href="#[243abdc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376Read32bitDat
+</UL>
+
+<P><STRONG><a name="[243a4d4]"></a>CH376DiskQuery</STRONG> (Thumb, 134 bytes, Stack size 32 bytes, file_sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = CH376DiskQuery &rArr; CH376SendCmdWaitInt &rArr; Wait376Interrupt &rArr; CH376GetIntStatus &rArr; xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+<LI><a href="#[243aa38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar8
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+<LI><a href="#[243ab64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar8
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[243a498]"></a>CH376SecLocate</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, file_sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+<LI><a href="#[243aaec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait376Interrupt
+</UL>
+
+<P><STRONG><a name="[2439c64]"></a>SPIx_Init</STRONG> (Thumb, 208 bytes, Stack size 0 bytes, spi_init.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[2439c28]"></a>SPI1_ReadWriteByte</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, spi_init.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2439b74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Spi376OutByte
+<LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+</UL>
+
+<P><STRONG><a name="[2439bec]"></a>mDelayuS</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, spi_init.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2439afc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mInitCH376Host
+<LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+<LI><a href="#[243a420]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mDelaymS
+</UL>
+
+<P><STRONG><a name="[243a420]"></a>mDelaymS</STRONG> (Thumb, 42 bytes, Stack size 4 bytes, spi_init.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = mDelaymS
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2439bec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mDelayuS
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2439afc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mInitCH376Host
+<LI><a href="#[243a90c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskReqSense
+</UL>
+
+<P><STRONG><a name="[2439bb0]"></a>CH376_PORT_INIT</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, spi_init.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2439afc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mInitCH376Host
+</UL>
+
+<P><STRONG><a name="[243a3e4]"></a>xEndCH376Cmd</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, spi_init.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2439afc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mInitCH376Host
+<LI><a href="#[243a498]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SecLocate
+<LI><a href="#[243a4d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskQuery
+<LI><a href="#[243a54c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteWrite
+<LI><a href="#[243a588]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteRead
+<LI><a href="#[243a5c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteLocate
+<LI><a href="#[243a948]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdDatWaitInt
+<LI><a href="#[243aa38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar8
+<LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+<LI><a href="#[243ab28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376GetIntStatus
+<LI><a href="#[243ab64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar8
+<LI><a href="#[243abdc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376Read32bitDat
+<LI><a href="#[243ac18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar32
+<LI><a href="#[243ac54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteOfsBlock
+<LI><a href="#[243ac90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteHostBlock
+<LI><a href="#[243accc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteReqBlock
+<LI><a href="#[243ad08]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadBlock
+</UL>
+
+<P><STRONG><a name="[2439b74]"></a>Spi376OutByte</STRONG> (Thumb, 12 bytes, Stack size 4 bytes, spi_init.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2439c28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_ReadWriteByte
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+</UL>
+
+<P><STRONG><a name="[2439b38]"></a>Spi376InByte</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, spi_init.o(.text), UNUSED)
+
+<P><STRONG><a name="[243a36c]"></a>xWriteCH376Cmd</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, spi_init.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = xWriteCH376Cmd &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2439b74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Spi376OutByte
+<LI><a href="#[2439bec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mDelayuS
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2439afc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mInitCH376Host
+<LI><a href="#[243a498]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SecLocate
+<LI><a href="#[243a4d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskQuery
+<LI><a href="#[243a510]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskCapacity
+<LI><a href="#[243a54c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteWrite
+<LI><a href="#[243a588]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteRead
+<LI><a href="#[243a5c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteLocate
+<LI><a href="#[243a948]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdDatWaitInt
+<LI><a href="#[243aa38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar8
+<LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+<LI><a href="#[243aab0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdWaitInt
+<LI><a href="#[243ab28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376GetIntStatus
+<LI><a href="#[243ab64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar8
+<LI><a href="#[243aba0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar32
+<LI><a href="#[243ac18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar32
+<LI><a href="#[243ac54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteOfsBlock
+<LI><a href="#[243ac90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteHostBlock
+<LI><a href="#[243accc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteReqBlock
+<LI><a href="#[243ad08]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadBlock
+</UL>
+
+<P><STRONG><a name="[243a330]"></a>xWriteCH376Data</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, spi_init.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = xWriteCH376Data &rArr; Spi376OutByte
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2439b74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Spi376OutByte
+<LI><a href="#[2439bec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mDelayuS
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2439afc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mInitCH376Host
+<LI><a href="#[243a498]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SecLocate
+<LI><a href="#[243a54c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteWrite
+<LI><a href="#[243a588]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteRead
+<LI><a href="#[243a5c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteLocate
+<LI><a href="#[243a948]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SendCmdDatWaitInt
+<LI><a href="#[243aa38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar8
+<LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+<LI><a href="#[243ab64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar8
+<LI><a href="#[243aba0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar32
+<LI><a href="#[243ac18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteVar32
+<LI><a href="#[243ac54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteOfsBlock
+<LI><a href="#[243ac90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteHostBlock
+<LI><a href="#[243accc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteReqBlock
+</UL>
+
+<P><STRONG><a name="[243a3a8]"></a>xReadCH376Data</STRONG> (Thumb, 20 bytes, Stack size 4 bytes, spi_init.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = xReadCH376Data
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2439bec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mDelayuS
+<LI><a href="#[2439c28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_ReadWriteByte
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2439afc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mInitCH376Host
+<LI><a href="#[243a4d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskQuery
+<LI><a href="#[243a510]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskCapacity
+<LI><a href="#[243aa74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376SetFileName
+<LI><a href="#[243ab28]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376GetIntStatus
+<LI><a href="#[243ab64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadVar8
+<LI><a href="#[243abdc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376Read32bitDat
+<LI><a href="#[243accc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376WriteReqBlock
+<LI><a href="#[243ad08]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadBlock
+</UL>
+
+<P><STRONG><a name="[243a45c]"></a>Query376Interrupt</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, spi_init.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[243a8d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskConnect
+<LI><a href="#[243aaec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait376Interrupt
+</UL>
+
+<P><STRONG><a name="[2439afc]"></a>mInitCH376Host</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, spi_init.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 144 + Unknown Stack Size
+<LI>Call Chain = mInitCH376Host &rArr; __2printf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[243748c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[2439bb0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376_PORT_INIT
+<LI><a href="#[2439bec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mDelayuS
+<LI><a href="#[243a330]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Data
+<LI><a href="#[243a36c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xWriteCH376Cmd
+<LI><a href="#[243a3a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xReadCH376Data
+<LI><a href="#[243a3e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xEndCH376Cmd
+<LI><a href="#[243a420]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mDelaymS
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[24394e4]"></a>delay_init</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, delay.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[24394a8]"></a>delay_ms</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, delay.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[243946c]"></a>delay_us</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, delay.o(.text), UNUSED)
+
+<P><STRONG><a name="[2438f80]"></a>MY_NVIC_SetVectorTable</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sys.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2438e90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MYRCC_DeInit
+</UL>
+
+<P><STRONG><a name="[2438f44]"></a>MY_NVIC_PriorityGroupConfig</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, sys.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2438f08]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_NVIC_Init
+</UL>
+
+<P><STRONG><a name="[2438f08]"></a>MY_NVIC_Init</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = MY_NVIC_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2438f44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_NVIC_PriorityGroupConfig
+</UL>
+<BR>[Called By]<UL><LI><a href="#[24385a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+</UL>
+
+<P><STRONG><a name="[2438ecc]"></a>Ex_NVIC_Config</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, sys.o(.text), UNUSED)
+
+<P><STRONG><a name="[2438e90]"></a>MYRCC_DeInit</STRONG> (Thumb, 90 bytes, Stack size 4 bytes, sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = MYRCC_DeInit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2438f80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_NVIC_SetVectorTable
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2438da0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stm32_Clock_Init
+</UL>
+
+<P><STRONG><a name="[2438e54]"></a>Sys_Standby</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, sys.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[2438fbc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WFI_SET
+</UL>
+
+<P><STRONG><a name="[2438e18]"></a>Sys_Soft_Reset</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sys.o(.text), UNUSED)
+
+<P><STRONG><a name="[2438ddc]"></a>JTAG_Set</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, sys.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[2438da0]"></a>Stm32_Clock_Init</STRONG> (Thumb, 130 bytes, Stack size 12 bytes, sys.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Stm32_Clock_Init &rArr; MYRCC_DeInit
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2438e90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MYRCC_DeInit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[243865c]"></a>_sys_exit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, usart.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[242fbd8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
+</UL>
+
+<P><STRONG><a name="[2438620]"></a>fputc</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, usart.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> noretval__2printf.o(.text)
+</UL>
+<P><STRONG><a name="[24385e4]"></a>USART1_IRQHandler</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, usart.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> stm32f10x.o(RESET)
+</UL>
+<P><STRONG><a name="[24385a8]"></a>uart_init</STRONG> (Thumb, 226 bytes, Stack size 40 bytes, usart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = uart_init &rArr; MY_NVIC_Init
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2434048]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[2434174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
+<LI><a href="#[24344bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[2434714]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[2434ad4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
+<LI><a href="#[2438f08]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_NVIC_Init
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[2437bd0]"></a>main</STRONG> (Thumb, 358 bytes, Stack size 80 bytes, main_ch376.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
+<LI>Call Chain = main &rArr; mInitCH376Host &rArr; __2printf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[24351dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[24352cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
+<LI><a href="#[243748c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[24385a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[2438da0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stm32_Clock_Init
+<LI><a href="#[2438ddc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;JTAG_Set
+<LI><a href="#[24394a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
+<LI><a href="#[24394e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_init
+<LI><a href="#[2439afc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mInitCH376Host
+<LI><a href="#[2439c64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIx_Init
+<LI><a href="#[243a4d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskQuery
+<LI><a href="#[243a54c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ByteWrite
+<LI><a href="#[243a678]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileClose
+<LI><a href="#[243a6f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376FileCreatePath
+<LI><a href="#[243a894]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskMount
+<LI><a href="#[243a8d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376DiskConnect
+<LI><a href="#[243a984]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376GetDiskStatus
+<LI><a href="#[243ad08]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CH376ReadBlock
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2432ba8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
+</UL>
+
+<P><STRONG><a name="[2437798]"></a>__use_no_semihosting</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi_2.o(.text), UNUSED)
+
+<P><STRONG><a name="[243748c]"></a>__2printf</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, noretval__2printf.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 136 + Unknown Stack Size
+<LI>Call Chain = __2printf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2433a6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[2439afc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mInitCH376Host
+</UL>
+
+<P><STRONG><a name="[24372ac]"></a>_printf_pre_padding</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, _printf_pad.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _printf_pre_padding
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2433b98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
+<LI><a href="#[2437180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
+</UL>
+
+<P><STRONG><a name="[2437270]"></a>_printf_post_padding</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, _printf_pad.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _printf_post_padding
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2433b98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
+<LI><a href="#[2437180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
+</UL>
+
+<P><STRONG><a name="[2437180]"></a>_printf_str</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, _printf_str.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = _printf_str &rArr; _printf_post_padding
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2437270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<LI><a href="#[24372ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2433940]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_cs_common
+</UL>
+
+<P><STRONG><a name="[2437018]"></a>_printf_int_dec</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, _printf_dec.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = _printf_int_dec &rArr; _printf_int_common &rArr; _printf_post_padding
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2433490]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_udiv10
+<LI><a href="#[2433b98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
+</UL>
+<BR>[Called By]<UL><LI><a href="#[24354ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_d
+</UL>
+
+<P><STRONG><a name="[2436b68]"></a>_printf_int_hex</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, _printf_hex_int.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = _printf_int_hex &rArr; _printf_int_common &rArr; _printf_post_padding
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2433b98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_common
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243559c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_x
+</UL>
+
+<P><STRONG><a name="[2436b2c]"></a>_printf_longlong_hex</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, _printf_hex_int.o(.text), UNUSED)
+
+<P><STRONG><a name="[2435740]"></a>__printf</STRONG> (Thumb, 410 bytes, Stack size 40 bytes, __printf_flags_ss_wp.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
+<LI>Call Chain = __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[24353f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_percent
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2433a6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
+</UL>
+
+<P><STRONG><a name="[24352cc]"></a>strcpy</STRONG> (Thumb, 74 bytes, Stack size 12 bytes, strcpy.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strcpy
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[24351dc]"></a>strlen</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, strlen.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strlen
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2437bd0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[24350ec]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[24350b0]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[2435074]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+
+<P><STRONG><a name="[2433ee0]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[2433ea4]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+
+<P><STRONG><a name="[2433b98]"></a>_printf_int_common</STRONG> (Thumb, 174 bytes, Stack size 32 bytes, _printf_intcommon.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = _printf_int_common &rArr; _printf_post_padding
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2437270]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<LI><a href="#[24372ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2436b68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_hex
+<LI><a href="#[2437018]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_dec
+</UL>
+
+<P><STRONG><a name="[2433a6c]"></a>_printf_char_common</STRONG> (Thumb, 34 bytes, Stack size 72 bytes, _printf_char_common.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112 + Unknown Stack Size
+<LI>Call Chain = _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2435740]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243748c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+</UL>
+
+<P><STRONG><a name="[2433940]"></a>_printf_cs_common</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, _printf_char.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _printf_cs_common &rArr; _printf_str &rArr; _printf_post_padding
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2437180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_str
+</UL>
+<BR>[Called By]<UL><LI><a href="#[24338c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_string
+<LI><a href="#[2433904]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char
+</UL>
+
+<P><STRONG><a name="[2433904]"></a>_printf_char</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, _printf_char.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[2433940]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_cs_common
+</UL>
+
+<P><STRONG><a name="[24338c8]"></a>_printf_string</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, _printf_char.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _printf_string &rArr; _printf_cs_common &rArr; _printf_str &rArr; _printf_post_padding
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2433940]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_cs_common
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243568c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_s
+</UL>
+
+<P><STRONG><a name="[2433490]"></a>__rt_udiv10</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, rtudiv10.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2437018]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_dec
+</UL>
+
+<P><STRONG><a name="[2432644]"></a>__user_setup_stackheap</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
+<LI>Call Chain = __user_setup_stackheap
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2431960]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_perproc_libspace
+<LI><a href="#[243c748]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_initial_stackheap
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243298c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_sh
+</UL>
+
+<P><STRONG><a name="[24324dc]"></a>exit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[2431870]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2432ba8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
+</UL>
+
+<P><STRONG><a name="[243199c]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+
+<P><STRONG><a name="[2431960]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2432644]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
+</UL>
+
+<P><STRONG><a name="[2431924]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+
+<P><STRONG><a name="[2434b88]"></a>__aeabi_fadd</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
+
+<P><STRONG><a name="[2434b4c]"></a>_fadd</STRONG> (Thumb, 248 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[24333a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN2
+<LI><a href="#[2434bc4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub1
+</UL>
+
+<P><STRONG><a name="[2434b10]"></a>__fpl_inf_fadd</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
+
+<P><STRONG><a name="[24333a0]"></a>__fpl_fcheck_NaN2</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fcheck.o(x$fpl$fcheck), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[2432770]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+</UL>
+<BR>[Called By]<UL><LI><a href="#[243400c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fmul
+<LI><a href="#[24346d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fdiv
+<LI><a href="#[2434a20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub
+<LI><a href="#[2434b4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
+</UL>
+
+<P><STRONG><a name="[2433274]"></a>__fpl_fcheck_NaN1</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fcheck1.o(x$fpl$fcheck1), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[2432770]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2434480]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffixu
+</UL>
+
+<P><STRONG><a name="[2434714]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, fdiv.o(x$fpl$fdiv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_fdiv
+</UL>
+<BR>[Called By]<UL><LI><a href="#[24385a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+</UL>
+
+<P><STRONG><a name="[24346d8]"></a>_fdiv</STRONG> (Thumb, 476 bytes, Stack size 4 bytes, fdiv.o(x$fpl$fdiv), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[24333a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN2
+</UL>
+
+<P><STRONG><a name="[243469c]"></a>__fpl_inf_fdiv</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fdiv.o(x$fpl$fdiv), UNUSED)
+
+<P><STRONG><a name="[24344bc]"></a>__aeabi_f2uiz</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, ffixu.o(x$fpl$ffixu))
+<BR><BR>[Called By]<UL><LI><a href="#[24385a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+</UL>
+
+<P><STRONG><a name="[2434480]"></a>_ffixu</STRONG> (Thumb, 82 bytes, Stack size 0 bytes, ffixu.o(x$fpl$ffixu), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[2433274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN1
+</UL>
+
+<P><STRONG><a name="[2434444]"></a>__fpl_inf_ffixu</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, ffixu.o(x$fpl$ffixu), UNUSED)
+
+<P><STRONG><a name="[2434228]"></a>__aeabi_i2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt), UNUSED)
+
+<P><STRONG><a name="[24341ec]"></a>_fflt</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt), UNUSED)
+
+<P><STRONG><a name="[24341b0]"></a>__fflt_normalise</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fflt_clz.o(x$fpl$fflt), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[2434138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ffltu
+</UL>
+
+<P><STRONG><a name="[2434174]"></a>__aeabi_ui2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu))
+<BR><BR>[Called By]<UL><LI><a href="#[24385a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+</UL>
+
+<P><STRONG><a name="[2434138]"></a>_ffltu</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[24341b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fflt_normalise
+</UL>
+
+<P><STRONG><a name="[2434048]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fmul.o(x$fpl$fmul))
+<BR><BR>[Called By]<UL><LI><a href="#[24385a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+</UL>
+
+<P><STRONG><a name="[243400c]"></a>_fmul</STRONG> (Thumb, 258 bytes, Stack size 0 bytes, fmul.o(x$fpl$fmul), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[24333a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN2
+</UL>
+
+<P><STRONG><a name="[2433fd0]"></a>__fpl_inf_fmul</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, fmul.o(x$fpl$fmul), UNUSED)
+
+<P><STRONG><a name="[2433184]"></a>__fpl_normalise2</STRONG> (Thumb, 74 bytes, Stack size 4 bytes, fnorm2_clz.o(x$fpl$fnorm2), UNUSED)
+
+<P><STRONG><a name="[2434ad4]"></a>__aeabi_frsub</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$frsb))
+<BR><BR>[Called By]<UL><LI><a href="#[24385a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+</UL>
+
+<P><STRONG><a name="[2434a98]"></a>_frsb</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$frsb), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[2434bc4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub1
+<LI><a href="#[2434c00]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd1
+</UL>
+
+<P><STRONG><a name="[2434a5c]"></a>__aeabi_fsub</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
+
+<P><STRONG><a name="[2434a20]"></a>_fsub</STRONG> (Thumb, 282 bytes, Stack size 0 bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[24333a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN2
+<LI><a href="#[2434c00]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd1
+</UL>
+
+<P><STRONG><a name="[24349e4]"></a>__fpl_inf_fsub</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
+
+<P><STRONG><a name="[2433094]"></a>__funder</STRONG> (Thumb, 132 bytes, Stack size 0 bytes, funder.o(x$fpl$funder), UNUSED)
+
+<P><STRONG><a name="[2433058]"></a>__funder_d</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, funder.o(x$fpl$funder), UNUSED)
+
+<P><STRONG><a name="[2432770]"></a>__fpl_return_NaN</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, retnan.o(x$fpl$retnan), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[2431b40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_cmpreturn
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2433274]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN1
+<LI><a href="#[24333a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN2
+</UL>
+
+<P><STRONG><a name="[2431b40]"></a>__fpl_cmpreturn</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, trapv.o(x$fpl$trapveneer), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[2432770]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
+</UL>
+
+<P><STRONG><a name="[2432fa4]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, usenofp.o(x$fpl$usenofp), UNUSED)
+<P>
+<H3>
+Local Symbols
+</H3>
+<P><STRONG><a name="[2434c00]"></a>_fadd1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[2434a20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fsub
+<LI><a href="#[2434a98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frsb
+</UL>
+
+<P><STRONG><a name="[2434bc4]"></a>_fsub1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, faddsub_clz.o(x$fpl$fsub), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[2434a98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frsb
+<LI><a href="#[2434b4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fadd
+</UL>
+
+<P><STRONG><a name="[2433aa8]"></a>_printf_input_char</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, _printf_char_common.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> _printf_char_common.o(.text)
+</UL><P>
+<H3>
+Undefined Global Symbols
+</H3><HR></body></html>

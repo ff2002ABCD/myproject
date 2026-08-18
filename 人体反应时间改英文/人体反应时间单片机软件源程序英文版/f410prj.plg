@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+K:\dec\WRF\WORK14\mcuapp03\f410prj.uv2
+Project File Date:  08/28/2010
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+DISPLCD.H(20): warning C258: 'p': mspace on parameter ignored
+compiling DISPLCD.c...
+DISPLCD.H(20): warning C258: 'p': mspace on parameter ignored
+DISPLCD.C(270): warning C258: 'p': mspace on parameter ignored
+compiling MATHFUN.c...
+compiling f410init.c...
+compiling SPI.c...
+compiling MENU.C...
+DISPLCD.H(20): warning C258: 'p': mspace on parameter ignored
+compiling KEY.c...
+DISPLCD.H(20): warning C258: 'p': mspace on parameter ignored
+compiling rsp.c...
+DISPLCD.H(20): warning C258: 'p': mspace on parameter ignored
+compiling ttl.c...
+DISPLCD.H(20): warning C258: 'p': mspace on parameter ignored
+compiling WELCOME.c...
+DISPLCD.H(20): warning C258: 'p': mspace on parameter ignored
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_INTLINEAR?MATHFUN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VFLT1?MATHFUN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_VFLT3?MATHFUN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SPITRANS?SPI
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SPIBUSY?SPI
+Program Size: data=38.2 xdata=330 code=9083
+creating hex file from "f410prj"...
+"f410prj" - 0 Error(s), 13 Warning(s).

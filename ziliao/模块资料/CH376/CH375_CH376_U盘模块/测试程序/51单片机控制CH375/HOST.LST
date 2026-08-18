@@ -1,0 +1,280 @@
+C51 COMPILER V9.54   HOST                                                                  02/25/2025 13:27:23 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE HOST
+OBJECT MODULE PLACED IN HOST.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE HOST.C LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG TABS(2)
+
+line level    source
+
+   1          /* 2004.06.05
+   2          ****************************************
+   3          **  Copyright  (C)  W.ch  1999-2004   **
+   4          **  Web:  http://www.winchiphead.com  **
+   5          ****************************************
+   6          **  USB Host File Interface for CH375 **
+   7          **  TC2.0@PC, KC7.0@MCS51             **
+   8          ****************************************
+   9          */
+  10          /* CH375 жВ╩Знд╪Чо╣мЁ╫с©з */
+  11          /* ж╖Ёж: FAT12/FAT16/FAT32 */
+  12          
+  13          /* MCS-51╣╔ф╛╩ЗCсОят╣дUелнд╪Ч╤ап╢й╬юЩЁлпР, ййсцсз89C52╩Руъ╦Э╢СЁлпР©у╪Д╣д╣╔ф╛╩З,р╡ййсцсзATMEL/PHILIPS/SST╣х
+             -╬ъсп1KBдз╡©RAM╣д╣╔ф╛╩З */
+  14          /* ╦цЁлпР╫╚Uелжп╣д/C51/CH375HFT.Cнд╪Чжп╣дг╟200╦Жвж╥Шотй╬ЁЖю╢,
+  15             хГ╧Шур╡╩╣╫т╜нд╪ЧCH375HFT.C, дгц╢╦цЁлпР╫╚отй╬C51всд©б╪обкЫспртCH375©╙м╥╣днд╪ЧцШ,
+  16             хГ╧Шур╡╩╣╫C51всд©б╪, дгц╢╦цЁлпР╫╚отй╬╦Ыд©б╪об╣дкЫспнд╪ЧцШ,
+  17             вН╨С╫╚ЁлпРROMжп╣др╩╦Жвж╥Ш╢╝п╢хКп╢хКпб╫╗╣днд╪Ч"NEWFILE.TXT"жп
+  18          */
+  19          /* CH375╣дINT#рЩ╫е╡исц╡Ия╞╥╫й╫╢╕юМ, йЩ╬щ╦╢жф╥╫й╫н╙"╣╔DPTR╦╢жф",╪ФхщптвН╨ц╣╚йгкы╤хвНбЩ,
+  20             ╠╬юЩж╩й╧сц512вж╫з╣дмБ╡©RAM, м╛й╠вВн╙╢еелйЩ╬щ╩╨ЁЕгЬ╨мнд╪ЧйЩ╬щ╩╨ЁЕгЬ, ящй╬ц╩спмБ╡©RAM╣╚йг╣╔ф╛╩З╣ддзжцRAM╢
+             -Ссз768вж╫з╣дс╕сц */
+  21          
+  22          /* ╠╬юЩртвж╫зн╙╣╔н╩╤ап╢Uелнд╪Ч,╤ап╢кы╤х╫оихгЬдёй╫бЩ,╣╚йгсисзвж╫здёй╫╤ап╢нд╪Ч╡╩пХр╙нд╪ЧйЩ╬щ╩╨ЁЕгЬFILE_DATA_
+             -BUF,
+  23             кЫртвэ╧╡ж╩пХр╙600вж╫з╣дRAM,ййсцсз╣╔ф╛╩Зс╡╪Чвйт╢споч║╒йЩ╬ща©п║╡╒гр╤ап╢кы╤хр╙гС╡╩╦ъ╣до╣мЁ */
+  24          
+  25          /*#define   NO_DEFAULT_CH375_INT    1*/ /* тзс╕сцЁлпРжп╤╗рЕNO_DEFAULT_CH375_INT©ирт╫Шж╧д╛хо╣джп╤о╢╕юМЁлпР,х╩╨
+             -Ссцвтпп╠Юп╢╣дЁлпР╢ЗлФкЭ */
+  26          /*#define   CH375HF_NO_CODE   1*/
+  27          #include "CH375.H"
+  28          
+  29          #ifdef  NO_DEFAULT_CH375_INT      /* втпп╠Юп╢жп╤о╢╕юМЁлпР,╪сиоакЁ╛й╠╢╕юМ,╡╒гртз╣х╢Щжп╤о╣д╧ЩЁлжп©иртвЖфДкЭйб */
+              void xQueryInterrupt( void )      /* ╡Ия╞CH375жп╤о╡╒╦Эпбжп╤ов╢л╛,╦цЁлпР╩Ы╠╬©Р╪э©ирт╡н©╪CH375HF?.Hнд╪Ч */
+              {
+                UINT16  i;
+                for ( i = 65535; i != 0; i -- ) {  /* уЩЁёгИ©Жоб╦ц╧ЩЁлн╙╪╦╨ацК╣╫╪╦й╝╨ацК,е╪╤Шр╡╩А╢О╣╫╪╦╟ы╨ацК */
+                  if ( CH375_INT_WIRE == 0 ) break;  /* хГ╧ШCH375╣джп╤орЩ╫ейДЁЖ╣м╣Гф╫тРк╣цВCH375╡ывВмЙЁи */
+              /*    if ( ( CH375_CMD_PORT & 0x80 ) == 0 ) break;  ╤тсзCH375Bп╬ф╛,р╡╡Ия╞CH375B╣дцЭаН╤к©з╣дн╩7н╙0к╣цВжп╤орЩ╫
+             -ейДЁЖ╣м╣Гф╫ */
+                }
+                if ( i == 0 )
+                CH375_CMD_PORT = CMD_GET_STATUS;  /* ╩Ях║╣╠г╟жп╤ов╢л╛ */
+                mDelay2uS( );  /* ╡ывВнчрБрЕ,сцсзжаиыясй╠2uS,©иртсц╤Ю╦ЖNOP©у╡ывВж╦аНй╣ож */
+                CH375IntStatus = CH375_DAT_PORT;  /* ╩Ях║жп╤ов╢л╛ */
+                if ( CH375IntStatus == USB_INT_DISCONNECT ) CH375DiskStatus = DISK_DISCONNECT;  /* ╪Л╡Б╣╫USBиХ╠╦╤о©╙йб╪Ч 
+             -*/
+                else if ( CH375IntStatus == USB_INT_CONNECT ) CH375DiskStatus = DISK_CONNECT;  /* ╪Л╡Б╣╫USBиХ╠╦а╛╫сйб╪Ч *
+             -/
+              }
+              #endif
+  45          
+  46          /* рт╨ацКн╙╣╔н╩ясй╠,╡╩╬╚х╥,ййсцсз24MHzй╠жс */
+  47          void  mDelaymS( UINT8 delay )
+  48          {
+C51 COMPILER V9.54   HOST                                                                  02/25/2025 13:27:23 PAGE 2   
+
+  49   1        unsigned char i, j, c;
+  50   1        for ( i = delay; i != 0; i -- ) {
+  51   2          for ( j = 200; j != 0; j -- ) c += 3;  /* тз24MHzй╠жсобясй╠500uS */
+  52   2          for ( j = 200; j != 0; j -- ) c += 3;  /* тз24MHzй╠жсобясй╠500uS */
+  53   2        }
+  54   1      }
+  55          
+  56          /* ╫╚ЁлпР©у╪Д╣двж╥Ш╢╝╦╢жф╣╫дз╡©RAMжп,╥╣╩ьвж╥Ш╢╝Ё╓╤х */
+  57          UINT8 mCopyCodeStringToIRAM( UINT8 idata *iDestination, UINT8 code *iSource )
+  58          {
+  59   1        UINT8 i = 0;
+  60   1        while ( *iDestination = *iSource ) {
+  61   2          iDestination ++;
+  62   2          iSource ++;
+  63   2          i ++;
+  64   2        }
+  65   1        return( i );
+  66   1      }
+  67          
+  68          /* ╪Л╡И╡ывВв╢л╛,хГ╧Ш╢МнСтРотй╬╢МнС╢ЗбК╡╒мё╩З */
+  69          void  mStopIfError( UINT8 iError )
+  70          {
+  71   1        if ( iError == ERR_SUCCESS ) return;  /* ╡ывВЁи╧╕ */
+  72   1        printf( "Error: %02X\n", (UINT16)iError );  /* отй╬╢МнС */
+  73   1        while ( 1 ) {
+  74   2          LED_UDISK_IN( );  /* LEDиак╦ */
+  75   2          mDelaymS( 100 );
+  76   2          LED_UDISK_OUT( );
+  77   2          mDelaymS( 100 );
+  78   2        }
+  79   1      }
+  80          
+  81          void host( ) {
+  82   1        UINT8 i, c, TotalCount;
+  83   1        UINT8 code *pCodeStr;
+  84   1        UINT16  EnumCount;
+  85   1      
+  86   1      #if DISK_BASE_BUF_LEN == 0
+                pDISK_BASE_BUF = &my_buffer[0];  /* ╡╩тз.Hнд╪Чжп╤╗рЕCH375╣дв╗сц╩╨ЁЕгЬ,╤Ьйгсц╩╨ЁЕгЬж╦уКж╦оРфДкЭс╕сцЁлпР╣д╩
+             -╨ЁЕгЬ╠Цсз╨осцрт╫зт╪RAM */
+              #endif
+  89   1      
+  90   1        i = CH375LibInit( );  /* ЁУй╪╩╞CH375ЁлпР©Б╨мCH375п╬ф╛,╡ывВЁи╧╕╥╣╩ь0 */
+  91   1        mStopIfError( i );
+  92   1        while ( 1 ) {
+  93   2          printf( "Insert USB disk\n" );
+  94   2          while ( CH375DiskStatus < DISK_CONNECT ) {  /* ╣х╢ЩUел╡ЕхК */
+  95   3          
+  96   3      /*      if ( CH375_INT_WIRE == 0 ) xQueryInterrupt( );*/  /* хГ╧ШCH375жп╤о,дгц╢╡Ия╞CH375жп╤о╡╒╦Эпбжп╤ов╢л╛,©и
+             -рт╦дЁижп╤о╥╫й╫ */
+  97   3            mDelaymS( 100 );  /* ц╩╠ьр╙ф╣╥╠╡Ия╞ */
+  98   3            if ( CH375DiskConnect( ) == ERR_SUCCESS ) break;  /* ╡Ия╞╥╫й╫: ╪Л╡И╢еелйг╥Яа╛╫с,╥╣╩ьЁи╧╕к╣цВа╛╫с */
+  99   3          }
+ 100   2          LED_UDISK_IN( );  /* LEDаа */
+ 101   2          mDelaymS( 250 );  /* ясй╠,©ия║╡ывВ,сп╣дUSB╢Ф╢╒фВпХр╙╪╦й╝╨ацК╣дясй╠ */
+ 102   2      
+ 103   2      /* ╪Л╡ИUелйг╥Яв╪╠╦╨ц,╣╚йгдЁп╘Uел╠ьпКр╙ж╢ппуБр╩╡╫╡едэ╧╓вВ */
+ 104   2          for ( i = 0; i < 5; i ++ ) {  /* сп╣дUелвэйг╥╣╩ьн╢в╪╠╦╨ц,╡╩╧Щ©ирт╠╩╨Жбт */
+ 105   3            mDelaymS( 100 );
+ 106   3            printf( "Ready ?\n" );
+ 107   3      //      if ( CH375DiskReady( ) == ERR_SUCCESS ) break;  /* ╡Ия╞╢еелйг╥Яв╪╠╦╨ц,╡╩ж╖ЁжCH375S,╫зт╪╢ЗбК©у╪Д */
+ 108   3            if ( CH375sDiskReady( ) == ERR_SUCCESS ) break;  /* ╡Ия╞╢еелйг╥Яв╪╠╦╨ц,ж╖ЁжCH375S╨мCH375A,╣╚у╪сц╦Э╤Ю╣д╢
+C51 COMPILER V9.54   HOST                                                                  02/25/2025 13:27:23 PAGE 3   
+
+             -ЗбК©у╪Д */
+ 109   3          }
+ 110   2      
+ 111   2      #if DISK_BASE_BUF_LEN
+ 112   2          if ( DISK_BASE_BUF_LEN < CH375vSectorSize ) {  /* ╪Л╡И╢еелйЩ╬щ╩╨ЁЕгЬйг╥ЯвЦ╧╩╢С,CH375vSectorSizeйгUел╣дй╣
+             -╪йихгЬ╢Сп║ */
+ 113   3            printf( "Too large sector size\n" );
+ 114   3            while ( CH375DiskConnect( ) == ERR_SUCCESS ) mDelaymS( 100 );
+ 115   3            continue;
+ 116   3          }
+ 117   2      #endif
+ 118   2      /* ╤ах║т╜нд╪Ч */
+ 119   2          printf( "Open\n" );
+ 120   2          mCopyCodeStringToIRAM( mCmdParam.Open.mPathName, "/LCSOFT.TXT" );  /* нд╪ЧцШ,╦цнд╪ЧтзC51всд©б╪об */
+ 121   2          i = CH375FileOpen( );  /* ╢Р©╙нд╪Ч */
+ 122   2          if ( i == ERR_MISS_DIR || i == ERR_MISS_FILE ) {  /* ц╩спур╣╫C51всд©б╪,ц╩спур╣╫CH375HFT.Cнд╪Ч */
+ 123   3      /* апЁЖнд╪Ч */
+ 124   3            if ( i == ERR_MISS_DIR ) pCodeStr = "/*";  /* C51всд©б╪╡╩╢ФтзтРапЁЖ╦Ыд©б╪об╣дкЫспнд╪Ч */
+ 125   3            else pCodeStr = "/LC*";  /* CH375HFT.Cнд╪Ч╡╩╢ФтзтРапЁЖ\C51всд©б╪об╣дртCH375©╙м╥╣днд╪Ч */
+ 126   3            printf( "List file %s\n", pCodeStr );
+ 127   3            for ( EnumCount = 0; EnumCount < 10000; EnumCount ++ ) {  /* вН╤ЮкякВг╟10000╦Жнд╪Ч,й╣╪йиоц╩спочжф */
+ 128   4              i = mCopyCodeStringToIRAM( mCmdParam.Open.mPathName, pCodeStr );  /* кякВнд╪ЧцШ,*н╙м╗еД╥Ш,ййсцсзкЫспнд
+             -╪Ч╩Руъвсд©б╪ */
+ 129   4              mCmdParam.Open.mPathName[ i ] = 0xFF;  /* ╦Ы╬щвж╥Ш╢╝Ё╓╤х╫╚╫АйЬ╥ШлФ╩╩н╙кякВ╣дпР╨е,╢с0╣╫254,хГ╧Шйг0xFF╪╢
+             -255тРк╣цВкякВпР╨етзCH375vFileSize╠Да©жп */
+ 130   4              CH375vFileSize = EnumCount;  /* ж╦╤╗кякВ/ц╤╬ы╣дпР╨е */
+ 131   4              i = CH375FileOpen( );  /* ╢Р©╙нд╪Ч,хГ╧Шнд╪ЧцШжп╨╛спм╗еД╥Ш*,тРн╙кякВнд╪Ч╤Ь╡╩╢Р©╙ */
+ 132   4      /* CH375FileEnum сК CH375FileOpen ╣дн╗р╩гЬ╠Пйг╣╠╨Суъ╥╣╩ьERR_FOUND_NAMEй╠дгц╢╤тс╕сзг╟уъ╥╣╩ьERR_SUCCESS */
+ 133   4              if ( i == ERR_MISS_FILE ) break;  /* тыр╡кякВ╡╩╣╫ф╔еД╣днд╪Ч,ря╬╜ц╩спф╔еД╣днд╪ЧцШ */
+ 134   4              if ( i == ERR_FOUND_NAME ) {  /* кякВ╣╫сКм╗еД╥ШоЮф╔еД╣днд╪ЧцШ,нд╪ЧцШ╪╟фДмЙуШб╥╬╤тзцЭаН╩╨ЁЕгЬжп */
+ 135   5                printf( "  match file %04d#: %s\n", (unsigned int)EnumCount, mCmdParam.Open.mPathName );  /* отй╬пР╨е
+             -╨мкякВ╣╫╣дф╔еДнд╪ЧцШ╩Руъвсд©б╪цШ */
+ 136   5                continue;  /* ╪лпЬкякВобр╩╦Жф╔еД╣днд╪ЧцШ,об╢нкякВй╠пР╨е╩А╪с1 */
+ 137   5              }
+ 138   4              else {  /* ЁЖ╢М */
+ 139   5                mStopIfError( i );
+ 140   5                break;
+ 141   5              }
+ 142   4            }
+ 143   3          }
+ 144   2          else {  /* ур╣╫нд╪Ч╩РуъЁЖ╢М */
+ 145   3            mStopIfError( i );
+ 146   3            TotalCount = CH375vFileSize;  /* в╪╠╦╤ах║вэЁ╓╤х */
+ 147   3            printf( "╢снд╪Чжп╤аЁЖ╣дг╟%d╦Жвж╥Шйг:\n",(UINT16)TotalCount );
+ 148   3            while ( TotalCount ) {  /* хГ╧Шнд╪Ч╠х╫о╢С,р╩╢н╤а╡╩мЙ,©иртты╣ВсцCH375ByteRead╪лпЬ╤ах║,нд╪Чж╦уКвт╤╞оР╨Срф
+             -╤╞ */
+ 149   4              if ( TotalCount > MAX_BYTE_IO ) c = MAX_BYTE_IO;  /* йёсЮйЩ╬щ╫о╤Ю,очжф╣╔╢н╤ап╢╣дЁ╓╤х╡╩дэЁ╛╧Щ sizeof( m
+             -CmdParam.ByteRead.mByteBuffer ) */
+ 150   4              else c = TotalCount;  /* вН╨СйёсЮ╣двж╫зйЩ */
+ 151   4              mCmdParam.ByteRead.mByteCount = c;  /* гКгС╤аЁЖ╪╦й╝вж╫зйЩ╬щ */
+ 152   4              i = CH375ByteRead( );  /* ртвж╫зн╙╣╔н╩╤ах║йЩ╬щ©И,╣╔╢н╤ап╢╣дЁ╓╤х╡╩дэЁ╛╧ЩMAX_BYTE_IO,╣з╤Ч╢н╣Всцй╠╫све╦у╡
+             -е╣доР╨С╤а */
+ 153   4              mStopIfError( i );
+ 154   4              TotalCount -= mCmdParam.ByteRead.mByteCount;  /* ╪фйЩ,╪Ух╔╣╠г╟й╣╪йря╬╜╤аЁЖ╣двж╥ШйЩ */
+ 155   4              for ( i=0; i!=mCmdParam.ByteRead.mByteCount; i++ ) printf( "%C", mCmdParam.ByteRead.mByteBuffer[i] ); 
+             - /* отй╬╤аЁЖ╣двж╥Ш */
+ 156   4              if ( mCmdParam.ByteRead.mByteCount < c ) {  /* й╣╪й╤аЁЖ╣двж╥ШйЩиысзр╙гС╤аЁЖ╣двж╥ШйЩ,к╣цВря╬╜╣╫нд╪Ч╣д╫А
+             -н╡ */
+ 157   5                printf( "\n" );
+ 158   5                printf( "нд╪Чря╬╜╫АйЬ\n" );
+ 159   5                break;
+ 160   5              }
+C51 COMPILER V9.54   HOST                                                                  02/25/2025 13:27:23 PAGE 4   
+
+ 161   4            }
+ 162   3      /*      хГ╧ШоёмШ╢сж╦╤╗н╩жц©╙й╪╤ап╢,©иртрф╤╞нд╪Чж╦уК
+ 163   3          mCmdParam.ByteLocate.mByteOffset = 608;  лЬ╧Щнд╪Ч╣дг╟608╦Жвж╫з©╙й╪╤ап╢
+ 164   3          CH375ByteLocate( );
+ 165   3          mCmdParam.ByteRead.mByteCount = 5;  ╤ах║5╦Жвж╫з
+ 166   3          CH375ByteRead( );   ж╠╫с╤ах║нд╪Ч╣д╣з608╦Жвж╫з╣╫612╦Жвж╫зйЩ╬щ,г╟608╦Жвж╫з╠╩лЬ╧Щ
+ 167   3      
+ 168   3            хГ╧ШоёмШ╫╚пбйЩ╬щлМ╪с╣╫т╜нд╪Ч╣дн╡╡©,©иртрф╤╞нд╪Чж╦уК
+ 169   3          CH375FileOpen( );
+ 170   3          mCmdParam.ByteLocate.mByteOffset = 0xffffffff;  рф╣╫нд╪Ч╣дн╡╡©
+ 171   3          CH375ByteLocate( );
+ 172   3          mCmdParam.ByteWrite.mByteCount = 13;  п╢хК13╦Жвж╫з╣дйЩ╬щ
+ 173   3          CH375ByteWrite( );   тзт╜нд╪Ч╣д╨СцФлМ╪сйЩ╬щ,пб╪с╣д13╦Жвж╫з╫свет╜нд╪Ч╣дн╡╡©╥ежц
+ 174   3          mCmdParam.ByteWrite.mByteCount = 2;  п╢хК2╦Жвж╫з╣дйЩ╬щ
+ 175   3          CH375ByteWrite( );   ╪лпЬтзт╜нд╪Ч╣д╨СцФлМ╪сйЩ╬щ
+ 176   3          mCmdParam.ByteWrite.mByteCount = 0;  п╢хК0╦Жвж╫з╣дйЩ╬щ,й╣╪йио╦ц╡ывВсцсзм╗ж╙ЁлпР©Б╦Эпбнд╪ЧЁ╓╤х
+ 177   3          CH375ByteWrite( );   п╢хК0вж╫з╣дйЩ╬щ,сцсзвт╤╞╦Эпбнд╪Ч╣дЁ╓╤х,кЫртнд╪ЧЁ╓╤хтЖ╪с15,хГ╧Ш╡╩уБяЫвЖ,дгц╢ж╢ппCH37
+             -5FileCloseй╠р╡╩Авт╤╞╦Эпбнд╪ЧЁ╓╤х
+ 178   3      */
+ 179   3            printf( "Close\n" );
+ 180   3            i = CH375FileClose( );  /* ╧ь╠унд╪Ч */
+ 181   3            mStopIfError( i );
+ 182   3          }
+ 183   2      
+ 184   2      #ifdef EN_DISK_WRITE  /* всЁлпР©Бж╖Ёжп╢╡ывВ */
+ 185   2      /* ╡ЗиЗпбнд╪Ч(╦╡╦гт╜нд╪ЧйЩ╬щ),╧ьсзоРт╜спнд╪ЧжплМ╪сйЩ╬щ╣дюЩвсгК╡н©╪EXAM7╨мEXAM8 */
+ 186   2          LED_WR_NOW( );  /* п╢╡ывВ */
+ 187   2          printf( "Create\n" );
+ 188   2          mCopyCodeStringToIRAM( mCmdParam.Create.mPathName, "/LCSOFT.TXT" );  /* пбнд╪ЧцШ,тз╦Ыд©б╪об,жпнднд╪ЧцШ *
+             -/
+ 189   2          i = CH375FileCreate( );  /* пб╫╗нд╪Ч╡╒╢Р©╙,хГ╧Шнд╪Чря╬╜╢ФтзтРохи╬ЁЩ╨Стыпб╫╗ */
+ 190   2          mStopIfError( i );
+ 191   2          printf( "Write\n" );
+ 192   2          pCodeStr = "\xd\xa$LC╧╓вВйр$\xd\xa^O^╩╤с╜дЦ^O^\xd\xa";
+ 193   2          while( 1 ) {  /* ╥ж╤Ю╢нп╢хКнд╪ЧйЩ╬щ */
+ 194   3            for ( i=0; i<MAX_BYTE_IO; i++ ) {
+ 195   4              c = *pCodeStr;
+ 196   4              mCmdParam.ByteWrite.mByteBuffer[i] = c;
+ 197   4              if ( c == 0 ) break;  /* т╢вж╥Ш╢╝╫АйЬ */
+ 198   4              pCodeStr++;
+ 199   4            }
+ 200   3            if ( i == 0 ) break;  /* т╢вж╥Ш╢╝╫АйЬ,мЙЁип╢нд╪Ч */
+ 201   3            mCmdParam.ByteWrite.mByteCount = i;  /* п╢хКйЩ╬щ╣двж╥ШйЩ,╣╔╢н╤ап╢╣дЁ╓╤х╡╩дэЁ╛╧ЩMAX_BYTE_IO,╣з╤Ч╢н╣Всцй╠
+             -╫све╦у╡е╣доР╨Сп╢ */
+ 202   3            i = CH375ByteWrite( );  /* оРнд╪Чп╢хКйЩ╬щ */
+ 203   3            mStopIfError( i );
+ 204   3          }
+ 205   2          printf( "Close\n" );
+ 206   2          mCmdParam.Close.mUpdateLen = 1;  /* вт╤╞╪фкЦнд╪ЧЁ╓╤х,ртвж╫зн╙╣╔н╩п╢нд╪Ч,╫╗рИхцЁлпР©Б╧ь╠унд╪Чрт╠Цвт╤╞╦Эпб
+             -нд╪ЧЁ╓╤х */
+ 207   2          i = CH375FileClose( );
+ 208   2          mStopIfError( i );
+ 209   2          LED_NOT_WR( );
+ 210   2      #endif
+ 211   2      
+ 212   2          printf( "Take out USB disk\n" );
+ 213   2      //    while ( CH375DiskStatus != DISK_DISCONNECT ) xQueryInterrupt( );  /* ╡Ия╞CH375жп╤о╡╒╦Эпбжп╤ов╢л╛,╣х╢ЩU
+             -ел╟нЁЖ */
+ 214   2          while ( CH375DiskStatus >= DISK_CONNECT ) {  /* ╡Ия╞CH375жп╤о╡╒╦Эпбжп╤ов╢л╛,╣х╢ЩUел╟нЁЖ */
+ 215   3            if ( CH375DiskConnect( ) != ERR_SUCCESS ) break;
+ 216   3            mDelaymS( 100 );
+ 217   3          }
+C51 COMPILER V9.54   HOST                                                                  02/25/2025 13:27:23 PAGE 5   
+
+ 218   2          LED_UDISK_OUT( );  /* LEDцП */
+ 219   2          mDelaymS( 100 );
+ 220   2        }
+ 221   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    886    ----
+   CONSTANT SIZE    =    244    ----
+   XDATA SIZE       =   ----       8
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =     30    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

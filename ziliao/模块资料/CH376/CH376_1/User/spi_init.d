@@ -1,0 +1,13 @@
+spi_init.o: ..\CH376\SPI_Init.C
+spi_init.o: ..\CH376\SPI_Init.h
+spi_init.o: ..\CH376\CH376INC.H
+spi_init.o: ..\SYSTEM\sys.h
+spi_init.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_lib.h
+spi_init.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_map.h
+spi_init.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_conf.h
+spi_init.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h
+spi_init.o: C:\Keil\ARM\INC\ST\STM32F10x\cortexm3_macro.h
+spi_init.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_nvic.h
+spi_init.o: ..\SYSTEM\delay.h
+spi_init.o: ..\SYSTEM\usart.h
+spi_init.o: C:\Keil\ARM\RV31\INC\stdio.h

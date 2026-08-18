@@ -1,0 +1,768 @@
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE RSP
+OBJECT MODULE PLACED IN rsp.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE rsp.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\project) DEBUG OBJECTEXTE
+                    -ND TABS(2)
+
+line level    source
+
+   1          #include "RSP.H"
+*** WARNING C258 IN LINE 20 OF DISPLCD.h: 'p': mspace on parameter ignored
+   2          #include <stdlib.h>
+   3          
+   4          #define RSPIODN 10  //delay 10ms
+   5          
+   6          void rspCarProc();
+   7          void rspBikeProc();
+   8          void rspMP3Proc();
+   9          void rspMinMaxDelayProc();
+  10          void rspCarSt();
+  11          void rspBikeSt();
+  12          void rspMP3St();
+  13          void rsptime();     //1ms
+  14          void rsptimeSt();
+  15          void rsptimeEnd();    //put rsptime to rspDTime
+  16          void rspCarAga();   //test Again
+  17          void rspBikeAga();    //test Again
+  18          void rspMP3Aga();   //test Again
+  19          void rspMinMaxDelayAga();//max delay
+  20          void rspDisp();
+  21          void rspDelaySt();    //start Delay 10,000+(rand()>>3)mSec,from 10S to 18S
+  22          void rspDelay();    //1ms
+  23          void rspEnd();
+  24          void rspIO();     //1ms
+  25          void rspSpeakerSt();  
+  26          void rspSpeaker();    //1ms
+  27          void rspMinMaxDelaySt();
+  28          void rspMinDelayPlus();
+  29          void rspMinDelayMinus();
+  30          void rspMaxDelayPlus();
+  31          void rspMaxDelayMinus();
+  32          
+  33          
+  34          unsigned char rspMD,rspMD2; //MD:mode 1~3
+  35          unsigned int rsptimeT;  //test times
+  36          unsigned char rspErr; //Error Times
+  37          unsigned char rspIOT;
+  38          unsigned char rspDispMD;
+  39          unsigned long int rspDelayT,rspMaxDelayT=18,rspMinDelayT=10;//delay time
+  40          bit rspFW,rspBK,rspHB;
+  41          bit rspCarEn,rspBikeEn,rspMP3En,rspMinMaxDelayEn;
+  42          bit rspEn,rspDelayEn,rsptimeEn;
+  43          unsigned int rspSpeakerI;
+  44          
+  45          void rspSt()  //
+  46          {
+  47   1        rspEn=1;
+  48   1        rspSpeakerI=0;
+  49   1      
+  50   1        ttlRst();
+  51   1      }
+  52          
+  53          void rspRst() //  
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 2   
+
+  54          {
+  55   1        PFW=1;
+  56   1        PBK=1;
+  57   1        PHB=1;
+  58   1        PRD=1;
+  59   1        PGN=1;
+  60   1        PSK=1;
+  61   1      
+  62   1        srand(56);
+  63   1      
+  64   1        rspEn=0;    
+  65   1        rspDelayEn=0;
+  66   1        rsptimeEn=0;
+  67   1        rspIOT=RSPIODN;
+  68   1      }
+  69          
+  70          void rspEnd()
+  71          {
+  72   1        PFW=1;
+  73   1        PBK=1;
+  74   1        PHB=1;
+  75   1        PRD=1;
+  76   1        PGN=1;
+  77   1        PSK=1;
+  78   1      
+  79   1        rspEn=0;
+  80   1        rspCarEn=0;
+  81   1        rspBikeEn=0;
+  82   1        rspMP3En=0;   
+  83   1        rspDelayEn=0;
+  84   1        rsptimeEn=0;
+  85   1        rspIOT=RSPIODN;
+  86   1      
+  87   1        menuSt();
+  88   1      }
+  89          
+  90          void rspProc()
+  91          {
+  92   1        if(rspEn)
+  93   1        {
+  94   2          switch(rspMD)
+  95   2          {
+  96   3          case 1:
+  97   3            rspCarProc();
+  98   3            break;
+  99   3          case 2:
+ 100   3            rspBikeProc();
+ 101   3            break;
+ 102   3          case 3:
+ 103   3            rspMP3Proc(); 
+ 104   3            break;
+ 105   3          case 4:
+ 106   3            rspMinMaxDelayProc();
+ 107   3              
+ 108   3            break;
+ 109   3          }
+ 110   2          
+ 111   2          rsptime();
+ 112   2          rspDelay();
+ 113   2          rspIO();
+ 114   2          rspSpeaker();
+ 115   2        } 
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 3   
+
+ 116   1      }
+ 117          
+ 118          void rspCarProc()
+ 119          {
+ 120   1        if(rspCarEn)
+ 121   1        {
+ 122   2          switch (rspMD2)
+ 123   2          {
+ 124   3          case 2:
+ 125   3            if(!rspFW)
+ 126   3            {
+ 127   4              rspMD2=3;
+ 128   4              rspDelaySt();
+ 129   4      
+ 130   4              rspDispMD=3;
+ 131   4              dispFDProc=rspDisp;
+ 132   4              dispFD();
+ 133   4            }
+ 134   3            break;
+ 135   3          case 3:
+ 136   3            if(!rspDelayEn)
+ 137   3            {
+ 138   4              rsptimeSt();
+ 139   4              rspMD2=4;
+ 140   4      
+ 141   4              PGN=1;
+ 142   4              PRD=0;
+ 143   4            }     
+ 144   3            else
+ 145   3            {
+ 146   4              if(rspFW)
+ 147   4              {
+ 148   5                ttlErr++;
+ 149   5                rspMD2=0;
+ 150   5                rspDispMD=4;
+ 151   5                dispFDProc=rspDisp;
+ 152   5                dispFD();
+ 153   5                keyUpSv=ttlSt;
+ 154   5                keyDownSv=ttlRst;
+ 155   5                keyEntSv=rspCarAga;
+ 156   5      
+ 157   5                PGN=1;
+ 158   5              }
+ 159   4            }
+ 160   3            break;
+ 161   3          case 4:
+ 162   3            if(rsptimeT>RSPTOUTN)
+ 163   3            {
+ 164   4              rsptimeEnd();
+ 165   4              rspDispMD=6;
+ 166   4              dispFDProc=rspDisp;
+ 167   4              dispFD();
+ 168   4              rspMD2=0;
+ 169   4              keyUpSv=ttlSt;
+ 170   4              keyDownSv=ttlRst;
+ 171   4              keyEntSv=rspCarAga;
+ 172   4      
+ 173   4              PRD=1;
+ 174   4            }
+ 175   3            else
+ 176   3            {
+ 177   4              if(!rspBK)
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 4   
+
+ 178   4              {
+ 179   5                rsptimeEnd();
+ 180   5                rspDispMD=5;
+ 181   5                dispFDProc=rspDisp;
+ 182   5                dispFD();
+ 183   5                rspMD2=0;
+ 184   5                keyUpSv=ttlSt;
+ 185   5                keyDownSv=ttlRst;
+ 186   5                keyEntSv=rspCarAga;
+ 187   5                ttlPush(rsptimeT);
+ 188   5                PRD=1;
+ 189   5              }
+ 190   4      
+ 191   4            }
+ 192   3            break;
+ 193   3          }
+ 194   2        }
+ 195   1      }
+ 196          
+ 197          void rspCarSt()
+ 198          {
+ 199   1        rspDispMD=1;
+ 200   1        rspMD=1;
+ 201   1        rspMD2=0;
+ 202   1        dispSvProc=rspDisp;
+ 203   1        dispFDProc=rspDisp;
+ 204   1        dispFD();
+ 205   1      
+ 206   1        rspCarEn=1;
+ 207   1      
+ 208   1        keyUpSv=ttlSt;
+ 209   1        keyDownSv=ttlRst;
+ 210   1        keyEntSv=rspCarAga;
+ 211   1        keyFunSv=rspEnd;
+ 212   1      
+ 213   1        rspSt();
+ 214   1      }
+ 215          
+ 216          void rspReturn()
+ 217          {
+ 218   1        rspDispMD=1;
+ 219   1        dispSvProc=rspDisp;
+ 220   1      
+ 221   1        keyUpSv=ttlSt;
+ 222   1        keyDownSv=ttlRst;
+ 223   1        if(rspCarEn)
+ 224   1        {
+ 225   2          keyEntSv=rspCarAga;
+ 226   2        }
+ 227   1        else if(rspBikeEn)
+ 228   1        {
+ 229   2          keyEntSv=rspBikeAga;
+ 230   2        }
+ 231   1        else if(rspMP3En)
+ 232   1        {
+ 233   2          keyEntSv=rspMP3Aga;
+ 234   2        }
+ 235   1        keyFunSv=rspEnd;
+ 236   1      }
+ 237          
+ 238          void rsptime()
+ 239          {
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 5   
+
+ 240   1        if(rsptimeEn)
+ 241   1        {
+ 242   2          rsptimeT++;
+ 243   2        }
+ 244   1      }
+ 245          
+ 246          void rsptimeSt()
+ 247          {
+ 248   1        rsptimeT=0;
+ 249   1        rsptimeEn=1;
+ 250   1      }
+ 251          
+ 252          void rsptimeEnd()
+ 253          {
+ 254   1        rsptimeEn=0;
+ 255   1      }
+ 256          
+ 257          void rspCarAga()
+ 258          {
+ 259   1        keyUpSv=keySvNull;
+ 260   1        keyDownSv=keySvNull;
+ 261   1        keyEntSv=keySvNull;
+ 262   1        rspMD2=2;
+ 263   1      
+ 264   1        rspDispMD=2;
+ 265   1        dispFDProc=rspDisp;
+ 266   1        dispFD();
+ 267   1      
+ 268   1        PGN=0;
+ 269   1      }
+ 270          
+ 271          void rspIO()
+ 272          {
+ 273   1        if(PFW ^ rspFW)
+ 274   1        {
+ 275   2          rspIOT--;
+ 276   2          if(!rspIOT)
+ 277   2          {
+ 278   3            rspIOT=RSPIODN;
+ 279   3            rspFW=PFW;
+ 280   3          }
+ 281   2        }
+ 282   1        else if(PBK ^ rspBK)  
+ 283   1        {
+ 284   2          rspIOT--;
+ 285   2          if(!rspIOT)
+ 286   2          {
+ 287   3            rspIOT=RSPIODN;
+ 288   3            rspBK=PBK;
+ 289   3          }
+ 290   2        }
+ 291   1        else if(PHB ^ rspHB)  
+ 292   1        {
+ 293   2          rspIOT--;
+ 294   2          if(!rspIOT)
+ 295   2          {
+ 296   3            rspIOT=RSPIODN;
+ 297   3            rspHB=PHB;
+ 298   3          }
+ 299   2        }
+ 300   1        else
+ 301   1        {
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 6   
+
+ 302   2          rspIOT=RSPIODN;
+ 303   2        }
+ 304   1      }
+ 305          
+ 306          //void rspDelaySt()
+ 307          //{
+ 308          //  rspDelayT=(rand()>>3)+10000;
+ 309          //  rspDelayEn=1;
+ 310          //}
+ 311          
+ 312          void rspDelaySt()
+ 313          {
+ 314   1        if(rspMaxDelayT==rspMinDelayT) rspDelayT=1000UL*rspMinDelayT;
+ 315   1        else rspDelayT=1000UL*(rand()%(rspMaxDelayT-rspMinDelayT))+1000UL*rspMinDelayT;
+ 316   1        rspDelayEn=1;
+ 317   1      }
+ 318          
+ 319          
+ 320          void rspDelay()
+ 321          {
+ 322   1        if(rspDelayEn)
+ 323   1        {
+ 324   2          rspDelayT--;
+ 325   2          if(!rspDelayT)
+ 326   2          {
+ 327   3            rspDelayEn=0;
+ 328   3          }
+ 329   2        }
+ 330   1      }
+ 331          
+ 332          unsigned char code rspDispData[8][4][16]={
+ 333          { "                ",
+ 334            "   Press Set    ",
+ 335            "   to start     ",
+ 336            "                ",},
+ 337          { "  Please step   ",
+ 338            "    on the      ",
+ 339            "  accelerator   ",
+ 340            "                ",},
+ 341          { "  Please brake  ",
+ 342            "  immediately   ",
+ 343            "  when the red  ",
+ 344            "  light is on   ",},
+ 345          { " You're offside ",
+ 346            "                ",
+ 347            "     Press Set  ",
+ 348            "     to restart ",},
+ 349          { "Translation     ",
+ 350            "time:         ms",
+ 351            "     Press Set  ",
+ 352            "     to restart ",},
+ 353          { "    Time out    ",
+ 354            "                ",
+ 355            "     Press Set  ",
+ 356            "     to restart ",},
+ 357          { "  Please brake  ",
+ 358            "  immediately   ",
+ 359            " After hearing  ",
+ 360            "   the horn     ",},
+ 361          { "Minimum delay:  ",
+ 362            "                ",
+ 363            "Maximum delay:  ",
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 7   
+
+ 364            "                ",},
+ 365          };
+ 366          
+ 367          void rspDisp()
+ 368          {
+ 369   1        dispCopy(rspDispData[rspDispMD-1]);
+ 370   1        switch (rspDispMD)
+ 371   1        {
+ 372   2        case 5:
+ 373   2          int2char(dispData[1],rsptimeT,0,14);
+ 374   2          break;
+ 375   2        case 8:
+ 376   2          if(rspMinDelayT<60)
+ 377   2          {
+ 378   3            int2char(dispData[1],rspMinDelayT,0,14);
+ 379   3            dispData[1][15]='s';
+ 380   3          }
+ 381   2          else
+ 382   2          {
+ 383   3            int2char(dispData[1],rspMinDelayT%60,0,14);
+ 384   3            dispData[1][15]='s';
+ 385   3            int2char(dispData[1],rspMinDelayT/60,0,9);
+ 386   3            dispData[1][10]='m';
+ 387   3          }
+ 388   2          if(rspMaxDelayT<60)
+ 389   2          {
+ 390   3            int2char(dispData[3],rspMaxDelayT,0,14);
+ 391   3            dispData[3][15]='s';
+ 392   3          }
+ 393   2          else
+ 394   2          {
+ 395   3            int2char(dispData[3],rspMaxDelayT%60,0,14);
+ 396   3            dispData[3][15]='s';
+ 397   3            int2char(dispData[3],rspMaxDelayT/60,0,9);
+ 398   3            dispData[3][10]='m';
+ 399   3          }
+ 400   2          break;
+ 401   2          
+ 402   2        }
+ 403   1        dispRefreshSt();
+ 404   1        if(rspMD2==5)
+ 405   1        {
+ 406   2            dispSelSt(2);
+ 407   2        }
+ 408   1        else if(rspMD2==6) dispSelSt(4);
+ 409   1      }
+ 410          
+ 411          
+ 412          void rspBikeProc()
+ 413          {
+ 414   1        if(rspBikeEn)
+ 415   1        {
+ 416   2          switch (rspMD2)
+ 417   2          {
+ 418   3          case 3:
+ 419   3            if(!rspDelayEn)
+ 420   3            {
+ 421   4              rsptimeSt();
+ 422   4              rspMD2=4;
+ 423   4      
+ 424   4              PGN=1;
+ 425   4              PRD=0;
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 8   
+
+ 426   4            }     
+ 427   3            else
+ 428   3            {
+ 429   4              if(!rspHB)
+ 430   4              {
+ 431   5                ttlErr++;
+ 432   5                rspMD2=0;
+ 433   5                rspDispMD=4;
+ 434   5                dispFDProc=rspDisp;
+ 435   5                dispFD();
+ 436   5                keyUpSv=ttlSt;
+ 437   5                keyDownSv=ttlRst;
+ 438   5                keyEntSv=rspBikeAga;
+ 439   5      
+ 440   5                PGN=1;
+ 441   5              }
+ 442   4            }
+ 443   3            break;
+ 444   3          case 4:
+ 445   3            if(rsptimeT>RSPTOUTN)
+ 446   3            {
+ 447   4              rsptimeEnd();
+ 448   4              rspDispMD=6;
+ 449   4              dispFDProc=rspDisp;
+ 450   4              dispFD();
+ 451   4              rspMD2=0;
+ 452   4              keyUpSv=ttlSt;
+ 453   4              keyDownSv=ttlRst;
+ 454   4              keyEntSv=rspBikeAga;
+ 455   4      
+ 456   4              PRD=1;
+ 457   4            }
+ 458   3            else
+ 459   3            {
+ 460   4              if(!rspHB)
+ 461   4              {
+ 462   5                rsptimeEnd();
+ 463   5                rspDispMD=5;
+ 464   5                dispFDProc=rspDisp;
+ 465   5                dispFD();
+ 466   5                rspMD2=0;
+ 467   5                keyUpSv=ttlSt;
+ 468   5                keyDownSv=ttlRst;
+ 469   5                keyEntSv=rspBikeAga;
+ 470   5                ttlPush(rsptimeT);
+ 471   5                PRD=1;
+ 472   5              }
+ 473   4            }
+ 474   3            break;
+ 475   3          }
+ 476   2        }
+ 477   1      }
+ 478          
+ 479          void rspBikeSt()
+ 480          {
+ 481   1        rspDispMD=1;
+ 482   1        rspMD=2;
+ 483   1        rspMD2=0;
+ 484   1        dispSvProc=rspDisp;
+ 485   1        dispFDProc=rspDisp;
+ 486   1        dispFD();
+ 487   1      
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 9   
+
+ 488   1        rspBikeEn=1;
+ 489   1      
+ 490   1        keyUpSv=ttlSt;
+ 491   1        keyDownSv=ttlRst;
+ 492   1        keyEntSv=rspBikeAga;
+ 493   1        keyFunSv=rspEnd;
+ 494   1      
+ 495   1        rspSt();
+ 496   1      }
+ 497          
+ 498          void rspBikeAga()
+ 499          {
+ 500   1        keyUpSv=keySvNull;
+ 501   1        keyDownSv=keySvNull;
+ 502   1        keyEntSv=keySvNull;
+ 503   1        rspMD2=3;
+ 504   1        rspDelaySt();
+ 505   1      
+ 506   1        rspDispMD=3;
+ 507   1        dispFDProc=rspDisp;
+ 508   1        dispFD();
+ 509   1      
+ 510   1        PGN=0;
+ 511   1      }
+ 512          
+ 513          void rspMP3Proc()
+ 514          {
+ 515   1        if(rspMP3En)
+ 516   1        {
+ 517   2          switch (rspMD2)
+ 518   2          {
+ 519   3          case 3:
+ 520   3            if(!rspDelayEn)
+ 521   3            {
+ 522   4              rsptimeSt();
+ 523   4              rspMD2=4;
+ 524   4      
+ 525   4              //PGN=1;
+ 526   4              //PSK=0;
+ 527   4              rspSpeakerSt();
+ 528   4            }     
+ 529   3            else
+ 530   3            {
+ 531   4              if(!rspHB)
+ 532   4              {
+ 533   5                ttlErr++;
+ 534   5                rspMD2=0;
+ 535   5                rspDispMD=4;
+ 536   5                dispFDProc=rspDisp;
+ 537   5                dispFD();
+ 538   5                keyUpSv=ttlSt;
+ 539   5                keyDownSv=ttlRst;
+ 540   5                keyEntSv=rspMP3Aga;
+ 541   5                //PGN=1;
+ 542   5              }
+ 543   4            }
+ 544   3            break;
+ 545   3          case 4:
+ 546   3            if(rsptimeT>RSPTOUTN)
+ 547   3            {
+ 548   4              rsptimeEnd();
+ 549   4              rspDispMD=6;
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 10  
+
+ 550   4              dispFDProc=rspDisp;
+ 551   4              dispFD();
+ 552   4              rspMD2=0;
+ 553   4              keyUpSv=ttlSt;
+ 554   4              keyDownSv=ttlRst;
+ 555   4              keyEntSv=rspMP3Aga;
+ 556   4      
+ 557   4              PSK=1;
+ 558   4            }
+ 559   3            else
+ 560   3            {
+ 561   4              if(!rspHB)
+ 562   4              {
+ 563   5                rsptimeEnd();
+ 564   5                rspDispMD=5;
+ 565   5                dispFDProc=rspDisp;
+ 566   5                dispFD();
+ 567   5                rspMD2=0;
+ 568   5                keyUpSv=ttlSt;
+ 569   5                keyDownSv=ttlRst;
+ 570   5                keyEntSv=rspMP3Aga;
+ 571   5                  ttlPush(rsptimeT);
+ 572   5      
+ 573   5                PSK=1;
+ 574   5              }
+ 575   4            }
+ 576   3            break;
+ 577   3          }
+ 578   2        }
+ 579   1      }
+ 580          
+ 581          void rspMP3St()
+ 582          {
+ 583   1        rspDispMD=1;
+ 584   1        rspMD=3;
+ 585   1        rspMD2=0;
+ 586   1        dispSvProc=rspDisp;
+ 587   1        dispFDProc=rspDisp;
+ 588   1        dispFD();
+ 589   1      
+ 590   1        rspMP3En=1;
+ 591   1      
+ 592   1        keyUpSv=ttlSt;
+ 593   1        keyDownSv=ttlRst;
+ 594   1        keyEntSv=rspMP3Aga;
+ 595   1        keyFunSv=rspEnd;
+ 596   1      
+ 597   1        rspSt();
+ 598   1      }
+ 599          
+ 600          void rspMP3Aga()
+ 601          {
+ 602   1        keyUpSv=keySvNull;
+ 603   1        keyDownSv=keySvNull;
+ 604   1        keyEntSv=keySvNull;
+ 605   1        rspMD2=3;
+ 606   1        rspDelaySt();
+ 607   1      
+ 608   1        rspDispMD=7;
+ 609   1        dispFDProc=rspDisp;
+ 610   1        dispFD();
+ 611   1      
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 11  
+
+ 612   1        //PGN=0;
+ 613   1      }
+ 614          
+ 615          void rspSpeakerSt()
+ 616          {
+ 617   1        rspSpeakerI=RSPSPEAKERT;
+ 618   1      }
+ 619            
+ 620          void rspSpeaker()
+ 621          {
+ 622   1        if(rspSpeakerI)
+ 623   1        {
+ 624   2          rspSpeakerI--;
+ 625   2          PSK=0;
+ 626   2        }
+ 627   1        else
+ 628   1        {
+ 629   2          PSK=1;
+ 630   2        }
+ 631   1      }
+ 632          
+ 633          
+ 634          
+ 635          
+ 636          //最小延时
+ 637          void rspMinMaxDelaySt()
+ 638          {
+ 639   1        rspDispMD=8;
+ 640   1        rspMD=4;
+ 641   1        dispSvProc=rspDisp;
+ 642   1        dispFDProc=rspDisp;
+ 643   1        dispFD();
+ 644   1        
+ 645   1        rspMinMaxDelayEn=1;
+ 646   1      
+ 647   1        keyUpSv=rspMinDelayPlus;
+ 648   1        keyDownSv=rspMinDelayMinus;
+ 649   1        keyEntSv=rspMinMaxDelayAga;
+ 650   1        keyFunSv=rspEnd;
+ 651   1        rspMD2=5;
+ 652   1        rspSt();
+ 653   1        dispSelSt(2);
+ 654   1        
+ 655   1      }
+ 656          
+ 657          
+ 658          //最大延时
+ 659          void rspMinMaxDelayAga()
+ 660          {
+ 661   1        keyUpSv=rspMaxDelayPlus;
+ 662   1        keyDownSv=rspMaxDelayMinus;
+ 663   1        keyEntSv=rspMinMaxDelaySt;
+ 664   1        rspDispMD=8;
+ 665   1        rspMD2=6;
+ 666   1        dispFDProc=rspDisp;
+ 667   1        dispFD();
+ 668   1        dispSelSt(4);
+ 669   1        //PGN=0;
+ 670   1      }
+ 671          
+ 672          void rspMinMaxDelayProc()
+ 673          {
+C51 COMPILER V9.54   RSP                                                                   05/12/2026 08:39:43 PAGE 12  
+
+ 674   1        if(rspMinMaxDelayEn)
+ 675   1        {
+ 676   2          switch (rspMD2)
+ 677   2          {
+ 678   3      //      case 5:
+ 679   3      //        dispSelSt(2);
+ 680   3      //        break;
+ 681   3      //      case 6:
+ 682   3      //        dispSelSt(4);
+ 683   3      //        break;
+ 684   3          }
+ 685   2        }
+ 686   1      }
+ 687          
+ 688          void rspMinDelayPlus()
+ 689          {
+ 690   1        if(rspMinDelayT<rspMaxDelayT) rspMinDelayT++;
+ 691   1        else if(rspMinDelayT<3599)
+ 692   1        {
+ 693   2          rspMinDelayT++;
+ 694   2          rspMaxDelayT++;
+ 695   2        }
+ 696   1        dispFD();
+ 697   1      }
+ 698          
+ 699          void rspMinDelayMinus()
+ 700          {
+ 701   1        if(rspMinDelayT>1) rspMinDelayT--;
+ 702   1        dispFD();
+ 703   1      }
+ 704          
+ 705          void rspMaxDelayPlus()
+ 706          {
+ 707   1        if(rspMaxDelayT<3599) rspMaxDelayT++;
+ 708   1        dispFD();
+ 709   1      }
+ 710          
+ 711          void rspMaxDelayMinus()
+ 712          {
+ 713   1        if(rspMaxDelayT>rspMinDelayT) rspMaxDelayT--;
+ 714   1        else if(rspMinDelayT>1)
+ 715   1        {
+ 716   2          rspMaxDelayT--;
+ 717   2          rspMinDelayT--;
+ 718   2        }
+ 719   1        dispFD();
+ 720   1      }
+ 721          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   3208    ----
+   CONSTANT SIZE    =    512    ----
+   XDATA SIZE       =     21    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =     10    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

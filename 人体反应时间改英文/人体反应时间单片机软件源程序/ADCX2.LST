@@ -1,0 +1,87 @@
+C51 COMPILER V8.08   ADCX2                                                                 07/30/2010 15:57:04 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE ADCX2
+OBJECT MODULE PLACED IN ADCX2.OBJ
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE ADCX2.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          //启动双路AD,启动时间1~2S,稳态时间32S
+   2          
+   3          #include "ADCX2.h"
+   4          
+   5          unsigned int data adcx2Rs[4];
+   6          
+   7          bit adcx2En;
+   8          unsigned char adcx2Cnl;
+   9          
+  10          
+  11          void adcx2Rst()
+  12          {
+  13   1              unsigned char i;
+  14   1              adcxRst();
+  15   1              adcx2En=0;
+  16   1              for(i=0;i<4;i++)
+  17   1              {
+  18   2                      adcx2Rs[i]=0;
+  19   2              }
+  20   1              adcx2Cnl=0;
+  21   1      }
+  22          
+  23          void adcx2St()
+  24          {
+  25   1              adcx2En=1;
+  26   1      }
+  27          
+  28          void adcx2End()
+  29          {
+  30   1              adcx2En=0;
+  31   1      }
+  32          
+  33          void adcx2()
+  34          {
+  35   1              unsigned char i;
+  36   1              if(adcx2En)
+  37   1              {
+  38   2                      if(!ADCXBUSY)
+  39   2                      {
+  40   3                              adcxCopy(adcx2Rs+adcx2Cnl);
+  41   3                              switch (adcx2Cnl)
+  42   3                              {
+  43   4                              case 0:
+  44   4                                      adcx2Cnl++;
+  45   4                                      break;
+  46   4                              case 1:
+  47   4                                      adcx2Cnl++;
+  48   4                                      break;
+  49   4                              case 2:
+  50   4                                      adcx2Cnl++;
+  51   4                                      break;
+  52   4                              case 3:
+  53   4                                      adcx2Cnl=0;
+  54   4                                      break;
+  55   4                              default:
+C51 COMPILER V8.08   ADCX2                                                                 07/30/2010 15:57:04 PAGE 2   
+
+  56   4                                      adcx2Cnl=0;
+  57   4                              }
+  58   3                              adcxSt(adcx2Cnl);
+  59   3                      }
+  60   2              }
+  61   1      }
+*** WARNING C280 IN LINE 35 OF ADCX2.C: 'i': unreferenced local variable
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     92    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      1       1
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

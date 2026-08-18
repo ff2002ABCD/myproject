@@ -1,0 +1,1150 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        07/28/2008  09:35:47  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE CH375.obj, DEVICE.obj, HOST.obj, .\CH375HF4.LIB TO ch375
+
+
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED:
+  CH375.obj (CH375)
+  DEVICE.obj (DEVICE)
+  HOST.obj (HOST)
+  .\CH375HF4.LIB (CH375MAI)
+  .\CH375HF4.LIB (CH375BYT)
+  .\CH375HF4.LIB (CH375SRD)
+  C:\KEIL\C51\LIB\C51L.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?CLDPTR)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?CSTPTR)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?IILDX)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?ULCMP)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?ULSHR)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?LSHL)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?LLDIDATA)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?LLDIDATA0)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?LSTIDATA)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?LSTXDATA)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?LSTKIDATA)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?CCASE)
+  C:\KEIL\C51\LIB\C51L.LIB (PRINTF)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?PLDIXDATA)
+  C:\KEIL\C51\LIB\C51L.LIB (?C?PSTXDATA)
+  C:\KEIL\C51\LIB\C51L.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  ch375 (CH375)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            REG     0008H     0008H     ABSOLUTE     "REG BANK 1"
+            DATA    0010H     0005H     UNIT         _DATA_GROUP_
+                    0015H     000BH                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+            BIT     0021H.1   0000H.4   UNIT         ?BI?CH375MAI
+                    0021H.5   0000H.3                *** GAP ***
+            DATA    0022H     002EH     UNIT         ?DT?CH375MAI
+            IDATA   0050H     001EH     UNIT         ?ID?HOST
+            IDATA   006EH     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     0200H     ABSOLUTE     
+            XDATA   0200H     0034H     UNIT         _XDATA_GROUP_
+            XDATA   0234H     001BH     UNIT         ?XD?CH375MAI
+                    024FH     BAA1H                  *** GAP ***
+            XDATA   BCF0H     0001H     ABSOLUTE     
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 2
+
+
+                    BCF1H     0100H                  *** GAP ***
+            XDATA   BDF1H     0001H     ABSOLUTE     
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     047CH     UNIT         ?PR?CH375FILEOPEN?CH375MAI
+            CODE    0482H     0365H     UNIT         ?PR?PRINTF?PRINTF
+            CODE    07E7H     0322H     UNIT         ?PR?MCH375INTERRUPT?DEVICE
+            CODE    0B09H     0318H     UNIT         ?PR?CH375S08?CH375MAI
+            CODE    0E21H     02DCH     UNIT         ?PR?HOST?HOST
+            CODE    10FDH     02B5H     UNIT         ?PR?_CH375S10?CH375MAI
+            CODE    13B2H     024BH     UNIT         ?PR?CH375FILECREATE?CH375MAI
+            CODE    15FDH     01BFH     UNIT         ?PR?CH375S22?CH375SRD
+            CODE    17BCH     01BDH     UNIT         ?PR?CH375BYTEWRITE?CH375BYT
+            CODE    1979H     0195H     UNIT         ?PR?CH375S48?CH375MAI
+            CODE    1B0EH     014EH     UNIT         ?CO?HOST
+            CODE    1C5CH     0138H     UNIT         ?PR?CH375BYTEREAD?CH375BYT
+            CODE    1D94H     0135H     UNIT         ?C?LIB_CODE
+            CODE    1EC9H     010EH     UNIT         ?PR?CH375BULKONLYCMD?CH375SRD
+            CODE    1FD7H     00F8H     UNIT         ?PR?CH375FILEMODIFY?CH375MAI
+            CODE    20CFH     00D2H     UNIT         ?PR?CH375S06?CH375MAI
+            CODE    21A1H     00BAH     UNIT         ?PR?CH375S07?CH375MAI
+            CODE    225BH     009CH     UNIT         ?PR?CH375S25?CH375MAI
+            CODE    22F7H     009AH     UNIT         ?PR?CH375FILEERASE?CH375MAI
+            CODE    2391H     009AH     UNIT         ?PR?CH375S19?CH375MAI
+            CODE    242BH     0089H     UNIT         ?PR?_CH375S18?CH375MAI
+            CODE    24B4H     0087H     UNIT         ?PR?_CH375S17?CH375MAI
+            CODE    253BH     0081H     UNIT         ?PR?CH375S12?CH375MAI
+            CODE    25BCH     0080H     UNIT         ?PR?CH375FILECLOSE?CH375MAI
+            CODE    263CH     007BH     UNIT         ?PR?CH375S20?CH375MAI
+            CODE    26B7H     0074H     UNIT         ?PR?CH375INIT?CH375MAI
+            CODE    272BH     006EH     UNIT         ?PR?CH375S09?CH375MAI
+            CODE    2799H     005AH     UNIT         ?PR?CH375SDISKREADY?CH375SRD
+            CODE    27F3H     0057H     UNIT         ?PR?CH375S13?CH375MAI
+            CODE    284AH     0055H     UNIT         ?PR?CH375S21?CH375SRD
+            CODE    289FH     0051H     UNIT         ?PR?CH375DISKREADY?CH375MAI
+            CODE    28F0H     004FH     UNIT         ?PR?CH375S23?CH375MAI
+            CODE    293FH     004BH     UNIT         ?PR?CH375S14?CH375MAI
+            CODE    298AH     004AH     UNIT         ?PR?CH375S15?CH375MAI
+            CODE    29D4H     0048H     UNIT         ?PR?CH375BYTELOCATE?CH375BYT
+            CODE    2A1CH     003EH     UNIT         ?PR?MAIN?CH375
+            CODE    2A5AH     003EH     UNIT         ?CO?CH375
+            CODE    2A98H     0036H     UNIT         ?PR?CH375DISKCONNECT?CH375MAI
+            CODE    2ACEH     002FH     UNIT         ?PR?DEVICE?DEVICE
+            CODE    2AFDH     002BH     UNIT         ?PR?XQUERYINTERRUPT?HOST
+            CODE    2B28H     002AH     UNIT         ?PR?_MSTOPIFERROR?HOST
+            CODE    2B52H     0028H     UNIT         ?PR?CH375S16?CH375BYT
+            CODE    2B7AH     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    2BA1H     0025H     UNIT         ?PR?_CH375S27?CH375SRD
+            CODE    2BC6H     0024H     UNIT         ?PR?_CH375S46?CH375SRD
+            CODE    2BEAH     0022H     UNIT         ?PR?ISKEYPRESS?CH375
+            CODE    2C0CH     0022H     UNIT         ?CO?DEVICE
+            CODE    2C2EH     0022H     UNIT         ?PR?_CH375S05?CH375MAI
+            CODE    2C50H     0022H     UNIT         ?PR?CH375RESET?CH375MAI
+            CODE    2C72H     001EH     UNIT         ?PR?CH375S26?CH375SRD
+            CODE    2C90H     001DH     UNIT         ?PR?CH375DEVICEINIT?DEVICE
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 3
+
+
+            CODE    2CADH     001DH     UNIT         ?PR?_MDELAYMS?HOST
+            CODE    2CCAH     001DH     UNIT         ?PR?_CH375S04?CH375MAI
+            CODE    2CE7H     001CH     UNIT         ?PR?_CH375S44?CH375MAI
+            CODE    2D03H     0019H     UNIT         ?PR?CH375LIBINIT?HOST
+            CODE    2D1CH     0019H     UNIT         ?PR?CH375S11?CH375MAI
+            CODE    2D35H     0016H     UNIT         ?PR?_CH375S49?CH375MAI
+            CODE    2D4BH     0015H     UNIT         ?PR?_CH375S01?CH375MAI
+            CODE    2D60H     0015H     UNIT         ?PR?_CH375S40?CH375MAI
+            CODE    2D75H     0014H     UNIT         ?PR?_MCOPYCODESTRINGTOIRAM?HOST
+            CODE    2D89H     0014H     UNIT         ?PR?CH375S24?CH375MAI
+            CODE    2D9DH     0012H     UNIT         ?PR?_CH375S41?CH375MAI
+            CODE    2DAFH     0012H     UNIT         ?PR?_CH375S43?CH375MAI
+            CODE    2DC1H     0011H     UNIT         ?PR?CH375OFFUSB?DEVICE
+            CODE    2DD2H     000FH     UNIT         ?PR?_CH375_WR_DAT_PORT?DEVICE
+            CODE    2DE1H     000FH     UNIT         ?PR?_CH375S02?CH375MAI
+            CODE    2DF0H     000EH     UNIT         ?PR?MINITSTDIO?CH375
+            CODE    2DFEH     000EH     UNIT         ?PR?_CH375_WR_CMD_PORT?DEVICE
+            CODE    2E0CH     000DH     UNIT         ?PR?CH375DIRTYBUFFER?CH375MAI
+            CODE    2E19H     000CH     UNIT         ?C_C51STARTUP
+            CODE    2E25H     000AH     UNIT         ?PR?CH375S42?CH375MAI
+            CODE    2E2FH     0009H     UNIT         ?PR?CH375_RD_DAT_PORT?DEVICE
+            CODE    2E38H     0007H     UNIT         ?PR?_CH375S03?CH375MAI
+            CODE    2E3FH     0005H     UNIT         ?PR?DELAY1US?DEVICE
+            CODE    2E44H     0005H     UNIT         ?PR?DELAY2US?DEVICE
+            CODE    2E49H     0005H     UNIT         ?PR?XDELAY100US?HOST
+            CODE    2E4EH     0005H     UNIT         ?PR?XDELAYAFTERWRITE?HOST
+            CODE    2E53H     0003H     UNIT         ?PR?CH375GETVER?CH375MAI
+            CODE    2E56H     0001H     UNIT         ?PR?XFILENAMEENUMER?HOST
+
+
+
+OVERLAY MAP OF MODULE:   ch375 (CH375)
+
+
+SEGMENT                                    BIT_GROUP          DATA_GROUP          XDATA_GROUP
+  +--> CALLED SEGMENT                   START    LENGTH     START    LENGTH     START    LENGTH
+-----------------------------------------------------------------------------------------------
+?PR?MCH375INTERRUPT?DEVICE              -----    -----      -----    -----      0200H    0005H
+  +--> ?PR?_CH375_WR_CMD_PORT?DEVICE
+  +--> ?PR?CH375_RD_DAT_PORT?DEVICE
+  +--> ?PR?_CH375_WR_DAT_PORT?DEVICE
+  +--> ?CO?DEVICE
+
+?PR?_CH375_WR_CMD_PORT?DEVICE           -----    -----      -----    -----      -----    -----
+  +--> ?PR?DELAY2US?DEVICE
+
+?PR?CH375_RD_DAT_PORT?DEVICE            -----    -----      -----    -----      -----    -----
+  +--> ?PR?DELAY1US?DEVICE
+
+?PR?_CH375_WR_DAT_PORT?DEVICE           -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375_WR_CMD_PORT?DEVICE
+  +--> ?PR?DELAY1US?DEVICE
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                           -----    -----      -----    -----      -----    -----
+  +--> ?PR?MAIN?CH375
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 4
+
+
+
+?PR?MAIN?CH375                          -----    -----      -----    -----      -----    -----
+  +--> ?PR?_MDELAYMS?HOST
+  +--> ?PR?MINITSTDIO?CH375
+  +--> ?CO?CH375
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?HOST?HOST
+  +--> ?PR?DEVICE?DEVICE
+
+?PR?_MDELAYMS?HOST                      -----    -----      -----    -----      020CH    0001H
+
+?PR?PRINTF?PRINTF                       0020H.0  0001H.1    0010H    0005H      020CH    0028H
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?HOST?HOST                           -----    -----      -----    -----      0205H    0007H
+  +--> ?PR?CH375LIBINIT?HOST
+  +--> ?PR?_MSTOPIFERROR?HOST
+  +--> ?CO?HOST
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?ISKEYPRESS?CH375
+  +--> ?PR?_MDELAYMS?HOST
+  +--> ?PR?CH375DISKCONNECT?CH375MAI
+  +--> ?PR?CH375SDISKREADY?CH375SRD
+  +--> ?PR?_MCOPYCODESTRINGTOIRAM?HOST
+  +--> ?PR?CH375FILEOPEN?CH375MAI
+  +--> ?PR?CH375BYTEREAD?CH375BYT
+  +--> ?PR?CH375FILECLOSE?CH375MAI
+  +--> ?PR?CH375FILECREATE?CH375MAI
+  +--> ?PR?CH375BYTEWRITE?CH375BYT
+
+?PR?CH375LIBINIT?HOST                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375GETVER?CH375MAI
+  +--> ?PR?CH375INIT?CH375MAI
+
+?PR?CH375INIT?CH375MAI                  -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375S43?CH375MAI
+  +--> ?PR?CH375RESET?CH375MAI
+  +--> ?PR?_CH375S49?CH375MAI
+
+?PR?CH375RESET?CH375MAI                 -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375S49?CH375MAI
+
+?PR?_CH375S49?CH375MAI                  -----    -----      -----    -----      -----    -----
+  +--> ?PR?XDELAY100US?HOST
+
+?PR?_MSTOPIFERROR?HOST                  -----    -----      -----    -----      -----    -----
+  +--> ?CO?HOST
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?_MDELAYMS?HOST
+
+?PR?ISKEYPRESS?CH375                    -----    -----      -----    -----      -----    -----
+  +--> ?PR?_MDELAYMS?HOST
+
+?PR?CH375DISKCONNECT?CH375MAI           -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375S40?CH375MAI
+
+?PR?CH375SDISKREADY?CH375SRD            -----    -----      -----    -----      -----    -----
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 5
+
+
+  +--> ?PR?CH375DISKCONNECT?CH375MAI
+  +--> ?PR?CH375S22?CH375SRD
+  +--> ?PR?_CH375S49?CH375MAI
+  +--> ?PR?CH375S25?CH375MAI
+  +--> ?PR?CH375S26?CH375SRD
+  +--> ?PR?CH375S13?CH375MAI
+  +--> ?PR?_CH375S44?CH375MAI
+  +--> ?PR?_CH375S27?CH375SRD
+  +--> ?PR?CH375BULKONLYCMD?CH375SRD
+
+?PR?CH375S22?CH375SRD                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S23?CH375MAI
+  +--> ?PR?CH375DISKCONNECT?CH375MAI
+  +--> ?PR?_CH375S43?CH375MAI
+  +--> ?PR?_CH375S49?CH375MAI
+  +--> ?PR?_CH375S41?CH375MAI
+  +--> ?PR?_CH375S46?CH375SRD
+  +--> ?PR?CH375S42?CH375MAI
+  +--> ?PR?CH375BULKONLYCMD?CH375SRD
+  +--> ?PR?_CH375S05?CH375MAI
+  +--> ?PR?CH375S13?CH375MAI
+
+?PR?CH375S23?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375DISKCONNECT?CH375MAI
+  +--> ?PR?_CH375S44?CH375MAI
+  +--> ?PR?_CH375S05?CH375MAI
+  +--> ?PR?_CH375S40?CH375MAI
+  +--> ?PR?CH375S42?CH375MAI
+  +--> ?PR?_CH375S41?CH375MAI
+  +--> ?PR?CH375S13?CH375MAI
+
+?PR?_CH375S44?CH375MAI                  -----    -----      -----    -----      -----    -----
+  +--> ?PR?XQUERYINTERRUPT?HOST
+
+?PR?_CH375S05?CH375MAI                  -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375DISKCONNECT?CH375MAI
+
+?PR?CH375S42?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375DIRTYBUFFER?CH375MAI
+  +--> ?PR?_CH375S17?CH375MAI
+
+?PR?CH375S13?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?XDELAY100US?HOST
+  +--> ?PR?_CH375S40?CH375MAI
+  +--> ?PR?XQUERYINTERRUPT?HOST
+
+?PR?_CH375S46?CH375SRD                  -----    -----      -----    -----      -----    -----
+  +--> ?PR?XQUERYINTERRUPT?HOST
+
+?PR?CH375BULKONLYCMD?CH375SRD           -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375S27?CH375SRD
+  +--> ?PR?_CH375S43?CH375MAI
+  +--> ?PR?_CH375S40?CH375MAI
+  +--> ?PR?_CH375S41?CH375MAI
+  +--> ?PR?_CH375S46?CH375SRD
+  +--> ?PR?CH375S21?CH375SRD
+  +--> ?PR?_CH375S49?CH375MAI
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 6
+
+
+  +--> ?PR?CH375S42?CH375MAI
+
+?PR?CH375S21?CH375SRD                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375S49?CH375MAI
+  +--> ?PR?CH375DISKCONNECT?CH375MAI
+  +--> ?PR?_CH375S44?CH375MAI
+  +--> ?PR?_CH375S41?CH375MAI
+  +--> ?PR?_CH375S40?CH375MAI
+  +--> ?PR?_CH375S46?CH375SRD
+
+?PR?CH375S25?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375S44?CH375MAI
+  +--> ?PR?CH375S42?CH375MAI
+  +--> ?PR?_CH375S41?CH375MAI
+  +--> ?PR?_CH375S49?CH375MAI
+
+?PR?CH375S26?CH375SRD                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375S49?CH375MAI
+  +--> ?PR?_CH375S44?CH375MAI
+  +--> ?PR?CH375BULKONLYCMD?CH375SRD
+
+?PR?CH375FILEOPEN?CH375MAI              -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S08?CH375MAI
+  +--> ?PR?_CH375S05?CH375MAI
+  +--> ?PR?CH375S06?CH375MAI
+  +--> ?PR?_CH375S02?CH375MAI
+  +--> ?PR?_CH375S01?CH375MAI
+  +--> ?PR?XFILENAMEENUMER?HOST
+  +--> ?PR?_CH375S10?CH375MAI
+
+?PR?CH375S08?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S23?CH375MAI
+  +--> ?PR?CH375S25?CH375MAI
+  +--> ?PR?CH375DIRTYBUFFER?CH375MAI
+  +--> ?PR?CH375S06?CH375MAI
+  +--> ?PR?_CH375S01?CH375MAI
+  +--> ?PR?_CH375S02?CH375MAI
+  +--> ?PR?_CH375S05?CH375MAI
+
+?PR?CH375S06?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?XQUERYINTERRUPT?HOST
+  +--> ?PR?_CH375S17?CH375MAI
+  +--> ?PR?CH375S13?CH375MAI
+  +--> ?PR?CH375DIRTYBUFFER?CH375MAI
+  +--> ?PR?CH375S24?CH375MAI
+
+?PR?_CH375S10?CH375MAI                  -----    -----      0010H    0005H      -----    -----
+  +--> ?PR?_CH375S04?CH375MAI
+  +--> ?PR?CH375S09?CH375MAI
+  +--> ?PR?CH375S06?CH375MAI
+
+?PR?CH375S09?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S07?CH375MAI
+
+?PR?CH375S07?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?XQUERYINTERRUPT?HOST
+  +--> ?PR?_CH375S18?CH375MAI
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 7
+
+
+  +--> ?PR?XDELAYAFTERWRITE?HOST
+  +--> ?PR?CH375S13?CH375MAI
+  +--> ?PR?CH375DIRTYBUFFER?CH375MAI
+  +--> ?PR?CH375S24?CH375MAI
+
+?PR?CH375BYTEREAD?CH375BYT              -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S16?CH375BYT
+  +--> ?PR?CH375S14?CH375MAI
+  +--> ?PR?CH375S06?CH375MAI
+  +--> ?PR?_CH375S10?CH375MAI
+
+?PR?CH375S16?CH375BYT                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375S05?CH375MAI
+
+?PR?CH375FILECLOSE?CH375MAI             -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S15?CH375MAI
+  +--> ?PR?_CH375S05?CH375MAI
+
+?PR?CH375S15?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S06?CH375MAI
+  +--> ?PR?_CH375S03?CH375MAI
+  +--> ?PR?CH375S07?CH375MAI
+
+?PR?CH375FILECREATE?CH375MAI            -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375FILEOPEN?CH375MAI
+  +--> ?PR?CH375FILEERASE?CH375MAI
+  +--> ?PR?_CH375S10?CH375MAI
+  +--> ?PR?CH375S11?CH375MAI
+  +--> ?PR?CH375S09?CH375MAI
+  +--> ?PR?CH375DIRTYBUFFER?CH375MAI
+  +--> ?PR?CH375S14?CH375MAI
+  +--> ?PR?CH375S07?CH375MAI
+  +--> ?PR?CH375S12?CH375MAI
+  +--> ?PR?CH375S06?CH375MAI
+  +--> ?PR?_CH375S05?CH375MAI
+
+?PR?CH375FILEERASE?CH375MAI             -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375FILEOPEN?CH375MAI
+  +--> ?PR?_CH375S05?CH375MAI
+  +--> ?PR?CH375S06?CH375MAI
+  +--> ?PR?CH375S07?CH375MAI
+  +--> ?PR?_CH375S10?CH375MAI
+  +--> ?PR?CH375S09?CH375MAI
+  +--> ?PR?CH375S12?CH375MAI
+
+?PR?CH375S12?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S06?CH375MAI
+  +--> ?PR?_CH375S01?CH375MAI
+  +--> ?PR?_CH375S03?CH375MAI
+  +--> ?PR?CH375S07?CH375MAI
+
+?PR?CH375S11?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S48?CH375MAI
+
+?PR?CH375S48?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375S10?CH375MAI
+
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 8
+
+
+?PR?CH375BYTEWRITE?CH375BYT             -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S16?CH375BYT
+  +--> ?PR?CH375S11?CH375MAI
+  +--> ?PR?_CH375S10?CH375MAI
+  +--> ?PR?CH375S09?CH375MAI
+  +--> ?PR?CH375S20?CH375MAI
+  +--> ?PR?CH375S12?CH375MAI
+  +--> ?PR?CH375S14?CH375MAI
+  +--> ?PR?CH375S06?CH375MAI
+  +--> ?PR?CH375S07?CH375MAI
+  +--> ?PR?CH375S15?CH375MAI
+
+?PR?CH375S20?CH375MAI                   -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375S48?CH375MAI
+  +--> ?PR?CH375S09?CH375MAI
+  +--> ?PR?CH375S06?CH375MAI
+  +--> ?PR?CH375S07?CH375MAI
+
+?PR?DEVICE?DEVICE                       -----    -----      -----    -----      -----    -----
+  +--> ?PR?CH375DEVICEINIT?DEVICE
+  +--> ?PR?ISKEYPRESS?CH375
+  +--> ?CO?DEVICE
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?CH375OFFUSB?DEVICE
+  +--> ?PR?_MDELAYMS?HOST
+
+?PR?CH375DEVICEINIT?DEVICE              -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375_WR_CMD_PORT?DEVICE
+  +--> ?PR?_CH375_WR_DAT_PORT?DEVICE
+  +--> ?PR?CH375_RD_DAT_PORT?DEVICE
+
+?PR?CH375OFFUSB?DEVICE                  -----    -----      -----    -----      -----    -----
+  +--> ?PR?_CH375_WR_CMD_PORT?DEVICE
+  +--> ?PR?_CH375_WR_DAT_PORT?DEVICE
+  +--> ?PR?_MDELAYMS?HOST
+
+
+
+SYMBOL TABLE OF MODULE:  ch375 (CH375)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CH375
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:2DF0H         PUBLIC        mInitSTDIO
+  D:00A8H         PUBLIC        IE
+  B:0090H.4       PUBLIC        P1_4
+  B:0090H.7       PUBLIC        P1_7
+  D:00B8H         PUBLIC        IP
+  B:0098H.1       PUBLIC        TI
+  B:00B0H.3       PUBLIC        INT1
+  C:2A1CH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 9
+
+
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  C:2BEAH         PUBLIC        IsKeyPress
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MINITSTDIO
+  C:2DF0H         LINE#         41
+  C:2DF0H         LINE#         42
+  C:2DF0H         LINE#         43
+  C:2DF3H         LINE#         45
+  C:2DF6H         LINE#         46
+  C:2DF9H         LINE#         47
+  C:2DFBH         LINE#         48
+  C:2DFDH         LINE#         49
+  -------         ENDPROC       MINITSTDIO
+  -------         PROC          ISKEYPRESS
+  C:2BEAH         LINE#         51
+  C:2BEAH         LINE#         52
+  C:2BEAH         LINE#         53
+  C:2BEDH         LINE#         54
+  C:2BEFH         LINE#         55
+  C:2BF4H         LINE#         56
+  C:2BF7H         LINE#         57
+  C:2BFAH         LINE#         58
+  C:2BFFH         LINE#         59
+  C:2C02H         LINE#         60
+  C:2C04H         LINE#         61
+  C:2C07H         LINE#         62
+  C:2C07H         LINE#         63
+  C:2C09H         LINE#         64
+  C:2C09H         LINE#         65
+  C:2C0BH         LINE#         66
+  -------         ENDPROC       ISKEYPRESS
+  -------         PROC          MAIN
+  C:2A1CH         LINE#         68
+  C:2A1CH         LINE#         69
+  C:2A1EH         LINE#         70
+  C:2A20H         LINE#         71
+  C:2A25H         LINE#         72
+  C:2A27H         LINE#         73
+  C:2A2CH         LINE#         75
+  C:2A2FH         LINE#         76
+  C:2A38H         LINE#         78
+  C:2A3AH         LINE#         79
+  C:2A3CH         LINE#         80
+  C:2A3CH         LINE#         81
+  C:2A3EH         LINE#         82
+  C:2A47H         LINE#         83
+  C:2A4AH         LINE#         84
+  C:2A4CH         LINE#         85
+  C:2A55H         LINE#         86
+  C:2A58H         LINE#         87
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        CH375
+
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 10
+
+
+  -------         MODULE        DEVICE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:2E2FH         PUBLIC        CH375_RD_DAT_PORT
+  C:2E3FH         PUBLIC        Delay1us
+  C:2E44H         PUBLIC        Delay2us
+  D:00A8H         PUBLIC        IE
+  C:2C90H         PUBLIC        CH375DeviceInit
+  D:00B8H         PUBLIC        IP
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  C:2DC1H         PUBLIC        CH375OffUSB
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:0088H.1       PUBLIC        IE0
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  D:00C8H         PUBLIC        T2CON
+  C:07E7H         PUBLIC        mCH375Interrupt
+  C:2DFEH         PUBLIC        _CH375_WR_CMD_PORT
+  C:2ACEH         PUBLIC        device
+  C:2DD9H         PUBLIC        _CH375_WR_DAT_PORT
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          DELAY1US
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:2E3FH         LINE#         100
+  C:2E3FH         LINE#         101
+  C:2E3FH         LINE#         104
+  C:2E43H         LINE#         106
+  -------         ENDPROC       DELAY1US
+  -------         PROC          DELAY2US
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:2E44H         LINE#         109
+  C:2E44H         LINE#         110
+  C:2E44H         LINE#         112
+  C:2E48H         LINE#         113
+  -------         ENDPROC       DELAY2US
+  -------         PROC          _CH375_WR_CMD_PORT
+  D:0006H         SYMBOL        cmd
+  C:2DFEH         LINE#         117
+  C:2E01H         LINE#         118
+  C:2E04H         LINE#         119
+  C:2E09H         LINE#         120
+  -------         ENDPROC       _CH375_WR_CMD_PORT
+  -------         PROC          L?0108
+  -------         ENDPROC       L?0108
+  -------         PROC          _CH375_WR_DAT_PORT
+  D:0007H         SYMBOL        dat
+  C:2DD9H         LINE#         123
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 11
+
+
+  C:2DD9H         LINE#         124
+  C:2DDEH         LINE#         125
+  -------         ENDPROC       _CH375_WR_DAT_PORT
+  -------         PROC          CH375_RD_DAT_PORT
+  C:2E2FH         LINE#         128
+  C:2E2FH         LINE#         129
+  C:2E32H         LINE#         130
+  C:2E37H         LINE#         131
+  -------         ENDPROC       CH375_RD_DAT_PORT
+  -------         PROC          CH375DEVICEINIT
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:2C90H         LINE#         134
+  C:2C90H         LINE#         137
+  C:2C95H         LINE#         138
+  C:2C9AH         LINE#         139
+  C:2CA6H         LINE#         144
+  C:2CA8H         LINE#         145
+  C:2CAAH         LINE#         146
+  C:2CACH         LINE#         147
+  -------         ENDPROC       CH375DEVICEINIT
+  -------         PROC          MCH375INTERRUPT
+  -------         DO            
+  X:0200H         SYMBOL        buf
+  X:0203H         SYMBOL        str
+  -------         ENDDO         
+  C:07E7H         LINE#         150
+  C:07F4H         LINE#         160
+  C:07F9H         LINE#         161
+  C:07FCH         LINE#         162
+  C:0801H         LINE#         164
+  C:080AH         LINE#         165
+  C:080FH         LINE#         166
+  C:0814H         LINE#         167
+  C:0818H         LINE#         168
+  C:0818H         LINE#         169
+  C:081EH         LINE#         171
+  C:081EH         LINE#         172
+  C:082FH         LINE#         173
+  C:082FH         LINE#         174
+  C:0841H         LINE#         175
+  C:084BH         LINE#         176
+  C:084EH         LINE#         177
+  C:0859H         LINE#         178
+  C:0862H         LINE#         179
+  C:0867H         LINE#         180
+  C:0867H         LINE#         181
+  C:0867H         LINE#         182
+  C:086AH         LINE#         183
+  C:086AH         LINE#         184
+  C:0877H         LINE#         185
+  C:0889H         LINE#         186
+  C:08A7H         LINE#         187
+  C:08A7H         LINE#         188
+  C:08D5H         LINE#         189
+  C:08D5H         LINE#         190
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 12
+
+
+  C:08E1H         LINE#         191
+  C:08E4H         LINE#         192
+  C:08E7H         LINE#         193
+  C:08E7H         LINE#         194
+  C:08F3H         LINE#         195
+  C:08F6H         LINE#         196
+  C:08F9H         LINE#         197
+  C:08F9H         LINE#         198
+  C:0905H         LINE#         199
+  C:0908H         LINE#         200
+  C:090BH         LINE#         201
+  C:090BH         LINE#         202
+  C:0917H         LINE#         203
+  C:091AH         LINE#         204
+  C:091DH         LINE#         205
+  C:091DH         LINE#         206
+  C:0929H         LINE#         207
+  C:092CH         LINE#         208
+  C:092FH         LINE#         209
+  C:092FH         LINE#         210
+  C:093BH         LINE#         211
+  C:093EH         LINE#         212
+  C:0941H         LINE#         213
+  C:0941H         LINE#         214
+  C:094DH         LINE#         215
+  C:0950H         LINE#         216
+  C:0953H         LINE#         217
+  C:0953H         LINE#         218
+  C:095FH         LINE#         219
+  C:0962H         LINE#         220
+  C:0965H         LINE#         221
+  C:0965H         LINE#         222
+  C:0971H         LINE#         223
+  C:0974H         LINE#         224
+  C:0977H         LINE#         225
+  C:0977H         LINE#         226
+  C:0983H         LINE#         227
+  C:0986H         LINE#         228
+  C:0989H         LINE#         229
+  C:0989H         LINE#         230
+  C:0994H         LINE#         231
+  C:0997H         LINE#         232
+  C:0999H         LINE#         233
+  C:0999H         LINE#         234
+  C:09A4H         LINE#         235
+  C:09A7H         LINE#         236
+  C:09A9H         LINE#         237
+  C:09A9H         LINE#         238
+  C:09ACH         LINE#         239
+  C:09AEH         LINE#         240
+  C:09AEH         LINE#         241
+  C:09AEH         LINE#         242
+  C:09AEH         LINE#         243
+  C:09C3H         LINE#         244
+  C:09CEH         LINE#         245
+  C:09D0H         LINE#         246
+  C:09D0H         LINE#         247
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 13
+
+
+  C:09E7H         LINE#         248
+  C:09F4H         LINE#         249
+  C:09F6H         LINE#         250
+  C:09F6H         LINE#         251
+  C:0A00H         LINE#         252
+  C:0A10H         LINE#         253
+  C:0A10H         LINE#         254
+  C:0A10H         LINE#         255
+  C:0A28H         LINE#         256
+  C:0A2BH         LINE#         257
+  C:0A30H         LINE#         258
+  C:0A35H         LINE#         259
+  C:0A3FH         LINE#         260
+  C:0A3FH         LINE#         261
+  C:0A3FH         LINE#         262
+  C:0A41H         LINE#         263
+  C:0A4CH         LINE#         264
+  C:0A4CH         LINE#         265
+  C:0A50H         LINE#         266
+  C:0A53H         LINE#         267
+  C:0A57H         LINE#         268
+  C:0A57H         LINE#         269
+  C:0A5AH         LINE#         270
+  C:0A5CH         LINE#         271
+  C:0A5CH         LINE#         272
+  C:0A60H         LINE#         273
+  C:0A63H         LINE#         274
+  C:0A6DH         LINE#         275
+  C:0AA0H         LINE#         276
+  C:0AA4H         LINE#         277
+  C:0AA8H         LINE#         278
+  C:0AAAH         LINE#         280
+  C:0AAAH         LINE#         281
+  C:0AAEH         LINE#         282
+  C:0AB2H         LINE#         283
+  C:0AB2H         LINE#         284
+  C:0AB2H         LINE#         285
+  C:0AB7H         LINE#         286
+  C:0ABEH         LINE#         287
+  C:0AC2H         LINE#         288
+  C:0ACFH         LINE#         289
+  C:0ACFH         LINE#         290
+  C:0AE1H         LINE#         291
+  C:0AEBH         LINE#         292
+  C:0AEEH         LINE#         293
+  C:0AF0H         LINE#         294
+  C:0AF5H         LINE#         295
+  C:0AF5H         LINE#         296
+  C:0AF7H         LINE#         297
+  C:0AF9H         LINE#         298
+  C:0AF9H         LINE#         299
+  C:0AF9H         LINE#         301
+  C:0AF9H         LINE#         302
+  C:0AFEH         LINE#         303
+  C:0AFEH         LINE#         304
+  -------         ENDPROC       MCH375INTERRUPT
+  -------         PROC          CH375OFFUSB
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 14
+
+
+  C:2DC1H         LINE#         307
+  C:2DC1H         LINE#         308
+  C:2DC3H         LINE#         310
+  C:2DC8H         LINE#         311
+  C:2DCDH         LINE#         312
+  -------         ENDPROC       CH375OFFUSB
+  -------         PROC          DEVICE
+  C:2ACEH         LINE#         316
+  C:2ACEH         LINE#         317
+  C:2AD1H         LINE#         318
+  C:2AD4H         LINE#         319
+  C:2AD4H         LINE#         320
+  C:2ADAH         LINE#         321
+  C:2AE1H         LINE#         322
+  C:2AEAH         LINE#         323
+  C:2AEDH         LINE#         325
+  C:2AEDH         LINE#         326
+  C:2AEDH         LINE#         327
+  C:2AF6H         LINE#         328
+  C:2AFBH         LINE#         330
+  -------         ENDPROC       DEVICE
+  -------         ENDMOD        DEVICE
+
+  -------         MODULE        HOST
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:2CADH         PUBLIC        _mDelaymS
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  X:BDF1H         PUBLIC        CH375_CMD_PORT
+  X:BCF0H         PUBLIC        CH375_DAT_PORT
+  D:00A8H         PUBLIC        IE
+  B:0090H.5       PUBLIC        P1_5
+  B:0090H.6       PUBLIC        P1_6
+  D:00B8H         PUBLIC        IP
+  B:00B0H.2       PUBLIC        INT0
+  C:2B2DH         PUBLIC        _mStopIfError
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0E21H         PUBLIC        host
+  C:2E49H         PUBLIC        xDelay100uS
+  C:2D75H         PUBLIC        _mCopyCodeStringToIRAM
+  C:2D03H         PUBLIC        CH375LibInit
+  C:2AFDH         PUBLIC        xQueryInterrupt
+  X:0000H         PUBLIC        DISK_BASE_BUF
+  D:00C8H         PUBLIC        T2CON
+  C:2E56H         PUBLIC        xFileNameEnumer
+  C:2E4EH         PUBLIC        xDelayAfterWrite
+  I:0050H         PUBLIC        mCmdParam
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          XQUERYINTERRUPT
+  C:2AFDH         LINE#         813
+  C:2AFDH         LINE#         814
+  C:2AFDH         LINE#         816
+  C:2B00H         LINE#         820
+  C:2B06H         LINE#         821
+  C:2B10H         LINE#         822
+  C:2B16H         LINE#         823
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 15
+
+
+  C:2B1FH         LINE#         824
+  C:2B27H         LINE#         825
+  -------         ENDPROC       XQUERYINTERRUPT
+  -------         PROC          XDELAY100US
+  -------         DO            
+  D:0007H         SYMBOL        count
+  -------         ENDDO         
+  C:2E49H         LINE#         846
+  C:2E49H         LINE#         847
+  C:2E49H         LINE#         849
+  C:2E4DH         LINE#         850
+  -------         ENDPROC       XDELAY100US
+  -------         PROC          XDELAYAFTERWRITE
+  -------         DO            
+  D:0007H         SYMBOL        count
+  -------         ENDDO         
+  C:2E4EH         LINE#         855
+  C:2E4EH         LINE#         856
+  C:2E4EH         LINE#         858
+  C:2E52H         LINE#         859
+  -------         ENDPROC       XDELAYAFTERWRITE
+  -------         PROC          XFILENAMEENUMER
+  C:2E56H         LINE#         864
+  C:2E56H         LINE#         865
+  C:2E56H         LINE#         888
+  -------         ENDPROC       XFILENAMEENUMER
+  -------         PROC          CH375LIBINIT
+  C:2D03H         LINE#         941
+  C:2D03H         LINE#         942
+  C:2D03H         LINE#         944
+  C:2D06H         LINE#         945
+  C:2D12H         LINE#         947
+  C:2D18H         LINE#         949
+  C:2D1BH         LINE#         950
+  -------         ENDPROC       CH375LIBINIT
+  -------         PROC          _MDELAYMS
+  D:0007H         SYMBOL        delay
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  X:020CH         SYMBOL        c
+  -------         ENDDO         
+  C:2CADH         LINE#         48
+  C:2CADH         LINE#         49
+  C:2CADH         LINE#         51
+  C:2CB0H         LINE#         52
+  C:2CBBH         LINE#         53
+  C:2CC6H         LINE#         54
+  C:2CC9H         LINE#         55
+  -------         ENDPROC       _MDELAYMS
+  -------         PROC          _MCOPYCODESTRINGTOIRAM
+  D:0000H         SYMBOL        iDestination
+  D:0082H         SYMBOL        iSource
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:2D75H         LINE#         58
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 16
+
+
+  C:2D7CH         LINE#         59
+  C:2D7CH         LINE#         60
+  C:2D7EH         LINE#         61
+  C:2D83H         LINE#         62
+  C:2D84H         LINE#         63
+  C:2D85H         LINE#         64
+  C:2D86H         LINE#         65
+  C:2D88H         LINE#         66
+  C:2D88H         LINE#         67
+  -------         ENDPROC       _MCOPYCODESTRINGTOIRAM
+  C:2B28H         SYMBOL        L?0083
+  -------         PROC          L?0082
+  -------         ENDPROC       L?0082
+  C:2B28H         SYMBOL        L?0083
+  -------         PROC          _MSTOPIFERROR
+  D:0007H         SYMBOL        iError
+  C:2B2DH         LINE#         70
+  C:2B2DH         LINE#         71
+  C:2B2DH         LINE#         72
+  C:2B30H         LINE#         73
+  C:2B41H         LINE#         74
+  C:2B41H         LINE#         75
+  C:2B43H         LINE#         76
+  C:2B48H         LINE#         77
+  C:2B4AH         LINE#         78
+  C:2B4FH         LINE#         79
+  C:2B51H         LINE#         80
+  -------         ENDPROC       _MSTOPIFERROR
+  -------         PROC          HOST
+  -------         DO            
+  X:0205H         SYMBOL        i
+  X:0206H         SYMBOL        c
+  X:0207H         SYMBOL        TotalCount
+  X:0208H         SYMBOL        pCodeStr
+  X:020AH         SYMBOL        EnumCount
+  -------         ENDDO         
+  C:0E21H         LINE#         82
+  C:0E21H         LINE#         91
+  C:0E24H         LINE#         92
+  C:0E27H         LINE#         93
+  C:0E27H         LINE#         94
+  C:0E30H         LINE#         95
+  C:0E37H         LINE#         96
+  C:0E3DH         LINE#         97
+  C:0E46H         LINE#         99
+  C:0E46H         LINE#         101
+  C:0E4BH         LINE#         102
+  C:0E51H         LINE#         103
+  C:0E51H         LINE#         104
+  C:0E53H         LINE#         105
+  C:0E58H         LINE#         108
+  C:0E5DH         LINE#         109
+  C:0E62H         LINE#         110
+  C:0E6BH         LINE#         112
+  C:0E71H         LINE#         113
+  C:0E7DH         LINE#         116
+  C:0E8CH         LINE#         117
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 17
+
+
+  C:0E95H         LINE#         118
+  C:0EA2H         LINE#         119
+  C:0EA2H         LINE#         120
+  C:0EA2H         LINE#         123
+  C:0EABH         LINE#         124
+  C:0EB4H         LINE#         125
+  C:0EBCH         LINE#         126
+  C:0EC8H         LINE#         128
+  C:0EDBH         LINE#         129
+  C:0EE2H         LINE#         130
+  C:0F02H         LINE#         131
+  C:0F09H         LINE#         132
+  C:0F1BH         LINE#         133
+  C:0F21H         LINE#         134
+  C:0F32H         LINE#         135
+  C:0F3AH         LINE#         137
+  C:0F41H         LINE#         138
+  C:0F48H         LINE#         139
+  C:0F6BH         LINE#         140
+  C:0F6DH         LINE#         141
+  C:0F6DH         LINE#         142
+  C:0F6DH         LINE#         143
+  C:0F72H         LINE#         144
+  C:0F75H         LINE#         145
+  C:0F75H         LINE#         146
+  C:0F98H         LINE#         147
+  C:0F98H         LINE#         148
+  C:0F98H         LINE#         149
+  C:0FA0H         LINE#         150
+  C:0FA6H         LINE#         151
+  C:0FB9H         LINE#         152
+  C:0FC0H         LINE#         153
+  C:0FCDH         LINE#         154
+  C:0FCFH         LINE#         155
+  C:0FD6H         LINE#         156
+  C:0FD9H         LINE#         157
+  C:0FDCH         LINE#         158
+  C:0FE5H         LINE#         159
+  C:100EH         LINE#         160
+  C:101AH         LINE#         161
+  C:1023H         LINE#         162
+  C:102CH         LINE#         163
+  C:102CH         LINE#         164
+  C:102CH         LINE#         165
+  C:102CH         LINE#         183
+  C:1035H         LINE#         184
+  C:103DH         LINE#         185
+  C:1040H         LINE#         186
+  C:1040H         LINE#         190
+  C:1042H         LINE#         191
+  C:104BH         LINE#         192
+  C:1054H         LINE#         193
+  C:1057H         LINE#         194
+  C:105AH         LINE#         195
+  C:1063H         LINE#         196
+  C:106DH         LINE#         197
+  C:106DH         LINE#         198
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 18
+
+
+  C:107CH         LINE#         199
+  C:108DH         LINE#         200
+  C:1095H         LINE#         201
+  C:1098H         LINE#         202
+  C:10A6H         LINE#         203
+  C:10AEH         LINE#         204
+  C:10B5H         LINE#         205
+  C:10B9H         LINE#         206
+  C:10BCH         LINE#         207
+  C:10BFH         LINE#         208
+  C:10C1H         LINE#         209
+  C:10CAH         LINE#         210
+  C:10CEH         LINE#         211
+  C:10D1H         LINE#         212
+  C:10D4H         LINE#         213
+  C:10D6H         LINE#         216
+  C:10DFH         LINE#         218
+  C:10E6H         LINE#         219
+  C:10ECH         LINE#         220
+  C:10F1H         LINE#         221
+  C:10F3H         LINE#         222
+  C:10F5H         LINE#         223
+  C:10FAH         LINE#         224
+  -------         ENDPROC       HOST
+  -------         ENDMOD        HOST
+
+  -------         MODULE        ?C?CLDPTR
+  C:1D94H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:1DADH         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?IILDX
+  C:1DBFH         PUBLIC        ?C?IILDX
+  -------         ENDMOD        ?C?IILDX
+
+  -------         MODULE        ?C?ULCMP
+  C:1DD5H         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+  -------         MODULE        ?C?ULSHR
+  C:1DE6H         PUBLIC        ?C?ULSHR
+  -------         ENDMOD        ?C?ULSHR
+
+  -------         MODULE        ?C?LSHL
+  C:1DF9H         PUBLIC        ?C?LSHL
+  -------         ENDMOD        ?C?LSHL
+
+  -------         MODULE        ?C?LLDIDATA
+  C:1E0CH         PUBLIC        ?C?LLDIDATA
+  -------         ENDMOD        ?C?LLDIDATA
+
+  -------         MODULE        ?C?LLDIDATA0
+  C:1E18H         PUBLIC        ?C?LLDIDATA0
+  -------         ENDMOD        ?C?LLDIDATA0
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 19
+
+
+
+  -------         MODULE        ?C?LSTIDATA
+  C:1E25H         PUBLIC        ?C?LSTIDATA
+  -------         ENDMOD        ?C?LSTIDATA
+
+  -------         MODULE        ?C?LSTXDATA
+  C:1E31H         PUBLIC        ?C?LSTXDATA
+  -------         ENDMOD        ?C?LSTXDATA
+
+  -------         MODULE        ?C?LSTKIDATA
+  C:1E3DH         PUBLIC        ?C?LSTKIDATA
+  -------         ENDMOD        ?C?LSTKIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:1E56H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PRINTF
+  X:020CH         PUBLIC        ?_PRINTF517?BYTE
+  X:020CH         PUBLIC        ?_PRINTF?BYTE
+  X:020CH         PUBLIC        ?_SPRINTF517?BYTE
+  X:020CH         PUBLIC        ?_SPRINTF?BYTE
+  C:04EDH         PUBLIC        _PRINTF
+  C:04EDH         PUBLIC        _PRINTF517
+  C:04E7H         PUBLIC        _SPRINTF
+  C:04E7H         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?CLDOPTR
+  C:1E7CH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?PLDIXDATA
+  C:1EA9H         PUBLIC        ?C?PLDIXDATA
+  -------         ENDMOD        ?C?PLDIXDATA
+
+  -------         MODULE        ?C?PSTXDATA
+  C:1EC0H         PUBLIC        ?C?PSTXDATA
+  -------         ENDMOD        ?C?PSTXDATA
+
+  -------         MODULE        PUTCHAR
+  C:2B7AH         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+*** WARNING L14: INCOMPATIBLE MEMORY MODEL
+    MODULE:  .\CH375HF4.LIB (CH375BYT)
+    MODEL:   SMALL
+
+*** WARNING L14: INCOMPATIBLE MEMORY MODEL
+    MODULE:  .\CH375HF4.LIB (CH375SRD)
+    MODEL:   SMALL
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CH375FILEMODIFY?CH375MAI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CH375DISKREADY?CH375MAI
+BL51 BANKED LINKER/LOCATER V5.03                                                      07/28/2008  09:35:47  PAGE 20
+
+
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CH375BYTELOCATE?CH375BYT
+
+Program Size: data=99.5 xdata=593 code=11863
+LINK/LOCATE RUN COMPLETE.  5 WARNING(S),  0 ERROR(S)

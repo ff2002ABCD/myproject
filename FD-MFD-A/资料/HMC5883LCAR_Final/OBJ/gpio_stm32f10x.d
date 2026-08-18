@@ -1,0 +1,14 @@
+..\obj\gpio_stm32f10x.o: D:\LearningTools\Keil5_ARM\Packs\Keil\STM32F1xx_DFP\1.0.5\RTE_Driver\GPIO_STM32F10x.c
+..\obj\gpio_stm32f10x.o: D:\LearningTools\Keil5_ARM\Packs\Keil\STM32F1xx_DFP\1.0.5\RTE_Driver\GPIO_STM32F10x.h
+..\obj\gpio_stm32f10x.o: D:\LearningTools\Keil5_ARM\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\gpio_stm32f10x.o: ..\USER\stm32f10x.h
+..\obj\gpio_stm32f10x.o: ..\CORE\core_cm3.h
+..\obj\gpio_stm32f10x.o: D:\LearningTools\Keil5_ARM\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\gpio_stm32f10x.o: ..\USER\system_stm32f10x.h
+..\obj\gpio_stm32f10x.o: ..\USER\stm32f10x_conf.h
+..\obj\gpio_stm32f10x.o: ..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h
+..\obj\gpio_stm32f10x.o: ..\USER\stm32f10x.h
+..\obj\gpio_stm32f10x.o: ..\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\gpio_stm32f10x.o: ..\STM32F10x_FWLib\inc\stm32f10x_rcc.h
+..\obj\gpio_stm32f10x.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\gpio_stm32f10x.o: ..\STM32F10x_FWLib\inc\misc.h

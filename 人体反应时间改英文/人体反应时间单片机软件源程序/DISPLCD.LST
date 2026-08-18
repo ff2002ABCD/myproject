@@ -1,0 +1,582 @@
+C51 COMPILER V8.08   DISPLCD                                                               09/03/2010 14:34:24 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE DISPLCD
+OBJECT MODULE PLACED IN DISPLCD.OBJ
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE DISPLCD.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          //TMR2L专用中断
+   2          #include "DISPLCD.H"
+*** WARNING C258 IN LINE 20 OF DISPLCD.H: 'p': mspace on parameter ignored
+   3          
+   4          void (*dispSvProc) ();
+   5          void (*dispFDProc) ();
+   6          
+   7          bit dispSelCG;
+   8          unsigned char dispData[LCDCHR][LCDCHC];
+   9          
+  10          bit lcdBF0,lcdBF1,lcdWrDC,lcdGCrH;
+  11          bit dispRefreshEn,lcdWrEn,lcdWr1En,dispInitEn;
+  12          bit dispRefreshWk,lcdGCrWk,dispInitWk,lcdGCrEn;
+  13          bit dispSelWk,dispSelEn;
+  14          unsigned char disp0Datai,disp0Dataj,disp0Mth;
+  15          unsigned char lcdWrData,lcdWrMth;
+  16          unsigned char dispSelMth,dispInitMth,lcdGCrMth,dispSeli,dispSelj;
+  17          unsigned char disp180usT,dispSelI0,dispSelI1;
+  18          unsigned char lcdData[LCDCHR][LCDCHC];
+  19          
+  20          extern void dispRefresh();
+  21          extern void lcdWrSt(unsigned char,unsigned char);
+  22          extern void lcdWr();
+  23          extern void dispInitSt();
+  24          extern void dispInit();
+  25          extern void dispSelSt(unsigned char index)       ;
+  26          extern void dispSel();
+  27          extern void dispSelTs(unsigned char);
+  28          extern void lcdGCr();
+  29          extern void dispSt();
+  30          extern void dispEnd();
+  31          extern void dispSvNull();
+  32          
+  33          void dispRefreshSt()
+  34          {
+  35   1              if(!dispRefreshEn)
+  36   1              {
+  37   2                      dispTs();
+  38   2                      disp0Mth=0;
+  39   2                      disp0Datai=0;
+  40   2                      disp0Dataj=0;
+  41   2                      dispRefreshEn=1;
+  42   2                      dispSt();
+  43   2              }
+  44   1      }
+  45          
+  46          void dispRefresh() using 2
+  47          {
+  48   1              if(!lcdBF1)
+  49   1              {
+  50   2                      switch (disp0Mth)
+  51   2                      {
+  52   3                              case 0:
+  53   3                                      lcdWrSt(0,0x30);        //基本指令
+  54   3                                      disp0Mth++;
+C51 COMPILER V8.08   DISPLCD                                                               09/03/2010 14:34:24 PAGE 2   
+
+  55   3                                      break;
+  56   3                              case 1:
+  57   3                                      lcdWrSt(0,0x80);        //设定DDRAM地址0
+  58   3                                      disp0Mth++;
+  59   3                                      break;
+  60   3                              case 2:
+  61   3                                      if(disp0Datai<LCDCHR)
+  62   3                                              if(disp0Dataj<LCDCHC)
+  63   3                                                      lcdWrSt(1,lcdData[disp0Datai][disp0Dataj++]);
+  64   3                                              else
+  65   3                                                      {
+  66   4                                                              disp0Datai++;
+  67   4                                                              disp0Dataj=0;
+  68   4                                                      }
+  69   3                                      else
+  70   3                                      {
+  71   4                                              disp0Datai=0;
+  72   4                                              disp0Dataj=0;
+  73   4                                              disp0Mth++;
+  74   4                                      }
+  75   3                                      break;
+  76   3                              default:
+  77   3                                      dispRefreshEn=0;        //结束
+  78   3                                      disp0Datai=0;
+  79   3                                      disp0Dataj=0;
+  80   3                                      disp0Mth=0;
+  81   3                                      dispRefreshWk=0;
+  82   3                                      lcdBF0=0;
+  83   3                      }
+  84   2              }
+  85   1      }
+  86          
+  87          void lcdWrSt(unsigned char dc,unsigned char wrData)      using 2
+  88          {
+  89   1              lcdBF1=1;
+  90   1              lcdWrData=wrData;
+  91   1              lcdWrDC=dc;
+  92   1              lcdWrMth=0;
+  93   1              lcdWrEn=1;
+  94   1      }
+  95          
+  96          
+  97          void lcdWr() using 2
+  98          {
+  99   1              if(!(SPI0CFG & 0x80))
+ 100   1                      switch (lcdWrMth)
+ 101   1                      {
+ 102   2                              case 0:
+ 103   2                                      spiBF=1;
+ 104   2                                      SPI0CKR=0x3C;
+ 105   2                                  SPI0CFG=0x60;
+ 106   2                                      lcdWrMth++;
+ 107   2                                      break;
+ 108   2                              case 1:
+ 109   2                                      PDCS=0;
+ 110   2                                      lcdWrMth++;
+ 111   2                                      break;
+ 112   2                              case 2:
+ 113   2                                      if(lcdWrDC)
+ 114   2                                              SPI0DAT=0xfa;   //data
+ 115   2                                      else
+ 116   2                                              SPI0DAT=0xf8;   //cmd
+C51 COMPILER V8.08   DISPLCD                                                               09/03/2010 14:34:24 PAGE 3   
+
+ 117   2                                      lcdWrMth++;
+ 118   2                                      break;
+ 119   2                              case 3:
+ 120   2                                      SPI0DAT=lcdWrData&0xf0;         //D7~D4
+ 121   2                                      lcdWrMth++;
+ 122   2                                      break;
+ 123   2                              case 4:
+ 124   2                                      SPI0DAT=lcdWrData<<4;   //D3~D0
+ 125   2                                      lcdWrMth++;
+ 126   2                                      break;
+ 127   2                              case 5:
+ 128   2                                      PDCS=1;
+ 129   2                                      lcdWrEn=0;              //结束
+ 130   2                                      lcdBF1=0;
+ 131   2                      }
+ 132   1      }
+ 133          
+ 134          void dispRst()
+ 135          {
+ 136   1              unsigned char i,j;
+ 137   1              PDRST=0;
+ 138   1              PDCS=1;
+ 139   1              spiRst();
+ 140   1              dispEnd();
+ 141   1              dispSvProc=dispSvNull;
+ 142   1              dispFDProc=dispSvNull;
+ 143   1              dispRefreshEn=0;
+ 144   1              dispRefreshWk=0;
+ 145   1              lcdGCrWk=0;
+ 146   1              dispInitWk=0;
+ 147   1              lcdGCrEn=0;
+ 148   1              dispInitEn=0;
+ 149   1              lcdWrEn=0;
+ 150   1              lcdBF0=0;
+ 151   1              lcdBF1=0;
+ 152   1              disp0Mth=0;
+ 153   1              disp0Datai=0;
+ 154   1              disp0Dataj=0;
+ 155   1              dispSelI0=0;
+ 156   1              dispSelI1=0;
+ 157   1              disp180usT=disp180usTN;
+ 158   1              dispSelI0=0;
+ 159   1              dispSelI1=0;
+ 160   1              dispSelCG=0;
+ 161   1              for(i=0;i<255;i++)
+ 162   1                      for(j=0;j<255;j++)
+ 163   1                      ;
+ 164   1              PDRST=1;
+ 165   1              dispInitSt();
+ 166   1              lcdGCrSt();
+ 167   1      }
+ 168          
+ 169          
+ 170          void dispInitSt()
+ 171          {
+ 172   1              if(!dispInitEn)
+ 173   1              {
+ 174   2                      dispSt();
+ 175   2                      disp0Mth=0;
+ 176   2                      dispInitEn=1;
+ 177   2              }
+ 178   1      }
+C51 COMPILER V8.08   DISPLCD                                                               09/03/2010 14:34:24 PAGE 4   
+
+ 179          
+ 180          void dispInit() using 2
+ 181          {
+ 182   1              if(!lcdBF1)
+ 183   1              {
+ 184   2                      switch(disp0Mth)
+ 185   2                      {
+ 186   3                              case 0:
+ 187   3                                      lcdWrSt(0,0x30);disp0Mth++;break;       
+ 188   3                              case 1:
+ 189   3                                      lcdWrSt(0,0x01);disp0Mth++;break;
+ 190   3                              case 15:
+ 191   3                                      lcdWrSt(0,0x06);disp0Mth++;break;
+ 192   3                              case 16:
+ 193   3                                      lcdWrSt(0,0x0c);disp0Mth++;break;
+ 194   3                              case 17:
+ 195   3                                      dispInitEn=0;
+ 196   3                                      dispInitWk=0;
+ 197   3                                      disp0Mth=0;
+ 198   3                                      lcdBF0=0;
+ 199   3                                      break;
+ 200   3                              default:
+ 201   3                                      disp0Mth++;
+ 202   3                      }
+ 203   2              }
+ 204   1      }
+ 205          
+ 206          void lcdGCrSt()
+ 207          {
+ 208   1              if(!lcdGCrEn)
+ 209   1              {
+ 210   2                      dispSt();
+ 211   2                      disp0Datai=0;
+ 212   2                      disp0Dataj=0;
+ 213   2                      lcdGCrMth=0;
+ 214   2                      lcdGCrH=0;
+ 215   2                      lcdGCrEn=1;
+ 216   2              }
+ 217   1      }
+ 218          
+ 219          void lcdGCr() using 2
+ 220          {
+ 221   1              if(!lcdBF1)
+ 222   1              {
+ 223   2                      if(disp0Datai<0x20)
+ 224   2                      {
+ 225   3                              switch(lcdGCrMth)
+ 226   3                              {
+ 227   4                                      case 0:
+ 228   4                                              lcdWrSt(0,0x34);
+ 229   4                                              lcdGCrMth++;
+ 230   4                                              break;
+ 231   4                                      case 1:
+ 232   4                                              lcdWrSt(0,disp0Datai+0x80);
+ 233   4                                              lcdGCrMth++;
+ 234   4                                              break;
+ 235   4                                      case 2:
+ 236   4                                              lcdWrSt(0,0x80);
+ 237   4                                              lcdGCrMth++;
+ 238   4                                              break;
+ 239   4                                      case 3:
+ 240   4                                              lcdWrSt(0,0x30);
+C51 COMPILER V8.08   DISPLCD                                                               09/03/2010 14:34:24 PAGE 5   
+
+ 241   4                                              lcdGCrMth++;
+ 242   4                                              break;
+ 243   4                                      case 4:
+ 244   4                                                      if(disp0Dataj<0x20)
+ 245   4                                                      {
+ 246   5                                                              lcdWrSt(1,0x00);
+ 247   5                                                              disp0Dataj++;
+ 248   5                                                      }
+ 249   4                                                      else
+ 250   4                                                      {
+ 251   5                                                              disp0Dataj=0;
+ 252   5                                                              lcdGCrMth=0;
+ 253   5                                                              disp0Datai++;
+ 254   5                                                      }
+ 255   4                              }
+ 256   3                      }
+ 257   2                      else
+ 258   2                      {
+ 259   3                              lcdGCrEn=0;
+ 260   3                              lcdGCrWk=0;
+ 261   3                              disp0Datai=0;
+ 262   3                              disp0Dataj=0;
+ 263   3                              disp0Mth=0;
+ 264   3                              lcdBF0=0;
+ 265   3                      }
+ 266   2              }
+ 267   1      }
+ 268          
+ 269          
+ 270          void dispCopy(unsigned char code p[LCDCHR][LCDCHC])
+*** WARNING C258 IN LINE 270 OF DISPLCD.C: 'p': mspace on parameter ignored
+ 271          {
+ 272   1              int i,j;
+ 273   1              for(i=0;i<LCDCHR;i++)
+ 274   1                      for(j=0;j<LCDCHC;j++)
+ 275   1                              dispData[i][j]=p[i][j];
+ 276   1      }
+ 277          
+ 278          void dispTs()
+ 279          {
+ 280   1              unsigned char i,j;
+ 281   1              for(i=0;i<LCDCHR;i++)
+ 282   1                      switch (i)
+ 283   1                      {
+ 284   2                      case 0:
+ 285   2                              for(j=0;j<0x10;j++)
+ 286   2                                      lcdData[0][j]=dispData[0][j];
+ 287   2                              break;
+ 288   2                      case 1:
+ 289   2                              for(j=0;j<0x10;j++)
+ 290   2                                      lcdData[2][j]=dispData[1][j];
+ 291   2                              break;
+ 292   2                      case 2:
+ 293   2                              for(j=0;j<0x10;j++)
+ 294   2                                      lcdData[1][j]=dispData[2][j];
+ 295   2                              break;
+ 296   2                      case 3:
+ 297   2                              for(j=0;j<0x10;j++)
+ 298   2                                      lcdData[3][j]=dispData[3][j];
+ 299   2                      }
+ 300   1      }
+ 301          
+C51 COMPILER V8.08   DISPLCD                                                               09/03/2010 14:34:24 PAGE 6   
+
+ 302          void dispSel() using 2
+ 303          {
+ 304   1              if(!lcdBF1)
+ 305   1              {
+ 306   2                      switch (disp0Mth)
+ 307   2                      {
+ 308   3                      case 0:
+ 309   3                              if (dispSelI0)
+ 310   3                              {
+ 311   4                                      dispSelTs(dispSelI0);
+ 312   4                                      disp0Mth=1;
+ 313   4                              }
+ 314   3                              else
+ 315   3                              {
+ 316   4                                      dispSelI0=dispSelI1;
+ 317   4                                      if(dispSelI0)
+ 318   4                                      {
+ 319   5                                              dispSelTs(dispSelI0);
+ 320   5                                              disp0Mth=2;
+ 321   5                                      }
+ 322   4                                      else
+ 323   4                                              disp0Mth=3;
+ 324   4                              }
+ 325   3                              break;
+ 326   3                      case 1:
+ 327   3                              if(disp0Datai<16)
+ 328   3                                      switch(dispSelMth)
+ 329   3                                      {
+ 330   4                                      case 0:
+ 331   4                                              lcdWrSt(0,0x34);
+ 332   4                                              dispSelMth++;break;
+ 333   4                                      case 1:
+ 334   4                                              lcdWrSt(0,dispSeli+disp0Datai);
+ 335   4                                              dispSelMth++;break;
+ 336   4                                      case 2:
+ 337   4                                              lcdWrSt(0,dispSelj);
+ 338   4                                              dispSelMth++;break;
+ 339   4                                      case 3:
+ 340   4                                              lcdWrSt(0,0x30);
+ 341   4                                              dispSelMth++;break;
+ 342   4                                      case 4:
+ 343   4                                              if(disp0Dataj<0x10)
+ 344   4                                              {
+ 345   5                                                      lcdWrSt(1,0x00);
+ 346   5                                                      disp0Dataj++;
+ 347   5                                              }
+ 348   4                                              else
+ 349   4                                              {
+ 350   5                                                      disp0Dataj=0;
+ 351   5                                                      dispSelMth=0;
+ 352   5                                                      disp0Datai++;
+ 353   5                                              }
+ 354   4                                      }
+ 355   3                              else
+ 356   3                              {
+ 357   4                                      dispSelI0=dispSelI1;
+ 358   4                                      if(dispSelI0)
+ 359   4                                      {
+ 360   5                                              dispSelTs(dispSelI0);
+ 361   5                                              disp0Datai=0;
+ 362   5                                              disp0Dataj=0;
+ 363   5                                              dispSelMth=0;
+C51 COMPILER V8.08   DISPLCD                                                               09/03/2010 14:34:24 PAGE 7   
+
+ 364   5                                              disp0Mth++;
+ 365   5                                      }
+ 366   4                                      else
+ 367   4                                              disp0Mth=3;
+ 368   4                              }
+ 369   3                              break;
+ 370   3                      case 2:
+ 371   3                              if(disp0Datai<16)
+ 372   3                              {
+ 373   4                                      switch(dispSelMth)
+ 374   4                                      {
+ 375   5                                      case 0:
+ 376   5                                              lcdWrSt(0,0x34);
+ 377   5                                              dispSelMth++;break;
+ 378   5                                      case 1:
+ 379   5                                              lcdWrSt(0,dispSeli+disp0Datai);
+ 380   5                                              dispSelMth++;break;
+ 381   5                                      case 2:
+ 382   5                                              lcdWrSt(0,dispSelj);
+ 383   5                                              dispSelMth++;break;
+ 384   5                                      case 3:
+ 385   5                                              lcdWrSt(0,0x30);
+ 386   5                                              dispSelMth++;break;
+ 387   5                                      case 4:
+ 388   5                                              if(disp0Dataj<0x10)
+ 389   5                                              {
+ 390   6                                                      lcdWrSt(1,0xff);
+ 391   6                                                      disp0Dataj++;
+ 392   6                                              }
+ 393   5                                              else
+ 394   5                                              {
+ 395   6                                                      disp0Dataj=0;
+ 396   6                                                      dispSelMth=0;
+ 397   6                                                      disp0Datai++;
+ 398   6                                              }
+ 399   5                                      }
+ 400   4                                      break;
+ 401   4                              }
+ 402   3                      default:
+ 403   3                                      lcdWrSt(0,0x36);
+ 404   3                                      dispSelWk=0;
+ 405   3                                      dispSelEn=0;
+ 406   3                                      disp0Datai=0;
+ 407   3                                      disp0Dataj=0;
+ 408   3                                      disp0Mth=0;
+ 409   3                                      lcdBF0=0;
+ 410   3                      }
+ 411   2              }
+ 412   1      }
+ 413          
+ 414          void dispSelTs(unsigned char index)
+ 415          {
+ 416   1              switch (index)
+ 417   1              {
+ 418   2              case 1:
+ 419   2                      dispSeli=0x80;
+ 420   2                      dispSelj=0x80;
+ 421   2                      break;
+ 422   2              case 2:
+ 423   2                      dispSeli=0x80+16;
+ 424   2                      dispSelj=0x80;
+ 425   2                      break;
+C51 COMPILER V8.08   DISPLCD                                                               09/03/2010 14:34:24 PAGE 8   
+
+ 426   2              case 3:
+ 427   2                      dispSeli=0x80;
+ 428   2                      dispSelj=0x80+8;
+ 429   2                      break;
+ 430   2              default:
+ 431   2                      dispSeli=0x80+16;
+ 432   2                      dispSelj=0x80+8;
+ 433   2              }
+ 434   1      }                                                  
+ 435          
+ 436          void dispSelSt(unsigned char index)
+ 437          {
+ 438   1              if(!dispSelEn)
+ 439   1              {
+ 440   2                      dispSt();
+ 441   2                      dispSelI1=index;
+ 442   2                      dispSelMth=0;
+ 443   2                      dispSelEn=1;
+ 444   2              }
+ 445   1      }
+ 446          
+ 447          
+ 448          #define dex 1
+ 449          unsigned int lcddly=dex;
+ 450          
+ 451          bit spid=0;
+ 452          
+ 453          void dispInt() interrupt INTERRUPT_TIMER2 using 2
+ 454          {
+ 455   1              TF2H=0;
+ 456   1              TF2L=0;
+ 457   1              if(lcdWrEn)
+ 458   1                      lcdWr();
+ 459   1              if(!disp180usT--)
+ 460   1              {
+ 461   2                      if(lcdBF0)
+ 462   2                      {
+ 463   3                              if(dispRefreshWk)
+ 464   3                                      dispRefresh();
+ 465   3                              if(dispInitWk)
+ 466   3                                      dispInit();
+ 467   3                              if(lcdGCrWk)
+ 468   3                                      lcdGCr();
+ 469   3                              if(dispSelWk)
+ 470   3                                      dispSel();
+ 471   3                      }
+ 472   2                      else
+ 473   2                      {
+ 474   3                              if(spid | !spiBF)
+ 475   3                              if(dispRefreshEn)
+ 476   3                              {
+ 477   4                                      spiBF=1;
+ 478   4                                      spid=1;
+ 479   4                                      dispRefreshWk=1;
+ 480   4                                      dispRefresh();
+ 481   4                                      lcdBF0=1;
+ 482   4                              }
+ 483   3                              else if(dispInitEn)
+ 484   3                              {
+ 485   4                                      spiBF=1;
+ 486   4                                      spid=1;
+ 487   4                                      dispInitWk=1;
+C51 COMPILER V8.08   DISPLCD                                                               09/03/2010 14:34:24 PAGE 9   
+
+ 488   4                                      dispInit();
+ 489   4                                      lcdBF0=1;
+ 490   4                              }
+ 491   3                              else if(lcdGCrEn)
+ 492   3                              {
+ 493   4                                      spiBF=1;
+ 494   4                                      spid=1;
+ 495   4                                      lcdGCrWk=1;
+ 496   4                                      lcdGCr();
+ 497   4                                      lcdBF0=1;
+ 498   4                              }
+ 499   3                              else if(dispSelEn)
+ 500   3                              {
+ 501   4                                      spiBF=1;
+ 502   4                                      spid=1;
+ 503   4                                      dispSelWk=1;
+ 504   4                                      dispSel();
+ 505   4                                      lcdBF0=1;
+ 506   4                              }
+ 507   3                              else
+ 508   3                              {
+ 509   4                                      dispEnd();
+ 510   4                              }
+ 511   3                      }
+ 512   2                      disp180usT=disp180usTN;
+ 513   2              }
+ 514   1      }
+ 515          
+ 516          void dispSt()
+ 517          {
+ 518   1              DISPEN=1;
+ 519   1      }
+ 520          
+ 521          void dispEnd() using 2
+ 522          {
+ 523   1              DISPEN=0;
+ 524   1              spiBF=0;
+ 525   1              spid=0;
+ 526   1      }
+ 527          
+ 528          
+ 529          void dispFD()
+ 530          {
+ 531   1              if(!DISPEN)
+ 532   1              {
+ 533   2                      (* dispFDProc)();
+ 534   2                      dispFDProc=dispSvNull;
+ 535   2              }
+ 536   1      }
+ 537          
+ 538          void dispSvNull(){}
+ 539                  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1555    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    149       8
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =     16    ----
+C51 COMPILER V8.08   DISPLCD                                                               09/03/2010 14:34:24 PAGE 10  
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

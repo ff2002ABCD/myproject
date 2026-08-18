@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+"f1-plj\startup_stm32f103xb.o"
+"f1-plj\main.o"
+"f1-plj\gpio.o"
+"f1-plj\tim.o"
+"f1-plj\usart.o"
+"f1-plj\stm32f1xx_it.o"
+"f1-plj\stm32f1xx_hal_msp.o"
+"f1-plj\stm32f1xx_hal_gpio_ex.o"
+"f1-plj\stm32f1xx_hal_tim.o"
+"f1-plj\stm32f1xx_hal_tim_ex.o"
+"f1-plj\stm32f1xx_hal.o"
+"f1-plj\stm32f1xx_hal_rcc.o"
+"f1-plj\stm32f1xx_hal_rcc_ex.o"
+"f1-plj\stm32f1xx_hal_gpio.o"
+"f1-plj\stm32f1xx_hal_dma.o"
+"f1-plj\stm32f1xx_hal_cortex.o"
+"f1-plj\stm32f1xx_hal_pwr.o"
+"f1-plj\stm32f1xx_hal_flash.o"
+"f1-plj\stm32f1xx_hal_flash_ex.o"
+"f1-plj\stm32f1xx_hal_exti.o"
+"f1-plj\stm32f1xx_hal_uart.o"
+"f1-plj\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "f1-plj\f1-plj.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "f1-plj.map" -o f1-plj\f1-plj.axf

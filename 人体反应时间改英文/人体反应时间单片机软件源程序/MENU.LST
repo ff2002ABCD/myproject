@@ -1,0 +1,159 @@
+C51 COMPILER V8.08   MENU                                                                  09/03/2010 14:34:27 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE MENU
+OBJECT MODULE PLACED IN MENU.OBJ
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE MENU.C LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "MENU.H"
+*** WARNING C258 IN LINE 20 OF DISPLCD.H: 'p': mspace on parameter ignored
+   2          
+   3          #define MENUC 16
+   4          #define MENU0MAX 3
+   5          
+   6          bit menu0En;
+   7          unsigned char (* menu0p) [MENUC];
+   8          unsigned char menu0Index;
+   9          unsigned char menu0SelI;
+  10          
+  11          void menuUp();
+  12          void menuDown();
+  13          void menuDisp();
+  14          void menuEnt();
+  15          
+  16          #if MENU0MAX<4
+  17          #define MENU0R 4
+  18          #else
+              #define MENU0R MENU0MAX
+              #endif
+  21          unsigned char code menuListData[MENU0R][MENUC]={
+  22                  "汽车测试        ",
+  23                  "自行车测试      ",
+  24                  "声音测试        ",
+  25                  "                ",
+  26          };
+  27          
+  28          void menuSt()
+  29          {
+  30   1              menu0En=1;
+  31   1              keyUpSv=menuUp;
+  32   1              keyDownSv=menuDown;
+  33   1              keyFunSv=keySvNull;
+  34   1              keyEntSv=menuEnt;
+  35   1              dispSvProc=menuDisp;
+  36   1              menuDisp();
+  37   1      }
+  38          
+  39          void menuEnd()
+  40          {
+  41   1              menu0En=0;
+  42   1              dispSelSt(0);   //关选项
+  43   1      }
+  44          
+  45          void menuRst()
+  46          {
+  47   1              menu0p=menuListData;
+  48   1              menu0Index=1;
+  49   1              menu0SelI=1;
+  50   1      }
+  51          
+  52          #if MENU0MAX<4
+  53          #define MENU0S MENU0MAX
+  54          #else
+C51 COMPILER V8.08   MENU                                                                  09/03/2010 14:34:27 PAGE 2   
+
+              #define MENU0S 4
+              #endif
+  57          
+  58          void menuUp()
+  59          {
+  60   1              if(menu0Index>1)
+  61   1              {
+  62   2                      menu0Index--;
+  63   2                      if(menu0SelI>1)
+  64   2                              menu0SelI--;
+  65   2                      else
+  66   2                              menu0p--;
+  67   2              }
+  68   1              else
+  69   1              {
+  70   2                      menu0Index=MENU0MAX;
+  71   2                      menu0SelI=MENU0S;
+  72   2                      menu0p=menuListData+MENU0R-4;
+  73   2              }
+  74   1      }
+  75          
+  76          void menuDown()
+  77          {
+  78   1              if(menu0Index<MENU0MAX)
+  79   1              {
+  80   2                      menu0Index++;
+  81   2                      if(menu0SelI<4)
+  82   2                              menu0SelI++;
+  83   2                      else
+  84   2                              menu0p++;
+  85   2                              
+  86   2              }
+  87   1              else
+  88   1              {
+  89   2                      menu0Index=1;
+  90   2                      menu0SelI=1;
+  91   2                      menu0p=menuListData;
+  92   2              }
+  93   1      }
+  94          
+  95          void menuDisp()
+  96          {
+  97   1              dispCopy(menu0p);
+  98   1              dispRefreshSt();
+  99   1              dispSelSt(menu0SelI);
+ 100   1      }
+ 101          
+ 102          void menuEnt()
+ 103          {
+ 104   1              menuEnd();
+ 105   1              switch (menu0Index)
+ 106   1              {
+ 107   2              case 1:
+ 108   2                      rspCarSt();
+ 109   2                      break;
+ 110   2              case 2:
+ 111   2                      rspBikeSt();
+ 112   2                      break;
+ 113   2              case 3:
+ 114   2                      rspMP3St();
+ 115   2                      break;
+ 116   2              case 4:
+C51 COMPILER V8.08   MENU                                                                  09/03/2010 14:34:27 PAGE 3   
+
+ 117   2                      //pwmSt();
+ 118   2                      break;
+ 119   2              case 5:
+ 120   2                      //sgmSt();
+ 121   2                      break;
+ 122   2              default:
+ 123   2                      menuRst();
+ 124   2                      menuSt();
+ 125   2              }
+ 126   1      
+ 127   1      }
+ 128                  
+ 129          #undef MENUR 
+ 130          #undef MENUC 
+ 131          #undef MENU0MAX 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    287    ----
+   CONSTANT SIZE    =     64    ----
+   XDATA SIZE       =      5    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

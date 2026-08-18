@@ -1,0 +1,163 @@
+C51 COMPILER V9.54   MENU                                                                  05/11/2026 15:16:55 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MENU
+OBJECT MODULE PLACED IN MENU.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE MENU.C LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\project) DEBUG OBJECTEXT
+                    -END TABS(2)
+
+line level    source
+
+   1          #include "MENU.H"
+*** WARNING C258 IN LINE 20 OF DISPLCD.h: 'p': mspace on parameter ignored
+   2          
+   3          #define MENUC 16
+   4          //#define MENU0MAX 3
+   5          #define MENU0MAX 4
+   6          
+   7          bit menu0En;
+   8          unsigned char (* menu0p) [MENUC];
+   9          unsigned char menu0Index;
+  10          unsigned char menu0SelI;
+  11          
+  12          void menuUp();
+  13          void menuDown();
+  14          void menuDisp();
+  15          void menuEnt();
+  16          
+  17          #if MENU0MAX<4
+              #define MENU0R 4
+              #else
+  20          #define MENU0R MENU0MAX
+  21          #endif
+  22          unsigned char code menuListData[MENU0R][MENUC]={
+  23            "Car testing     ",
+  24            "Bicycle testing ",
+  25            "Voice testing   ",
+  26            "Delay setting   ",
+  27          };
+  28          
+  29          void menuSt()
+  30          {
+  31   1        menu0En=1;
+  32   1        keyUpSv=menuUp;
+  33   1        keyDownSv=menuDown;
+  34   1        keyFunSv=keySvNull;
+  35   1        keyEntSv=menuEnt;
+  36   1        dispSvProc=menuDisp;
+  37   1        menuDisp();
+  38   1      }
+  39          
+  40          void menuEnd()
+  41          {
+  42   1        menu0En=0;
+  43   1        dispSelSt(0); //¹ØÑ¡Ïî
+  44   1      }
+  45          
+  46          void menuRst()
+  47          {
+  48   1        menu0p=menuListData;
+  49   1        menu0Index=1;
+  50   1        menu0SelI=1;
+  51   1      }
+  52          
+  53          #if MENU0MAX<4
+C51 COMPILER V9.54   MENU                                                                  05/11/2026 15:16:55 PAGE 2   
+
+              #define MENU0S MENU0MAX
+              #else
+  56          #define MENU0S 4
+  57          #endif
+  58          
+  59          void menuUp()
+  60          {
+  61   1        if(menu0Index>1)
+  62   1        {
+  63   2          menu0Index--;
+  64   2          if(menu0SelI>1)
+  65   2            menu0SelI--;
+  66   2          else
+  67   2            menu0p--;
+  68   2        }
+  69   1        else
+  70   1        {
+  71   2          menu0Index=MENU0MAX;
+  72   2          menu0SelI=MENU0S;
+  73   2          menu0p=menuListData+MENU0R-4;
+  74   2        }
+  75   1      }
+  76          
+  77          void menuDown()
+  78          {
+  79   1        if(menu0Index<MENU0MAX)
+  80   1        {
+  81   2          menu0Index++;
+  82   2          if(menu0SelI<4)
+  83   2            menu0SelI++;
+  84   2          else
+  85   2            menu0p++;
+  86   2            
+  87   2        }
+  88   1        else
+  89   1        {
+  90   2          menu0Index=1;
+  91   2          menu0SelI=1;
+  92   2          menu0p=menuListData;
+  93   2        }
+  94   1      }
+  95          
+  96          void menuDisp()
+  97          {
+  98   1        dispCopy(menu0p);
+  99   1        dispRefreshSt();
+ 100   1        dispSelSt(menu0SelI);
+ 101   1      }
+ 102          
+ 103          void menuEnt()
+ 104          {
+ 105   1        menuEnd();
+ 106   1        switch (menu0Index)
+ 107   1        {
+ 108   2        case 1:
+ 109   2          rspCarSt();
+ 110   2          break;
+ 111   2        case 2:
+ 112   2          rspBikeSt();
+ 113   2          break;
+ 114   2        case 3:
+ 115   2          rspMP3St();
+C51 COMPILER V9.54   MENU                                                                  05/11/2026 15:16:55 PAGE 3   
+
+ 116   2          break;
+ 117   2        case 4:
+ 118   2          rspMinMaxDelaySt();
+*** WARNING C206 IN LINE 118 OF MENU.C: 'rspMinMaxDelaySt': missing function-prototype
+ 119   2          //pwmSt();
+ 120   2          break;
+ 121   2        case 5:
+ 122   2          //sgmSt();
+ 123   2          break;
+ 124   2        default:
+ 125   2          menuRst();
+ 126   2          menuSt();
+ 127   2        }
+ 128   1      
+ 129   1      }
+ 130            
+ 131          #undef MENUR 
+ 132          #undef MENUC 
+ 133          #undef MENU0MAX 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    290    ----
+   CONSTANT SIZE    =     64    ----
+   XDATA SIZE       =      5    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  2 WARNING(S),  0 ERROR(S)

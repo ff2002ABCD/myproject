@@ -1,0 +1,16 @@
+main_ch376.o: main_ch376.c
+main_ch376.o: C:\Keil\ARM\RV31\INC\stdio.h
+main_ch376.o: C:\Keil\ARM\RV31\INC\string.h
+main_ch376.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_lib.h
+main_ch376.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_map.h
+main_ch376.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_conf.h
+main_ch376.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h
+main_ch376.o: C:\Keil\ARM\INC\ST\STM32F10x\cortexm3_macro.h
+main_ch376.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_nvic.h
+main_ch376.o: ..\CH376\file_sys.h
+main_ch376.o: ..\CH376\SPI_Init.h
+main_ch376.o: ..\CH376\CH376INC.H
+main_ch376.o: ..\SYSTEM\sys.h
+main_ch376.o: ..\CH376\spi_init.h
+main_ch376.o: ..\SYSTEM\delay.h
+main_ch376.o: ..\SYSTEM\usart.h

@@ -1,0 +1,15 @@
+..\..\..\osc_menu.o: ..\Oscilloscope\osc\osc_menu.c
+..\..\..\osc_menu.o: ..\Oscilloscope\fos\fos.h
+..\..\..\osc_menu.o: ..\Oscilloscope\osc\osc_ui.h
+..\..\..\osc_menu.o: ..\Oscilloscope\gui\gui.h
+..\..\..\osc_menu.o: ..\Oscilloscope\gui\gui_dev.h
+..\..\..\osc_menu.o: ..\Oscilloscope\gui\gui_cfg.h
+..\..\..\osc_menu.o: ..\Oscilloscope\osc\osc_menu.h
+..\..\..\osc_menu.o: ..\Oscilloscope\osc\osc_api.h
+..\..\..\osc_menu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\..\osc_menu.o: ..\Oscilloscope\layer\hal_exit.h
+..\..\..\osc_menu.o: ..\Oscilloscope\osc\osc_cfg.h
+..\..\..\osc_menu.o: ..\Oscilloscope\layer\hal_usart.h
+..\..\..\osc_menu.o: ..\Oscilloscope\osc\osc_calibrate.h
+..\..\..\osc_menu.o: ..\Oscilloscope\osc\osc_param.h
+..\..\..\osc_menu.o: ../Inc/usbh_app.h

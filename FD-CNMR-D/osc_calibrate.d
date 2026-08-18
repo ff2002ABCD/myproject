@@ -1,0 +1,16 @@
+..\..\..\osc_calibrate.o: ..\Oscilloscope\osc\osc_calibrate.c
+..\..\..\osc_calibrate.o: ..\Oscilloscope\fos\fos.h
+..\..\..\osc_calibrate.o: ..\Oscilloscope\osc\osc_ui.h
+..\..\..\osc_calibrate.o: ..\Oscilloscope\gui\gui.h
+..\..\..\osc_calibrate.o: ..\Oscilloscope\gui\gui_dev.h
+..\..\..\osc_calibrate.o: ..\Oscilloscope\gui\gui_cfg.h
+..\..\..\osc_calibrate.o: ..\Oscilloscope\osc\osc_calibrate.h
+..\..\..\osc_calibrate.o: ..\Oscilloscope\osc\osc_cfg.h
+..\..\..\osc_calibrate.o: ..\Oscilloscope\osc\osc_menu.h
+..\..\..\osc_calibrate.o: ..\Oscilloscope\osc\osc_api.h
+..\..\..\osc_calibrate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\..\..\osc_calibrate.o: ..\Oscilloscope\dev\k24c02.h
+..\..\..\osc_calibrate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\..\osc_calibrate.o: ..\Oscilloscope\layer\hal_exit.h
+..\..\..\osc_calibrate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\..\..\osc_calibrate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

@@ -1,0 +1,13 @@
+..\..\..\osc_api.o: ..\Oscilloscope\osc\osc_api.c
+..\..\..\osc_api.o: ..\Oscilloscope\osc\osc.h
+..\..\..\osc_api.o: ..\Oscilloscope\gui\gui_dev.h
+..\..\..\osc_api.o: ..\Oscilloscope\gui\gui_cfg.h
+..\..\..\osc_api.o: ..\Oscilloscope\gui\gui.h
+..\..\..\osc_api.o: ..\Oscilloscope\dev\display_dev.h
+..\..\..\osc_api.o: ..\Oscilloscope\fos\fos.h
+..\..\..\osc_api.o: ..\Oscilloscope\layer\hal_gpio.h
+..\..\..\osc_api.o: ..\Oscilloscope\layer\hal_tim.h
+..\..\..\osc_api.o: ..\Oscilloscope\osc\osc_api.h
+..\..\..\osc_api.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\..\osc_api.o: ..\Oscilloscope\layer\hal_iic.h
+..\..\..\osc_api.o: ..\Oscilloscope\osc\osc_cfg.h

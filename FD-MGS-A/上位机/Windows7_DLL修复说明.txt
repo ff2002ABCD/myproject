@@ -1,0 +1,117 @@
+====================================
+Windows 7 DLL 缺失问题修复说明
+====================================
+
+修复时间: 2025-12-12 09:53
+问题: 在 Windows 7 系统上运行时缺少 api-ms-win-core-sysinfo-l1-2-0.dll
+
+====================================
+问题分析
+====================================
+
+原因:
+  - 之前的打包中只包含了 api-ms-win-core-sysinfo-l1-1-0.dll
+  - Windows 7 系统需要 api-ms-win-core-sysinfo-l1-2-0.dll 版本
+  - 该 DLL 文件未包含在 dll_for_pack 目录中
+
+====================================
+修复措施
+====================================
+
+1. 添加缺失的 DLL 文件:
+   - 从 api-ms-win-core-sysinfo-l1-2-0\x32\6.2.22621.1\ 目录
+   - 复制 api-ms-win-core-sysinfo-l1-2-0.dll 到 dll_for_pack 目录
+   - 使用 Windows 7 兼容的版本（6.2.x 系列）
+
+2. 重新打包:
+   - 使用 Python 3.8.9 (32位) 重新打包
+   - 确保所有 38 个 DLL 文件都包含在 exe 中
+
+====================================
+修复结果
+====================================
+
+新版本信息:
+  - 文件位置: dist\FD-MGS-A.exe
+  - 文件大小: 48.31 MB (50,658,256 字节)
+  - 包含 DLL: 38 个（包括 api-ms-win-core-sysinfo-l1-2-0.dll）
+  - 打包时间: 2025-12-12 09:53:47
+
+包含的 sysinfo 相关 DLL:
+  ✓ api-ms-win-core-sysinfo-l1-1-0.dll (Windows 10/11)
+  ✓ api-ms-win-core-sysinfo-l1-2-0.dll (Windows 7 必需) ← 新增
+
+====================================
+验证方法
+====================================
+
+1. 检查 DLL 文件:
+   - 确认 dll_for_pack 目录中有 38 个 DLL 文件
+   - 确认包含 api-ms-win-core-sysinfo-l1-2-0.dll
+
+2. 检查 spec 文件:
+   - 打开 FD_MGS_A.spec
+   - 在 binaries 列表中查找 api-ms-win-core-sysinfo-l1-2-0.dll
+
+3. 测试运行:
+   - 在 Windows 7 系统上运行 dist\FD-MGS-A.exe
+   - 确认不再出现 DLL 缺失错误
+
+====================================
+技术说明
+====================================
+
+Windows API Set DLL 版本说明:
+  - api-ms-win-core-sysinfo-l1-1-0.dll: Windows 8+ 使用
+  - api-ms-win-core-sysinfo-l1-2-0.dll: Windows 7 SP1+ 必需
+
+为什么需要两个版本:
+  - Windows 7 系统可能缺少 l1-2-0 版本
+  - Windows 10/11 系统使用 l1-1-0 版本
+  - 同时包含两个版本可确保最大兼容性
+
+====================================
+后续建议
+====================================
+
+1. 测试验证:
+   - 在 Windows 7 SP1 系统上测试运行
+   - 确认程序正常启动，无 DLL 错误
+
+2. 如果仍有 DLL 缺失:
+   - 记录缺失的 DLL 名称
+   - 从 Windows 7 系统的 C:\Windows\SysWOW64 目录复制
+   - 添加到 dll_for_pack 目录
+   - 重新打包
+
+3. 分发说明:
+   - 新版本已包含所有必需的 DLL
+   - 可在 Windows 7 SP1 及以上系统直接运行
+   - 无需额外安装任何依赖
+
+====================================
+文件清单
+====================================
+
+dll_for_pack 目录现在包含 38 个 DLL 文件:
+  - 24 个 Windows Core API DLLs
+  - 13 个 Windows CRT API DLLs
+  - 1 个新增的 sysinfo-l1-2-0.dll
+
+关键文件:
+  ✓ api-ms-win-core-sysinfo-l1-1-0.dll
+  ✓ api-ms-win-core-sysinfo-l1-2-0.dll ← 新增，Windows 7 必需
+
+====================================
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+..\..\..\osc.o: ..\Oscilloscope\osc\osc.c
+..\..\..\osc.o: ..\Oscilloscope\dev\display_dev.h
+..\..\..\osc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\..\..\osc.o: ..\Oscilloscope\osc\osc.h
+..\..\..\osc.o: ..\Oscilloscope\gui\gui_dev.h
+..\..\..\osc.o: ..\Oscilloscope\gui\gui_cfg.h
+..\..\..\osc.o: ..\Oscilloscope\gui\gui.h
+..\..\..\osc.o: ..\Oscilloscope\fos\fos.h
+..\..\..\osc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\..\osc.o: ..\Oscilloscope\osc\osc_menu.h
+..\..\..\osc.o: ..\Oscilloscope\osc\osc_icon.h
+..\..\..\osc.o: ..\Oscilloscope\osc\osc_win.h

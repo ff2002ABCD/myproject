@@ -1,0 +1,23 @@
+{
+    "concentration_labels": [
+        "C0",
+        "C0/2",
+        "C0/4",
+        "C0/8"
+    ],
+    "concentration_values": [
+        0.3333,
+        0.16665,
+        0.083325,
+        0.0416625
+    ],
+    "rotation_data": [
+        18.0,
+        8.075,
+        3.96,
+        1.84
+    ],
+    "C0": 0.3333,
+    "tube_length": 1.0,
+    "theoretical_rotation": 54.1
+}

@@ -1,0 +1,102 @@
+C51 COMPILER V8.08   TADDA                                                                 07/30/2010 15:57:08 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE TADDA
+OBJECT MODULE PLACED IN TADDA.OBJ
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE TADDA.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "TADDA.H"
+*** WARNING C258 IN LINE 20 OF DISPLCD.H: 'p': mspace on parameter ignored
+   2          
+   3          #define TADDAN 2000
+   4          
+   5          void taddaEnd();
+   6          void taddaDisp();
+   7          
+   8          unsigned int data tadday[2],taddaul[1];
+   9          unsigned int data taddaI;
+  10          
+  11          void taddaDisp();
+  12          
+  13          unsigned char code taddaDispData[4][0x10]={
+  14                  "µçÁ÷:           ",
+  15                  "              \241\346",
+  16                  "ADC1:           ",
+  17                  "               V",
+  18          };
+  19          
+  20          void taddaRst()
+  21          {
+  22   1              adcxRst();
+  23   1              dacxRst();
+  24   1              taddaI=TADDAN;
+  25   1              tadday[0]=0;
+  26   1              tadday[1]=0;
+  27   1              taddaul[0]=0;
+  28   1      }
+  29          
+  30          void taddaSt()
+  31          {
+  32   1              //keyUpSv=keySvNull;
+  33   1              //keyDownSv=keySvNull;
+  34   1              //keyEntSv=keySvNull;
+  35   1              //keyFunSv=adcEnd;
+  36   1              //dispSvProc=adcDisp;
+  37   1              adcxSt(0);
+  38   1              dacxD[0]=2002;
+  39   1              dacxCopy(0);
+  40   1              taddaDisp();
+  41   1      }
+  42          
+  43          void taddaEnd()
+  44          {
+  45   1              //menuSt();
+  46   1      }
+  47          
+  48          unsigned char taddaax=0;
+  49          
+  50          void taddaDisp()
+  51          {
+  52   1              dispCopy(taddaDispData);
+  53   1              int2char(dispData[1],tadday[0],2,12);
+  54   1              int2char(dispData[3],tadday[0],2,15);
+C51 COMPILER V8.08   TADDA                                                                 07/30/2010 15:57:08 PAGE 2   
+
+  55   1              dispRefreshSt();
+  56   1              taddaax++;
+  57   1      }
+  58          
+  59          void taddaProc()
+  60          {
+  61   1              unsigned int data u;
+  62   1              //uart0Proc();
+  63   1              if(!ADCXBUSY)
+  64   1              {
+  65   2                      adcxCopy(&u);
+  66   2                      adcxSt(0);
+  67   2                      vflt3(tadday,taddaul,u);
+  68   2              }
+  69   1              taddaI--;
+  70   1              if(!taddaI)
+  71   1              {
+  72   2                      taddaI=TADDAN;
+  73   2                      taddaDisp();
+  74   2              }
+  75   1      }
+  76          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    186    ----
+   CONSTANT SIZE    =     64    ----
+   XDATA SIZE       =      1    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,10 @@
+.\osc\gui_ascii.o: ..\Oscilloscope\gui\gui_ascii.c
+.\osc\gui_ascii.o: ..\Oscilloscope\fos\fos.h
+.\osc\gui_ascii.o: ..\Oscilloscope\gui\gui.h
+.\osc\gui_ascii.o: ..\Oscilloscope\gui\gui_dev.h
+.\osc\gui_ascii.o: ..\Oscilloscope\gui\gui_cfg.h
+.\osc\gui_ascii.o: ..\Oscilloscope\osc\osc.h
+.\osc\gui_ascii.o: ..\Oscilloscope\dev\display_dev.h
+.\osc\gui_ascii.o: ..\Oscilloscope\gui\gui_ascii.h
+.\osc\gui_ascii.o: ..\Oscilloscope\hzs\hz_out.h
+.\osc\gui_ascii.o: ..\Oscilloscope\dev\middle.h

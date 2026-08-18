@@ -1,0 +1,53 @@
+C51 COMPILER V8.08   SPI                                                                   09/03/2010 14:34:27 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE SPI
+OBJECT MODULE PLACED IN SPI.OBJ
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE SPI.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <C8051F410.H>
+   2          #include "spi.h"
+   3          
+   4          bit spiBF;
+   5          void (* spiSV)();
+   6          
+   7          void spiRst()
+   8          {
+   9   1              spiBF=0;
+  10   1              spiSV=spiNULL;
+  11   1      }
+  12          
+  13          void spi_INT () interrupt INTERRUPT_SPI0 using 1
+  14          {
+  15   1              SPI0CN &= 0x0f;
+  16   1              (* spiSV)();
+  17   1      }
+  18          
+  19          void spiTrans(unsigned char tsdata)
+  20          {
+  21   1              SPI0DAT=tsdata;
+  22   1      }
+  23          
+  24          unsigned char spiBusy()
+  25          {
+  26   1              if(SPI0CFG & 0X80) return 1;
+  27   1              return 0;
+  28   1      }
+  29          
+  30          void spiNULL() {}
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     71    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      3    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

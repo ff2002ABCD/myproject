@@ -1,0 +1,146 @@
+07:20:50 - Assigned New Programming Session Settings:
+
+  Debug Adapter: EC300042017
+  Part Number: C8051F000
+  Erase Code Space: Yes
+  Hex File (Not Banked): C:\Users\Administrator\Desktop\液体表面张力.hex
+  Flash Persistence: Yes
+  Serialize Parts: Yes
+  Serial Number Code Location: 0x00000
+  Unicode Format: Yes
+  Serial Number Size (Bytes): 8
+  Starting Serial: 0
+  Serial Increment: 1
+  Lock Code Space: Yes
+  Write Lock (0x07DFE): 0xFF
+  Read Lock (0x07DFF): 0xFF
+
+07:20:50 - January 01 2002 - Starting New Programming Session
+07:20:54 - ERROR: Cannot Erase Code Space on Debug Adapter: EC300042017
+07:21:09 - Assigned New Programming Session Settings:
+
+  Debug Adapter: COM1
+  Part Number: C8051F000
+  Erase Code Space: Yes
+  Hex File (Not Banked): C:\Users\Administrator\Desktop\液体表面张力.hex
+  Flash Persistence: No
+  Serialize Parts: Yes
+  Serial Number Code Location: 0x00000
+  Unicode Format: Yes
+  Serial Number Size (Bytes): 8
+  Starting Serial: 0
+  Serial Increment: 1
+  Lock Code Space: Yes
+  Write Lock (0x07DFE): 0xFF
+  Read Lock (0x07DFF): 0xFF
+
+07:21:09 - January 01 2002 - Starting New Programming Session
+07:21:21 - ERROR: Cannot Erase Code Space on Debug Adapter: COM1
+07:21:55 - Assigned New Programming Session Settings:
+
+  Debug Adapter: EC300042017
+  Part Number: C8051F410
+  Erase Code Space: Yes
+  Hex File (Not Banked): C:\Users\Administrator\Desktop\液体表面张力.hex
+  Flash Persistence: No
+  Serialize Parts: Yes
+  Serial Number Code Location: 0x00000
+  Unicode Format: Yes
+  Serial Number Size (Bytes): 8
+  Starting Serial: 0
+  Serial Increment: 1
+  Lock Code Space: Yes
+  R/W Lock (0x07DFF): 0xFF
+
+07:21:55 - January 01 2002 - Starting New Programming Session
+07:22:03 - Device Erased, Programmed, Locked and Verified with Serial 0
+07:25:17 - Assigned New Programming Session Settings:
+
+  Debug Adapter: EC300042017
+  Part Number: C8051F410
+  Erase Code Space: Yes
+  Hex File (Not Banked): C:\Users\Administrator\Desktop\液体表面张力.hex
+  Flash Persistence: No
+  Serialize Parts: Yes
+  Serial Number Code Location: 0x00000
+  Unicode Format: Yes
+  Serial Number Size (Bytes): 8
+  Starting Serial: 1
+  Serial Increment: 1
+  Lock Code Space: Yes
+  R/W Lock (0x07DFF): 0xFF
+
+07:25:17 - January 01 2002 - Starting New Programming Session
+07:25:24 - Device Erased, Programmed, Locked and Verified with Serial 1
+07:28:14 - Assigned New Programming Session Settings:
+
+  Debug Adapter: EC300042017
+  Part Number: C8051F410
+  Erase Code Space: Yes
+  Hex File (Not Banked): C:\Users\Administrator\Desktop\液体表面张力.hex
+  Flash Persistence: No
+  Serialize Parts: Yes
+  Serial Number Code Location: 0x00000
+  Unicode Format: Yes
+  Serial Number Size (Bytes): 8
+  Starting Serial: 1
+  Serial Increment: 1
+  Lock Code Space: Yes
+  R/W Lock (0x07DFF): 0xFF
+
+07:28:14 - January 01 2002 - Starting New Programming Session
+07:28:21 - Device Erased, Programmed, Locked and Verified with Serial 1
+07:32:36 - Assigned New Programming Session Settings:
+
+  Debug Adapter: EC300042017
+  Part Number: C8051F410
+  Erase Code Space: Yes
+  Hex File (Not Banked): C:\Users\Administrator\Desktop\液体表面张力.hex
+  Flash Persistence: Yes
+  Serialize Parts: Yes
+  Serial Number Code Location: 0x00000
+  Unicode Format: No
+  Serial Number Size (Bytes): 4
+  Starting Serial: 0
+  Serial Increment: 1
+  Lock Code Space: Yes
+  R/W Lock (0x07DFF): 0xFF
+
+07:32:36 - January 01 2002 - Starting New Programming Session
+07:32:43 - Device Erased, Programmed, Locked and Verified with Serial 0
+07:38:47 - Assigned New Programming Session Settings:
+
+  Debug Adapter: EC300042017
+  Part Number: C8051F410
+  Erase Code Space: Yes
+  Hex File (Not Banked): C:\Users\Administrator\Desktop\液体表面张力.hex
+  Flash Persistence: No
+  Serialize Parts: Yes
+  Serial Number Code Location: 0x00000
+  Unicode Format: Yes
+  Serial Number Size (Bytes): 8
+  Starting Serial: 1
+  Serial Increment: 1
+  Lock Code Space: Yes
+  R/W Lock (0x07DFF): 0xFF
+
+07:38:47 - January 01 2002 - Starting New Programming Session
+07:38:54 - Device Erased, Programmed, Locked and Verified with Serial 1
+07:58:55 - Assigned New Programming Session Settings:
+
+  Debug Adapter: EC300042017
+  Part Number: C8051F410
+  Erase Code Space: Yes
+  Hex File (Not Banked): C:\Users\Administrator\Desktop\液体表面张力.hex
+  Flash Persistence: No
+  Serialize Parts: Yes
+  Serial Number Code Location: 0x00000
+  Unicode Format: Yes
+  Serial Number Size (Bytes): 8
+  Starting Serial: 1
+  Serial Increment: 1
+  Lock Code Space: Yes
+  R/W Lock (0x07DFF): 0xFF
+
+07:58:55 - January 01 2002 - Starting New Programming Session
+07:59:02 - Device Erased, Programmed, Locked and Verified with Serial 1

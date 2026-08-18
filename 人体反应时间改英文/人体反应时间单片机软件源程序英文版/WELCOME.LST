@@ -1,0 +1,83 @@
+C51 COMPILER V9.54   WELCOME                                                               05/11/2026 10:10:11 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE WELCOME
+OBJECT MODULE PLACED IN WELCOME.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE WELCOME.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\project) DEBUG OBJECT
+                    -EXTEND TABS(2)
+
+line level    source
+
+   1          #include "WELCOME.h"
+*** WARNING C258 IN LINE 20 OF DISPLCD.H: 'p': mspace on parameter ignored
+   2          
+   3          #define welcomeTN 5
+   4          
+   5          void welcomeDisp();
+   6          void welcomeEnd();
+   7          
+   8          bit welcomeEn;
+   9          unsigned char welcomeT;
+  10          
+  11          unsigned char code welcomeDispData[4][0x10]={
+  12            "----------------",
+  13            "    Welcome    ",
+  14            "               ",
+  15            "----------------",
+  16          };
+  17          
+  18          void welcomeSt()
+  19          {
+  20   1        welcomeT=welcomeTN;
+  21   1        welcomeEn=1;
+  22   1        keyUpSv=keySvNull;
+  23   1        keyDownSv=keySvNull;
+  24   1        keyFunSv=keySvNull;
+  25   1        keyEntSv=welcomeEnd;
+  26   1        dispSvProc=welcomeDisp;
+  27   1        welcomeDisp();
+  28   1      }
+  29          
+  30          void welcomeProc()
+  31          {
+  32   1        if(welcomeEn)
+  33   1        {
+  34   2          welcomeT--;
+  35   2          if (!welcomeT)
+  36   2          {
+  37   3            welcomeEn=0;
+  38   3            menuSt();
+  39   3            dispFDProc=dispSvProc;
+  40   3            dispFD();
+  41   3          }
+  42   2        }
+  43   1      }
+  44          
+  45          void welcomeEnd()
+  46          {
+  47   1        welcomeEn=0;
+  48   1        menuSt();
+  49   1      }
+  50          
+  51          void welcomeDisp()
+  52          {
+  53   1        dispCopy(welcomeDispData);
+C51 COMPILER V9.54   WELCOME                                                               05/11/2026 10:10:11 PAGE 2   
+
+  54   1        //dispTs();
+  55   1        dispRefreshSt();
+  56   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    139    ----
+   CONSTANT SIZE    =     64    ----
+   XDATA SIZE       =      1    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

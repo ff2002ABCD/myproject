@@ -1,0 +1,25 @@
+*** Creating Trace Output File 'CH376-1.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"stm32f10x.o"'
+### List of Objects: adding '"file_sys.o"'
+### List of Objects: adding '"spi_init.o"'
+### List of Objects: adding '"delay.o"'
+### List of Objects: adding '"sys.o"'
+### List of Objects: adding '"usart.o"'
+### List of Objects: adding '"main_ch376.o"'
+### ADS-LD Command completed:
+--device DARMSTM "stm32f10x.o" "file_sys.o" "spi_init.o" "delay.o" "sys.o" "usart.o" "main_ch376.o" --strict --scatter "CH376-1.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\CH376-1.map" -o "CH376-1.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'CH376-1.axf'
+### ADS-LD Command File: 'CH376-1.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'CH376-1.lnp', Handle=0x00000308
+### Writing '.lnp' file
+### ADS-LD Command file 'CH376-1.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

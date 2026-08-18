@@ -1,0 +1,185 @@
+C51 COMPILER V8.08   F410INIT                                                              09/03/2010 14:34:26 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE F410INIT
+OBJECT MODULE PLACED IN f410init.OBJ
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE f410init.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /////////////////////////////////////
+   2          //  Generated Initialization File  //
+   3          /////////////////////////////////////
+   4          
+   5          #include "F410INIT.h"
+   6          
+   7          // Peripheral specific initialization functions,
+   8          // Called from the Init_Device() function
+   9          void PCA_Init()
+  10          {
+  11   1          PCA0MD    &= ~0x40;
+  12   1          PCA0MD    = 0x0A;
+  13   1          PCA0CPM1  = 0xC2;
+  14   1          PCA0CPM5  = 0x48;
+  15   1          PCA0L     = 0x01;
+  16   1      }
+  17          
+  18          void Timer_Init()
+  19          {
+  20   1          TCON      = 0x50;
+  21   1          TMOD      = 0x25;
+  22   1          TH1       = 0x30;
+  23   1          TMR2CN    = 0x05;
+  24   1          TMR2RLL   = 0xE2;
+  25   1          TMR2RLH   = 0xFF;
+  26   1          TMR2L     = 0xE2;
+  27   1          TMR2H     = 0xFF;
+  28   1          TMR3CN    = 0x05;
+  29   1          TMR3RLL   = 0x24;
+  30   1          TMR3RLH   = 0xFA;
+  31   1          TMR3L     = 0x24;
+  32   1          TMR3H     = 0xFA;
+  33   1      }
+  34          
+  35          void UART_Init()
+  36          {
+  37   1          SCON0     = 0x10;
+  38   1      }
+  39          
+  40          void SPI_Init()
+  41          {
+  42   1          SPI0CFG   = 0x40;
+  43   1          SPI0CN    = 0x01;
+  44   1          SPI0CKR   = 0x3C;
+  45   1      }
+  46          
+  47          void ADC_Init()
+  48          {
+  49   1          ADC0MX    = 0x10;
+  50   1          ADC0CF    = 0xC8;
+  51   1          ADC0CN    = 0x40;
+  52   1          ADC0TK    = 0xF7;
+  53   1      }
+  54          
+  55          void DAC_Init()
+C51 COMPILER V8.08   F410INIT                                                              09/03/2010 14:34:26 PAGE 2   
+
+  56          {
+  57   1          IDA0CN    = 0xF4;
+  58   1          IDA1CN    = 0xF7;
+  59   1      }
+  60          
+  61          void Comparator_Init()
+  62          {
+  63   1          int i = 0;
+  64   1          CPT0CN    = 0x8F;
+  65   1          for (i = 0; i < 35; i++);  // Wait 10us for initialization
+  66   1          CPT0CN    &= ~0x30;
+  67   1          CPT0MX    = 0x78;
+  68   1          CPT0MD    = 0x80;
+  69   1      }
+  70          
+  71          void Voltage_Reference_Init()
+  72          {
+  73   1          REF0CN    = 0x13;
+  74   1      }
+  75          
+  76          void Port_IO_Init()
+  77          {
+  78   1          // P0.0  -  SCK  (SPI0), Open-Drain, Analog
+  79   1          // P0.1  -  MISO (SPI0), Open-Drain, Analog
+  80   1          // P0.2  -  MOSI (SPI0), Push-Pull,  Digital
+  81   1          // P0.3  -  Unassigned,  Push-Pull,  Digital
+  82   1          // P0.4  -  Unassigned,  Open-Drain, Digital
+  83   1          // P0.5  -  Unassigned,  Open-Drain, Digital
+  84   1          // P0.6  -  Skipped,     Push-Pull,  Digital
+  85   1          // P0.7  -  Skipped,     Push-Pull,  Digital
+  86   1      
+  87   1          // P1.0  -  Unassigned,  Open-Drain, Analog
+  88   1          // P1.1  -  Unassigned,  Open-Drain, Analog
+  89   1          // P1.2  -  Unassigned,  Open-Drain, Digital
+  90   1          // P1.3  -  Skipped,     Push-Pull,  Digital
+  91   1          // P1.4  -  Unassigned,  Open-Drain, Digital
+  92   1          // P1.5  -  Unassigned,  Open-Drain, Digital
+  93   1          // P1.6  -  Unassigned,  Open-Drain, Digital
+  94   1          // P1.7  -  Unassigned,  Push-Pull,  Digital
+  95   1      
+  96   1          // P2.0  -  Unassigned,  Open-Drain, Analog
+  97   1          // P2.1  -  Skipped,     Open-Drain, Digital
+  98   1          // P2.2  -  Unassigned,  Push-Pull,  Digital
+  99   1          // P2.3  -  Unassigned,  Open-Drain, Digital
+ 100   1          // P2.4  -  Unassigned,  Open-Drain, Digital
+ 101   1          // P2.5  -  Unassigned,  Open-Drain, Digital
+ 102   1          // P2.6  -  Unassigned,  Open-Drain, Digital
+ 103   1          // P2.7  -  Unassigned,  Open-Drain, Digital
+ 104   1      
+ 105   1          P0MDIN    = 0xFC;
+ 106   1          P1MDIN    = 0xFC;
+ 107   1          P2MDIN    = 0xFE;
+ 108   1          P0MDOUT   = 0xCC;
+ 109   1          P1MDOUT   = 0x88;
+ 110   1          P2MDOUT   = 0x04;
+ 111   1          P0SKIP    = 0x3F;
+ 112   1          P1SKIP    = 0xF7;
+ 113   1          P2SKIP    = 0xFD;
+ 114   1          XBR0      = 0x02;
+ 115   1          XBR1      = 0x40;
+ 116   1      }
+ 117          
+C51 COMPILER V8.08   F410INIT                                                              09/03/2010 14:34:26 PAGE 3   
+
+ 118          void Oscillator_Init()
+ 119          {
+ 120   1          int i = 0;
+ 121   1          PFE0CN    &= ~0x20;
+ 122   1          FLSCL     = 0x10;
+ 123   1          PFE0CN    |= 0x20;
+ 124   1          P1        |= 0x03;
+ 125   1          OSCXCN    = 0x67;
+ 126   1          for (i = 0; i < 3000; i++);  // Wait 1ms for initialization
+ 127   1          //while ((OSCXCN & 0x80) == 0);
+ 128   1          CLKMUL    = 0x81;
+ 129   1          for (i = 0; i < 20; i++);    // Wait 5us for initialization
+ 130   1          CLKMUL    |= 0xC0;
+ 131   1          while ((CLKMUL & 0x20) == 0);
+ 132   1          CLKSEL    = 0x02;
+ 133   1          OSCICN    = 0x07;
+ 134   1      }
+ 135          
+ 136          void Interrupts_Init()
+ 137          {
+ 138   1          IP        = 0x20;
+ 139   1          IT01CF    = 0x76;
+ 140   1          IE        = 0x20;
+ 141   1      }
+ 142          
+ 143          // Initialization function for device,
+ 144          // Call Init_Device() from your main program
+ 145          void Init_Device(void)
+ 146          {
+ 147   1          PCA_Init();
+ 148   1          Timer_Init();
+ 149   1          UART_Init();
+ 150   1          SPI_Init();
+ 151   1          ADC_Init();
+ 152   1          DAC_Init();
+ 153   1          Comparator_Init();
+ 154   1          Voltage_Reference_Init();
+ 155   1          Port_IO_Init();
+ 156   1          Oscillator_Init();
+ 157   1          Interrupts_Init();
+ 158   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    259    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,15 @@
+"STARTUP.obj",
+"main.obj",
+"DISPLCD.obj",
+"MATHFUN.obj",
+"f410init.obj",
+"SPI.obj",
+"MENU.obj",
+"KEY.obj",
+"rsp.obj",
+"ttl.obj",
+"WELCOME.obj" 
+TO "f410prj" 
+RAMSIZE(256) 
+CODE( 0X0000-0X7FFF )
+XDATA( 0X0000-0X07FF )

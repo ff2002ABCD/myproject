@@ -1,0 +1,16 @@
+.\osc\osc_cfg.o: ..\Oscilloscope\osc\osc_cfg.c
+.\osc\osc_cfg.o: ..\Oscilloscope\fos\fos.h
+.\osc\osc_cfg.o: ..\Oscilloscope\layer\hal_tim.h
+.\osc\osc_cfg.o: ..\Oscilloscope\osc\osc_cfg.h
+.\osc\osc_cfg.o: ..\Oscilloscope\osc\osc.h
+.\osc\osc_cfg.o: ..\Oscilloscope\gui\gui_dev.h
+.\osc\osc_cfg.o: ..\Oscilloscope\gui\gui_cfg.h
+.\osc\osc_cfg.o: ..\Oscilloscope\gui\gui.h
+.\osc\osc_cfg.o: ..\Oscilloscope\dev\display_dev.h
+.\osc\osc_cfg.o: ..\Oscilloscope\layer\hal_exit.h
+.\osc\osc_cfg.o: ..\Oscilloscope\osc\osc_ui.h
+.\osc\osc_cfg.o: ..\Oscilloscope\osc\osc_api.h
+.\osc\osc_cfg.o: ..\Oscilloscope\layer\hal_dac.h
+.\osc\osc_cfg.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\osc\osc_cfg.o: ..\Oscilloscope\osc\osc_menu.h
+.\osc\osc_cfg.o: ..\Oscilloscope\osc\osc_win.h

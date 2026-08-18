@@ -1,0 +1,173 @@
+C51 COMPILER V9.54   MAIN                                                                  05/11/2026 14:47:42 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(..\project) DEBUG OBJECTEXT
+                    -END TABS(2)
+
+line level    source
+
+   1          #include "F410INIT.h"
+   2          #include "C8051F410X.H"
+   3          #include "DISPLCD.H"
+*** WARNING C258 IN LINE 20 OF DISPLCD.H: 'p': mspace on parameter ignored
+   4          #include "KEY.H"
+   5          #include "RSP.H"
+   6          #include "MENU.H"
+   7          #include "WELCOME.H"
+   8          
+   9          unsigned char ucT10MS,ucT100MS,ucT1S;
+  10          unsigned char ucStateT1MS,ucStateT10MS,ucStateT100MS,ucStateT1S;
+  11          bit bT10MSEn,bT100MSEn,bT1SEn;
+  12          
+  13          unsigned char tx[10];
+  14          
+  15          void rst()
+  16          {
+  17   1        Init_Device();
+  18   1      
+  19   1        ucStateT1MS=1;
+  20   1        ucStateT10MS=1;
+  21   1        ucStateT100MS=1;
+  22   1        ucStateT1S=1;
+  23   1        ucT10MS=10;
+  24   1        ucT100MS=10;
+  25   1        ucT1S=10;
+  26   1        bT10MSEn=0;
+  27   1        bT100MSEn=0;
+  28   1        bT1SEn=0;
+  29   1      
+  30   1        dispRst();
+  31   1        keyRst();
+  32   1        menuRst();
+  33   1        rspRst();
+  34   1      }
+  35          
+  36          void main()
+  37          {
+  38   1        EA=0;
+  39   1        rst();
+  40   1        EA=1;
+  41   1      
+  42   1        while(DISPEN)   //完成显示初始化
+  43   1          ;
+  44   1      
+  45   1        welcomeSt();
+  46   1      
+  47   1        while(1)
+  48   1        {
+  49   2      //    RSTSTAT=0;
+  50   2          if(TMR3CN & 0X80)
+  51   2          {
+  52   3            ucT10MS--;
+  53   3            if (!ucT10MS)
+C51 COMPILER V9.54   MAIN                                                                  05/11/2026 14:47:42 PAGE 2   
+
+  54   3            {
+  55   4              bT10MSEn=1;
+  56   4              ucT10MS=10;
+  57   4            }
+  58   3      
+  59   3            switch (ucStateT1MS)
+  60   3            {
+  61   4            case 1:
+  62   4              ucStateT1MS++;
+  63   4              rspProc();    //
+  64   4            case 2:
+  65   4              ucStateT1MS++;
+  66   4            default:
+  67   4              TMR3CN &= ~0X80;
+  68   4              ucStateT1MS=1;
+  69   4            }
+  70   3          }
+  71   2        
+  72   2          if(bT10MSEn)
+  73   2          {
+  74   3            ucT100MS--;
+  75   3            if (!ucT100MS)
+  76   3            {
+  77   4              bT100MSEn=1;
+  78   4              ucT100MS=10;
+  79   4            }
+  80   3      
+  81   3            switch (ucStateT10MS)
+  82   3            {
+  83   4            case 1:
+  84   4              if(TMR3CN & 0X80)
+  85   4                break;
+  86   4              keyProc();    //
+  87   4              ucStateT10MS++;
+  88   4            default:
+  89   4              bT10MSEn=0;
+  90   4              ucStateT10MS=1;
+  91   4            }
+  92   3          }
+  93   2      
+  94   2          if(bT100MSEn)
+  95   2          {
+  96   3            ucT1S--;
+  97   3            if (!ucT1S)
+  98   3            {
+  99   4              bT1SEn=1;
+ 100   4              ucT1S=10;
+ 101   4            }
+ 102   3      
+ 103   3            switch (ucStateT100MS)
+ 104   3            {
+ 105   4            case 1:
+ 106   4              if(TMR3CN & 0X80)
+ 107   4                break;
+ 108   4              
+ 109   4              ucStateT100MS++;
+ 110   4            case 2:
+ 111   4              if(TMR3CN & 0X80)
+ 112   4                break;
+ 113   4              dispFD();   //
+ 114   4              ucStateT100MS++;
+ 115   4            case 3:
+C51 COMPILER V9.54   MAIN                                                                  05/11/2026 14:47:42 PAGE 3   
+
+ 116   4              if(TMR3CN & 0X80)
+ 117   4                break;
+ 118   4              ucStateT100MS++;
+ 119   4            default:
+ 120   4              bT100MSEn=0;
+ 121   4              ucStateT100MS=1;
+ 122   4            }
+ 123   3          }
+ 124   2      
+ 125   2          if(bT1SEn)
+ 126   2          {
+ 127   3            switch (ucStateT1S)
+ 128   3            {
+ 129   4            case 1:
+ 130   4              if(TMR3CN & 0X80)
+ 131   4                break;
+ 132   4              welcomeProc();
+ 133   4              ucStateT1S++;
+ 134   4            case 2:
+ 135   4              if(TMR3CN & 0X80)
+ 136   4                break;
+ 137   4              ucStateT1S++;
+ 138   4            default:
+ 139   4              bT1SEn=0;
+ 140   4              ucStateT1S=1;
+ 141   4            }
+ 142   3          }
+ 143   2        }
+ 144   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    301    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     17    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      3    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

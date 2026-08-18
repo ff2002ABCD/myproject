@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+E:\Test\51µ¥Æ¬»ú¿ØÖÆCH375\ch375.uv2
+Project File Date:  12/06/2010
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling CH375.C...
+compiling HOST.C...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    CH375FILEMODIFY/CH375MAI
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    CH375DISKREADY/CH375MAI
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    CH375BYTELOCATE/CH375BYT
+Program Size: data=91.5 xdata=588 const=0 code=10669
+creating hex file from "ch375"...
+"ch375" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CH375.C...
+compiling HOST.C...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    CH375FILEMODIFY/CH375MAI
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    CH375DISKREADY/CH375MAI
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    CH375BYTELOCATE/CH375BYT
+Program Size: data=91.5 xdata=588 const=0 code=10675
+creating hex file from "ch375"...
+"ch375" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling CH375.C...
+compiling HOST.C...
+linking...
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    CH375FILEMODIFY/CH375MAI
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    CH375DISKREADY/CH375MAI
+*** WARNING L16: UNCALLED FUNCTION, IGNORED FOR OVERLAY PROCESS
+    NAME:    CH375BYTELOCATE/CH375BYT
+Program Size: data=91.5 xdata=588 const=0 code=10675
+creating hex file from "ch375"...
+"ch375" - 0 Error(s), 3 Warning(s).

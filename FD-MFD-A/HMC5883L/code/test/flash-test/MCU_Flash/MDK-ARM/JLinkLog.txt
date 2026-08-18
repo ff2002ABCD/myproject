@@ -1,0 +1,6 @@
+
+T3380 000:224 SEGGER J-Link V6.30d Log File (0001ms, 0014ms total)
+T3380 000:224 DLL Compiled: Feb 16 2018 13:30:32 (0001ms, 0014ms total)
+T3380 000:224 Logging started @ 2024-11-11 10:43 (0002ms, 0015ms total)
+T3380 000:226 JLINK_SetWarnOutHandler(...) (0000ms, 0015ms total)
+T3380 000:226 JLINK_OpenEx(...)

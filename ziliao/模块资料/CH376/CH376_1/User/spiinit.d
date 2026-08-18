@@ -1,0 +1,10 @@
+spiinit.o: ..\CH376\SPIInit.C
+spiinit.o: ..\SYSTEM\sys.h
+spiinit.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_lib.h
+spiinit.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_map.h
+spiinit.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_conf.h
+spiinit.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_type.h
+spiinit.o: C:\Keil\ARM\INC\ST\STM32F10x\cortexm3_macro.h
+spiinit.o: C:\Keil\ARM\INC\ST\STM32F10x\stm32f10x_nvic.h
+spiinit.o: ..\CH376\SPIInit.H
+spiinit.o: ..\CH376\CH376INC.H
